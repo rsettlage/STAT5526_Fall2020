@@ -1,0 +1,97 @@
+---
+title: "Lecture 1C - Containers and R"
+date: "2020-11-10"
+output: html_notebook 
+---
+
+```{r eval=TRUE, echo=FALSE, include=FALSE}
+library(knitr)
+```
+
+## R and Containers.  Finally.
+
+OK, I listed this as R, then containers, but we will do containers then R.  Eh.
+
+So, where have we come from and where are we going? 
+
+## Prototyping
+
+Generally, Into to Data Analytics classes focus on algorithms and stay in Rstudio or Jupyter Notebooks.  These IDEs are fantatic for a quick(-ish), iterative approach to data munging, EDA, data cleaning, plotting, creating reports, etc.  Some project data sets are too large, there are too many parameter combinations to try, or perhaps the data is a real time continuous stream, necessitating a different approach.  In these cases, the IDE stage of the project is for prototyping, building a pipeline, exploring the data to discover issues that need mitigation, perhaps later in the analysis to create publication ready plots.  The bulk of the analysis, in some cases, all of the analysis, will be accomplished in scripts that are fully automated.
+
+## Scripting
+
+Scripting with R means you will run R via the command line and a script.  For instance, your script could look like:
+
+```{bash, eval=F, echo=T}
+cat matrix_mult.R
+
+jid<-Sys.getenv('SLURM_JOB_ID')
+cpus<-Sys.getenv('SLURM_CPUS_PER_TASK')
+n<-2^14
+set.seed(34534)
+M<-matrix(rnorm(n^2),nrow=n);
+Mt<-t(M);
+MtM<-M%*%t(M);
+times<-as.data.frame(cbind(cpus,rbind(c(system.time(s<-solve(MtM))[1:3],max(abs(s%*%MtM-diag(n)))),
+				    c(system.time(s<-solve(MtM))[1:3],max(abs(s%*%MtM-diag(n)))),
+				    c(system.time(s<-solve(MtM))[1:3],max(abs(s%*%MtM-diag(n)))),
+				    c(system.time(s<-solve(MtM))[1:3],max(abs(s%*%MtM-diag(n)))),
+				    c(system.time(s<-solve(MtM))[1:3],max(abs(s%*%MtM-diag(n)))),
+				    c(system.time(s<-solve(MtM))[1:3],max(abs(s%*%MtM-diag(n)))))))
+colnames(times)<-c("cores","user","system","actual","maxDiff")
+saveRDS(times,paste0(jid,".RDS"))
+```
+
+Note that prototyping is the way to go.  Test your code, then scale.  There are packages to help changing Rmarkdown files to R scripts.  
+
+```{r, eval=F, echo=T}
+library(knitr)
+purl("test.Rmd")
+```
+Which will output `test.R`.
+
+You can always run via the command line:
+
+```{bash, echo=T, eval=F}
+Rscript -e "rmarkdown::render('test.Rmd')"
+```
+
+
+## Containers
+
+Containers, eg Docker, Singularity, etc., are IMO a reproducible researchers dream.  Basically, you create an image (like burning a DVD) which is then a (mostly) portable copy of everything you put in the image.  Operating system, software libraries, environment variables, any scripts you pushed in, perhaps even data.  You can then instantiate the images as a running container.  Inside the container, you should have a stable computing environment insulated from host changes.  For R, I have done extensive testing on matrix operations and have found NO penalty to using a container vs using a module.  For me, this makes installing and managing software super easy.  For users, this means they can build and manage thier own software stack from thier local computer as well.  Here, we will use containers I manage.  To use R, the command looks a little (ok a lot) more complicated, but there are advantages:
+
+```{bash, eval=F, echo=T}
+# get fresh environment, load singularity, start an R container 
+#    and get sessionInfo() from R in the container
+module reset
+module load containers/singularity
+singularity exec --bind $TMPFS:/tmp \
+    /projects/arcsingularity/ood-rstudio-basic_4.0.0-tc-amd.sif \
+    Rscript -e "sessionInfo()"
+
+```
+
+## R
+
+One of the elements of R that makes it powerful is the extensibility of the platform, ie community developed and shared packages.  To make use of packages not prepackaged in the R installation (module or container), users need to specify where R should install a package.  As stated above, not all paths that R would like to install to are writable by the user.  In fact, NONE of the paths within the container are writable.  To deal with this, we need to specify a location with write privilidges, ~/R for instance.  The correct way to do this is by specifying this in an Renviron file.  For the images I make, I change the name of this file to avoid conflicts to .Renvion.OOD.  In that file, you can do something like:
+
+```{bash, eval=F, echo=T}
+cat ~/.Renviron.OOD
+R_LIBS_USER=/home/rsettlag/R/OOD/Ubuntu-20.04-4.0.3
+```
+
+Now, you can do the following:
+```{bash, eval=F, echo=T}
+singularity exec --bind $TMPFS:/tmp /projects/arcsingularity/ood-rstudio-basic_4.0.3.sif \
+   Rscript -e ".libPaths()"
+```
+Which, for me gives the following output:
+
+[1] "/usr/local/lib/R/site-library"  
+[2] "/usr/local/lib/R/library"  
+[3] "/home/rsettlag/R/OOD/Ubuntu-20.04-4.0.3"  
+
+NOTE: this order is backwards.  I am currently working with the R developers to figure out why.  I am told it should not be happening and in fact, if you run Rstudio in this same image, it is ordered the correct way.  If you need to install software, before you do the install, you can do: ".libPaths(.libPaths()[c(3,1,2)])" at the R prompt or specify it in the install.packages call as "install.packages(PACKAGE,lib=.libPaths()[3])".  Alternatively, use the Rstudio associated with this image <https://ood.arc.vt.edu> to install and configure the environment before running your scripts.  
+
+
