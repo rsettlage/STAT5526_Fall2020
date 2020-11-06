@@ -12,11 +12,11 @@
     
     
     <item>
-      <title>Lecture 2B - Monte Carlo</title>
-      <link>http://rsettlage.github.io/STAT5526_Fall2020/posts/lecture-2b/</link>
+      <title>Lecture 2A - Monte Carlo</title>
+      <link>http://rsettlage.github.io/STAT5526_Fall2020/posts/lecture-2a/</link>
       <pubDate>Thu, 05 Nov 2020 00:00:00 +0000</pubDate>
       
-      <guid>http://rsettlage.github.io/STAT5526_Fall2020/posts/lecture-2b/</guid>
+      <guid>http://rsettlage.github.io/STAT5526_Fall2020/posts/lecture-2a/</guid>
       <description>Monte Carlo
 plot(cars)  Add a new chunk by clicking the Insert Chunk button on the toolbar or by pressing Cmd+Option+I.
 When you save the notebook, an HTML file containing the code and output will be saved alongside it (click the Preview button or press Cmd+Shift+K to preview the HTML file).
@@ -24,11 +24,22 @@ The preview shows you a rendered HTML copy of the contents of the editor. Conseq
     </item>
     
     <item>
-      <title>Lecture 2B - R and Keras</title>
+      <title>Lecture 2B - Neural Networks</title>
       <link>http://rsettlage.github.io/STAT5526_Fall2020/posts/lecture-2b/</link>
       <pubDate>Thu, 05 Nov 2020 00:00:00 +0000</pubDate>
       
       <guid>http://rsettlage.github.io/STAT5526_Fall2020/posts/lecture-2b/</guid>
+      <description>R and Keras NN for linear regression NN for image classification - binary - categorical NN for image segmentation (stretch)
+plot(cars) Add a new chunk by clicking the Insert Chunk button on the toolbar or by pressing Cmd+Option+I.
+When you save the notebook, an HTML file containing the code and output will be saved alongside it (click the Preview button or press Cmd+Shift+K to preview the HTML file).</description>
+    </item>
+    
+    <item>
+      <title>Lecture 2C - R and Keras</title>
+      <link>http://rsettlage.github.io/STAT5526_Fall2020/posts/lecture-2c/</link>
+      <pubDate>Thu, 05 Nov 2020 00:00:00 +0000</pubDate>
+      
+      <guid>http://rsettlage.github.io/STAT5526_Fall2020/posts/lecture-2c/</guid>
       <description>R and Keras NN for linear regression NN for image classification - binary - categorical NN for image segmentation (stretch)
 plot(cars) Add a new chunk by clicking the Insert Chunk button on the toolbar or by pressing Cmd+Option+I.
 When you save the notebook, an HTML file containing the code and output will be saved alongside it (click the Preview button or press Cmd+Shift+K to preview the HTML file).</description>

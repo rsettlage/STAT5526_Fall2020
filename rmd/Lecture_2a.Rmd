@@ -1,8 +1,8 @@
 ---
-title: "Lecture 2B - Monte Carlo"
+title: "Lecture 2A - Monte Carlo"
 author: "Robert Settlage"
 authorbox: false
-slug: "Lecture 2B"
+slug: "Lecture 2A"
 date: 2020-11-05
 publishdate: 2020-11-05
 draft: false
