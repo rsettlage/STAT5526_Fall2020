@@ -1,6 +1,24 @@
 ---
 title: "Lecture 2B - R and Keras"
-output: html_notebook
+author: "Robert Settlage"
+authorbox: false
+slug: "Lecture 2B"
+date: 2020-11-05
+publishdate: 2020-11-05
+draft: false
+categories:
+- Lecture2
+tags:
+- Lecture2
+- Keras
+output:
+  html_document: default
+  fig_caption: yes
+  fig_height: 6
+  fig_width: 7
+  pdf_document: null
+  classoption: landscape
+header-includes: \setlength\parindent{24pt} \usepackage{MnSymbol} \usepackage{mathrsfs}
 ---
 
 R and Keras

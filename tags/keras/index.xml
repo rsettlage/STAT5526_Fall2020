@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Keras on STAT-5526 Fall 2020</title>
+    <link>http://rsettlage.github.io/STAT5526_Fall2020/tags/keras/</link>
+    <description>Recent content in Keras on STAT-5526 Fall 2020</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 05 Nov 2020 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="http://rsettlage.github.io/STAT5526_Fall2020/tags/keras/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Lecture 2B - R and Keras</title>
+      <link>http://rsettlage.github.io/STAT5526_Fall2020/posts/lecture-2b/</link>
+      <pubDate>Thu, 05 Nov 2020 00:00:00 +0000</pubDate>
+      
+      <guid>http://rsettlage.github.io/STAT5526_Fall2020/posts/lecture-2b/</guid>
+      <description>R and Keras NN for linear regression NN for image classification - binary - categorical NN for image segmentation (stretch)
+plot(cars) Add a new chunk by clicking the Insert Chunk button on the toolbar or by pressing Cmd+Option+I.
+When you save the notebook, an HTML file containing the code and output will be saved alongside it (click the Preview button or press Cmd+Shift+K to preview the HTML file).</description>
+    </item>
+    
+  </channel>
+</rss>
