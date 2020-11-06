@@ -6,9 +6,19 @@
     <description>Recent content in Categories on STAT-5526 Fall 2020</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
+    <lastBuildDate>Wed, 04 Nov 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="http://rsettlage.github.io/STAT5526_Fall2020/categories/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Course Logistics</title>
+      <link>http://rsettlage.github.io/STAT5526_Fall2020/categories/course-logistics/</link>
+      <pubDate>Wed, 04 Nov 2020 00:00:00 +0000</pubDate>
+      
+      <guid>http://rsettlage.github.io/STAT5526_Fall2020/categories/course-logistics/</guid>
+      <description></description>
+    </item>
     
   </channel>
 </rss>

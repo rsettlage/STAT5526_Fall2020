@@ -2,7 +2,7 @@
 title: "Lecture 1A - HPC Cluster Organization"
 author: "Robert Settlage"
 authorbox: false
-slug: "Lecture 1A"
+slug: "Lecture 1A" 
 date: 2020-11-5
 publishdate: 2020-11-5
 draft: false
@@ -35,9 +35,6 @@ It is pretty easy to immerse oneself in data and quickly run out of the necessar
 
 What were you doing during the debates?? 
 
-```{r echo=F, include=T, eval=T}
-include_graphics("../img/party_returns.jpg")
-```
 ![Market by President's Party](../img/party_returns.jpg){width=100%}
 
 Returns averaged by party and corrected for plans for tax rate:
