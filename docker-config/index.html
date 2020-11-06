@@ -102,23 +102,56 @@ Let’s talk a little about Docker. Docker, imo, takes us to the extreme end of 
 </li>
 <li>reproducible research is a passion of mine (driven by personal fails :( )</li>
 </ul>
-<p>To combat this, we will use Docker to create environments that are reproducibly the same for all of your class computes. We will do this on our VT HPC clusters. On shared clusters, full escallation to a priveledged user is not allowed, so we will use another container platform called Singularity which was made with security in mind. Singularity can pull and run Docker containers, so we are going to mix the two. To get to our clusters:</p>
-<ol style="list-style-type: decimal">
-<li>request an account: arc.vt.edu<br />
+<p>To combat this, we will use Docker to create environments that are reproducibly the same for all of your class computes. We will do this combining DockerHub with build rules that link to GitHub. This will allow us to avoid all local configuration issues and have the images build directly in DockerHub using a configuration file (Dockerfile) in a GitHub repository. Once we have a Docker image that builds, we can pull the image to a compute node via Singularity and finally use Singularity to instantiate a running container. To get to our clusters:</p>
+<p>Like with Git, in this class, we don’t need to become experts, we simply need the basics. The basic workflow looks something like this:</p>
+<div id="create-github-repository" class="section level1">
+<h1>Create GitHub repository</h1>
+<ul>
+<li>create new repository<br />
 </li>
-<li>get to ARC RStudio: ondemand.arc.vt.edu</li>
-</ol>
-<p>Like with Git, in this class, we don’t need to become experts, we simply need the basics. On our clusters, the basic workflow looks something like this:</p>
-<pre><code>module load singularity 
-singularity cache clean  
-singularity pull --force --name rstudio.simg docker://rsettlag/ood-rstudio:basic  </code></pre>
-<p>If you are creating your own containers and pushing to DockerHub, I have found this to work:</p>
+<li>add Docker file</li>
+</ul>
+<p>We are going to fork one of mine. You can customize from there knowing the base works on ARC clusters.</p>
+<div class="figure">
+<img src="img/git-forking.png" alt="" />
+<p class="caption">forking</p>
+</div>
+</div>
+<div id="create-dockerhub-repository" class="section level1">
+<h1>Create DockerHub repository</h1>
+<div class="figure">
+<img src="img/docker-hub-new.png" alt="" />
+<p class="caption">docker-repo</p>
+</div>
+<ul>
+<li>give it a name<br />
+</li>
+<li>give it a description</li>
+<li>make it connected
+<ul>
+<li>must first setup link to GitHub under account settings and linked accounts</li>
+<li>choose your GitHub repo containing the Dockerfile</li>
+</ul></li>
+<li>setup build rules
+<ul>
+<li>the defaults should work, as I version, I change the Dockerfile name to append version</li>
+</ul></li>
+<li>choose create and build</li>
+</ul>
+<p>This can take a little while, but it will build on the DockerHub servers. Note, any changes upstream from this image will trigger a new build. Ideally, you would use versioning to protect against upstream changes. If that is a possibility and a problem, turn off auto build after the image is built to your liking.</p>
+<p>Now to do some stuff on the cluster.</p>
+<p>For this class, we will log in via &lt;ood.arc.vt.edu&gt;. From there, choose clusters -&gt; TinkerCliffs</p>
+<pre><code>module load containers/singularity 
+singularity pull --force --disable-cache --name rstudio.simg \
+    docker://rsettlag/stat5566-test1:latest</code></pre>
+<p>If you are creating your own containers and pushing to DockerHub, I have found this to work, assuming you are in the directory containing the Dockerfile and the image name will be ood-rstudio-stat3615 version 3.6.1:</p>
 <pre><code>docker login
-docker container prune  
-docker build --no-cache -t ood-rstudio:basic .  
-docker run -itd --name ood-rstudio ood-rstudio:basic  
-docker commit -m &quot;base Rstudio on Debian-stretch and Rocker/RStudio for Open OnDemand -- still rough&quot; ood-rstudio rsettlag/ood-rstudio:basic  
-docker push rsettlag/ood-rstudio:basic  </code></pre>
+docker build --no-cache -t ood-rstudio-stat3615:3.6.1 .
+docker tag ood-rstudio-stat3615:3.6.1 rsettlag/ood-rstudio-stat3615:3.6.1
+docker push rsettlag/ood-rstudio-stat3615:3.6.1</code></pre>
+<p>Before pushing it, you should probably poke around in it manually and by starting Rstudio:</p>
+<pre><code>docker run -it --rm ood-rstudio-stat3615:3.6.1 bash
+docker run -e PASSWORD=&quot;test&quot; --rm -p 8787:8787 rsettlage/ood-rstudio-qiime2:3.6.1 </code></pre>
 <p>If you want to read more about this:</p>
 <p><a href="https://docs.docker.com/get-started/" class="uri">https://docs.docker.com/get-started/</a><br />
 <a href="https://ropenscilabs.github.io/r-docker-tutorial/" class="uri">https://ropenscilabs.github.io/r-docker-tutorial/</a><br />
@@ -131,6 +164,7 @@ docker push rsettlag/ood-rstudio:basic  </code></pre>
 <p><a href="https://docs.docker.com/docker-hub/repos/" class="uri">https://docs.docker.com/docker-hub/repos/</a>
 <a href="https://www.linuxnix.com/how-to-push-docker-images-to-docker-hub-repository/" class="uri">https://www.linuxnix.com/how-to-push-docker-images-to-docker-hub-repository/</a></p>
 <p>Windows user: Windows Home Edition does not contain the secret sauce to allow virtualization. To get a more capable version of Windows, you can upgrade your Windows using the VT site license: <a href="https://apps.itpals.vt.edu/Apps/WebObjects/NetSoftware.woa/wo/0.0.3.3.21.19.1.123.3.7.1.1" class="uri">https://apps.itpals.vt.edu/Apps/WebObjects/NetSoftware.woa/wo/0.0.3.3.21.19.1.123.3.7.1.1</a></p>
+</div>
 
 		</div>
 		
