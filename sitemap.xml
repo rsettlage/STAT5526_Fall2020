@@ -63,6 +63,11 @@
   </url>
   
   <url>
+    <loc>http://rsettlage.github.io/STAT5526_Fall2020/posts/lecture-1a/</loc>
+    <lastmod>2020-11-05T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>http://rsettlage.github.io/STAT5526_Fall2020/posts/lecture-1b/</loc>
     <lastmod>2020-11-05T00:00:00+00:00</lastmod>
   </url>
@@ -195,10 +200,6 @@
   <url>
     <loc>http://rsettlage.github.io/STAT5526_Fall2020/tags/topics/</loc>
     <lastmod>2020-11-04T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://rsettlage.github.io/STAT5526_Fall2020/posts/lecture-1a/</loc>
   </url>
   
 </urlset>
