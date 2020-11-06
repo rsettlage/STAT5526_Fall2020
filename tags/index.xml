@@ -6,10 +6,19 @@
     <description>Recent content in Tags on STAT-5526 Fall 2020</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 04 Nov 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 05 Nov 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="http://rsettlage.github.io/STAT5526_Fall2020/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>homework</title>
+      <link>http://rsettlage.github.io/STAT5526_Fall2020/tags/homework/</link>
+      <pubDate>Thu, 05 Nov 2020 00:00:00 +0000</pubDate>
+      
+      <guid>http://rsettlage.github.io/STAT5526_Fall2020/tags/homework/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>Docker</title>
