@@ -4,14 +4,12 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>Lecture 1D - Going Parallel - STAT-5526 Fall 2020</title>
+	<title>Lecture 1D - Going Parallel - Work In Process - STAT-5526 Fall 2020</title>
 	<script>(function(d,e){d[e]=d[e].replace("no-js","js");})(document.documentElement,"className");</script>
 	<meta name="description" content="">
-	<meta property="og:title" content="Lecture 1D - Going Parallel" />
-<meta property="og:description" content="Topics Parallelization &#43; MKL/OpenBLAS vectorization &#43; OpenMP &#43; MPI
-plot(cars) Add a new chunk by clicking the Insert Chunk button on the toolbar or by pressing Cmd&#43;Option&#43;I.
-When you save the notebook, an HTML file containing the code and output will be saved alongside it (click the Preview button or press Cmd&#43;Shift&#43;K to preview the HTML file).
-The preview shows you a rendered HTML copy of the contents of the editor." />
+	<meta property="og:title" content="Lecture 1D - Going Parallel - Work In Process" />
+<meta property="og:description" content="Reasons why your compute can be taking too long Ok, the point to today’s discussion. Your project has exceeded what you can do locally. Possible reasons why:
+memory limits storage limits compute time is too long  For most workstations, 16-48 GB of RAM and a few TB’s of local disk is about the practical limit. Most HPC clusters have nodes with much more RAM and networked parallel storage." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="http://rsettlage.github.io/STAT5526_Fall2020/posts/lecture-1d/" />
 <meta property="article:published_time" content="2020-11-05T00:00:00+00:00" />
@@ -77,7 +75,7 @@ The preview shows you a rendered HTML copy of the contents of the editor." />
 <main class="main" role="main">
 	<article class="post">
 		<header class="post__header">
-			<h1 class="post__title">Lecture 1D - Going Parallel</h1>
+			<h1 class="post__title">Lecture 1D - Going Parallel - Work In Process</h1>
 			<div class="post__meta meta">
 <div class="meta__item-datetime meta__item">
 	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0C7 0 1 6 1 14s6 14 14 14 14-6 14-14S23 0 15 0zm0 25C9 25 4 20 4 14S9 3 15 3s11 5 11 11-5 11-11 11zm1-18h-2v8.4l6.8 4.4L22 18l-6-3.8V7z"/></svg>
@@ -95,8 +93,65 @@ The preview shows you a rendered HTML copy of the contents of the editor." />
 <script src="/STAT5526_Fall2020/rmarkdown-libs/anchor-sections/anchor-sections.js"></script>
 
 
-<div id="topics" class="section level1">
-<h1>Topics</h1>
+<div id="reasons-why-your-compute-can-be-taking-too-long" class="section level1">
+<h1>Reasons why your compute can be taking too long</h1>
+<p>Ok, the point to today’s discussion. Your project has exceeded what you can do locally. Possible reasons why:</p>
+<ol style="list-style-type: decimal">
+<li>memory limits</li>
+<li>storage limits</li>
+<li>compute time is too long</li>
+</ol>
+<p>For most workstations, 16-48 GB of RAM and a few TB’s of local disk is about the practical limit. Most HPC clusters have nodes with much more RAM and networked parallel storage. For instance, on ARC machines, most nodes have 128-256 GB of RAM with a few having 3 TB. For storage, many HPC clusters have fast parallel storage. Within ARC, we have 7.5 PB on a parallel file system called BeeGFS.</p>
+<p>The last local compute issue, compute time is too long, is a more complicated discussion. We are going to focus on the last issue and talk about how you can scale your compute on an HPC cluster. Before you start, you should know what the cause of the slowness is. Is the process:</p>
+<ul>
+<li>i/o bound</li>
+<li>memory bound</li>
+<li>CPU bound</li>
+</ul>
+<p>Generally, this is a pretty advanced topic and involves performance tools etc to profile the application’s behavior. We are going to skip all that and think about the compute as a pipeline and classify it based on inputs/outputs and steps/calculations. Here are some possible data flow/computing pipelines (plus some examples):</p>
+<ol style="list-style-type: decimal">
+<li>single data set, must all be computed on at one time, involves matrix operations</li>
+</ol>
+<ul>
+<li>simple linear regression</li>
+</ul>
+<ol start="2" style="list-style-type: decimal">
+<li>single data set, must all be computed on at one time, involves loops</li>
+</ol>
+<ul>
+<li>bootstrapping</li>
+<li>nonlinear regression using gradient descent</li>
+<li>Monte Carlo methods</li>
+</ul>
+<ol start="3" style="list-style-type: decimal">
+<li>single data set, must all be computed on at one time, involves many hyper parameters that must be optimized</li>
+</ol>
+<ul>
+<li>Monte Carlo methods</li>
+<li>gradient descent</li>
+<li>machine learning algorithms</li>
+</ul>
+<ol start="4" style="list-style-type: decimal">
+<li>single data set, can be processed in batches, must be aggregated at end</li>
+</ol>
+<ul>
+<li>ML</li>
+<li>batched gradient descent</li>
+</ul>
+<ol start="5" style="list-style-type: decimal">
+<li>multiple data sets, identical processing on each</li>
+</ol>
+<ul>
+<li>independent models using linear regression</li>
+</ul>
+<p>And really any combination of the above. We will start first by talking through (3) and (5) together.</p>
+<div id="pleasingly-parallel-applications" class="section level2">
+<h2>Pleasingly parallel applications</h2>
+<p>Pleasingly parallel processing is exemplified by tasks that can be performed completely independently of each other.</p>
+<ul>
+<li><p>Suppose for instance, you have a slew of data sets, all independent, and want to create models for each. You could, given a lab with several workstations, start computing a model on each workstation independent of the others. On an HPC system, you would submit each data set + desired compute as a script to a scheduler. In our case Slurm. As compute nodes are available, the various data plus scripted model will be computed and results returned.</p></li>
+<li><p>In a separate case, suppose you have a data set and have some sort of non-tunable parameter you want to test to create a model, for instance, perhaps a transformation of the response. Similar to the last, you could submit the data plus appropriate script for each desired transformation to Slurm. Slurm will, as before, assign compute resources as they are available and return results when those are available.</p></li>
+</ul>
 <p>Parallelization
 + MKL/OpenBLAS vectorization
 + OpenMP
@@ -107,6 +162,7 @@ The preview shows you a rendered HTML copy of the contents of the editor." />
 <p>When you save the notebook, an HTML file containing the code and output will be saved alongside it (click the <em>Preview</em> button or press <em>Cmd+Shift+K</em> to preview the HTML file).</p>
 <p>The preview shows you a rendered HTML copy of the contents of the editor. Consequently, unlike <em>Knit</em>, <em>Preview</em> does not run any R code chunks. Instead, the output of the chunk when it was last run in the editor is displayed.</p>
 <hr />
+</div>
 </div>
 <div id="topics-2" class="section level1">
 <h1>Topics 2</h1>

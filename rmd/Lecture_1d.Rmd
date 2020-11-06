@@ -1,5 +1,5 @@
 ---
-title: "Lecture 1D - Going Parallel"
+title: "Lecture 1D - Going Parallel - Work In Process"
 author: "Robert Settlage"
 authorbox: false
 slug: "Lecture 1D"
@@ -20,7 +20,52 @@ output:
 header-includes: \setlength\parindent{24pt} \usepackage{MnSymbol} \usepackage{mathrsfs}
 ---
 
-# Topics 
+# Reasons why your compute can be taking too long 
+
+Ok, the point to today's discussion.  Your project has exceeded what you can do locally.  Possible reasons why:
+
+1. memory limits
+2. storage limits
+3. compute time is too long
+
+For most workstations, 16-48 GB of RAM and a few TB's of local disk is about the practical limit.  Most HPC clusters have nodes with much more RAM and networked parallel storage.  For instance, on ARC machines, most nodes have 128-256 GB of RAM with a few having 3 TB.  For storage, many HPC clusters have fast parallel storage.  Within ARC, we have 7.5 PB on a parallel file system called BeeGFS.
+
+The last local compute issue, compute time is too long, is a more complicated discussion.  We are going to focus on the last issue and talk about how you can scale your compute on an HPC cluster.  Before you start, you should know what the cause of the slowness is.  Is the process:
+
++ i/o bound
++ memory bound
++ CPU bound
+
+Generally, this is a pretty advanced topic and involves performance tools etc to profile the application's behavior.  We are going to skip all that and think about the compute as a pipeline and classify it based on inputs/outputs and steps/calculations.  Here are some possible data flow/computing pipelines (plus some examples):
+
+1. single data set, must all be computed on at one time, involves matrix operations 
+  + simple linear regression
+2. single data set, must all be computed on at one time, involves loops 
+  + bootstrapping
+  + nonlinear regression using gradient descent
+  + Monte Carlo methods
+3. single data set, must all be computed on at one time, involves many hyper parameters that must be optimized 
+  + Monte Carlo methods
+  + gradient descent
+  + machine learning algorithms
+4. single data set, can be processed in batches, must be aggregated at end 
+  + ML
+  + batched gradient descent
+5. multiple data sets, identical processing on each 
+  + independent models using linear regression
+
+And really any combination of the above.  We will start first by talking through (3) and (5) together.
+
+## Pleasingly parallel applications
+
+Pleasingly parallel processing is exemplified by tasks that can be performed completely independently of each other.
+
+- Suppose for instance, you have a slew of data sets, all independent, and want to create models for each.  You could, given a lab with several workstations, start computing a model on each workstation independent of the others.  On an HPC system, you would submit each data set + desired compute as a script to a scheduler.  In our case Slurm.  As compute nodes are available, the various data plus scripted model will be computed and results returned.
+
+- In a separate case, suppose you have a data set and have some sort of non-tunable parameter you want to test to create a model, for instance, perhaps a transformation of the response.  Similar to the last, you could submit the data plus appropriate script for each desired transformation to Slurm.  Slurm will, as before, assign compute resources as they are available and return results when those are available.
+
+
+
 
 Parallelization
   + MKL/OpenBLAS vectorization

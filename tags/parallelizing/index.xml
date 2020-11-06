@@ -12,15 +12,13 @@
     
     
     <item>
-      <title>Lecture 1D - Going Parallel</title>
+      <title>Lecture 1D - Going Parallel - Work In Process</title>
       <link>http://rsettlage.github.io/STAT5526_Fall2020/posts/lecture-1d/</link>
       <pubDate>Thu, 05 Nov 2020 00:00:00 +0000</pubDate>
       
       <guid>http://rsettlage.github.io/STAT5526_Fall2020/posts/lecture-1d/</guid>
-      <description>Topics Parallelization + MKL/OpenBLAS vectorization + OpenMP + MPI
-plot(cars) Add a new chunk by clicking the Insert Chunk button on the toolbar or by pressing Cmd+Option+I.
-When you save the notebook, an HTML file containing the code and output will be saved alongside it (click the Preview button or press Cmd+Shift+K to preview the HTML file).
-The preview shows you a rendered HTML copy of the contents of the editor.</description>
+      <description>Reasons why your compute can be taking too long Ok, the point to today’s discussion. Your project has exceeded what you can do locally. Possible reasons why:
+memory limits storage limits compute time is too long  For most workstations, 16-48 GB of RAM and a few TB’s of local disk is about the practical limit. Most HPC clusters have nodes with much more RAM and networked parallel storage.</description>
     </item>
     
   </channel>
