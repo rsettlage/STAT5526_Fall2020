@@ -22,5 +22,20 @@ So, where have we come from and where are we going?
  Prototyping Generally, Into to Data Analytics classes focus on algorithms and stay in Rstudio or Jupyter Notebooks. These IDEs are fantatic for a quick(-ish), iterative approach to data munging, EDA, data cleaning, plotting, creating reports, etc. Some project data sets are too large, there are too many parameter combinations to try, or perhaps the data is a real time continuous stream, necessitating a different approach.</description>
     </item>
     
+    <item>
+      <title>4 - Configuring Docker</title>
+      <link>http://rsettlage.github.io/STAT5526_Fall2020/notes/containers/</link>
+      <pubDate>Wed, 04 Nov 2020 00:00:00 +0000</pubDate>
+      
+      <guid>http://rsettlage.github.io/STAT5526_Fall2020/notes/containers/</guid>
+      <description>
+&lt;link href=&#34;http://rsettlage.github.io/STAT5526_Fall2020/STAT5526_Fall2020/rmarkdown-libs/anchor-sections/anchor-sections.css&#34; rel=&#34;stylesheet&#34; /&gt;
+&lt;script src=&#34;http://rsettlage.github.io/STAT5526_Fall2020/STAT5526_Fall2020/rmarkdown-libs/anchor-sections/anchor-sections.js&#34;&gt;&lt;/script&gt;
+
+
+&lt;p&gt;Docker/GitHub/Singularity workflow for STAT 5526 HPC/R section, Fall 2020.
+</description>
+    </item>
+    
   </channel>
 </rss>

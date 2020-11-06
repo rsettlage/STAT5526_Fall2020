@@ -139,6 +139,21 @@ When you save the notebook, an HTML file containing the code and output will be 
     </item>
     
     <item>
+      <title>4 - Configuring Docker</title>
+      <link>http://rsettlage.github.io/STAT5526_Fall2020/notes/containers/</link>
+      <pubDate>Wed, 04 Nov 2020 00:00:00 +0000</pubDate>
+      
+      <guid>http://rsettlage.github.io/STAT5526_Fall2020/notes/containers/</guid>
+      <description>
+&lt;link href=&#34;http://rsettlage.github.io/STAT5526_Fall2020/STAT5526_Fall2020/rmarkdown-libs/anchor-sections/anchor-sections.css&#34; rel=&#34;stylesheet&#34; /&gt;
+&lt;script src=&#34;http://rsettlage.github.io/STAT5526_Fall2020/STAT5526_Fall2020/rmarkdown-libs/anchor-sections/anchor-sections.js&#34;&gt;&lt;/script&gt;
+
+
+&lt;p&gt;Docker/GitHub/Singularity workflow for STAT 5526 HPC/R section, Fall 2020.
+</description>
+    </item>
+    
+    <item>
       <title>5 - Git Conf</title>
       <link>http://rsettlage.github.io/STAT5526_Fall2020/notes/git-config/</link>
       <pubDate>Wed, 04 Nov 2020 00:00:00 +0000</pubDate>
