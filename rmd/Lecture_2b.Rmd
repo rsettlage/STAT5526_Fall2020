@@ -20,7 +20,8 @@ output:
 header-includes: \setlength\parindent{24pt} \usepackage{MnSymbol} \usepackage{mathrsfs}
 ---
 
-R and Keras
+## Neural networks coming soon ...
+
 NN for linear regression
 NN for image classification
 - binary
