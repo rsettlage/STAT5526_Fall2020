@@ -1818,8 +1818,8 @@ summary {
 <!-- rnb-source-begin eyJkYXRhIjoiY2F0IG1hdHJpeF9tdWx0LlJcblxuamlkPC1TeXMuZ2V0ZW52KCdTTFVSTV9KT0JfSUQnKVxuY3B1czwtU3lzLmdldGVudignU0xVUk1fQ1BVU19QRVJfVEFTSycpXG5uPC0yXjE0XG5zZXQuc2VlZCgzNDUzNClcbk08LW1hdHJpeChybm9ybShuXjIpLG5yb3c9bik7XG5NdDwtdChNKTtcbk10TTwtTSUqJXQoTSk7XG50aW1lczwtYXMuZGF0YS5mcmFtZShjYmluZChjcHVzLHJiaW5kKGMoc3lzdGVtLnRpbWUoczwtc29sdmUoTXRNKSlbMTozXSxtYXgoYWJzKHMlKiVNdE0tZGlhZyhuKSkpKSxcblx0XHRcdFx0ICAgIGMoc3lzdGVtLnRpbWUoczwtc29sdmUoTXRNKSlbMTozXSxtYXgoYWJzKHMlKiVNdE0tZGlhZyhuKSkpKSxcblx0XHRcdFx0ICAgIGMoc3lzdGVtLnRpbWUoczwtc29sdmUoTXRNKSlbMTozXSxtYXgoYWJzKHMlKiVNdE0tZGlhZyhuKSkpKSxcblx0XHRcdFx0ICAgIGMoc3lzdGVtLnRpbWUoczwtc29sdmUoTXRNKSlbMTozXSxtYXgoYWJzKHMlKiVNdE0tZGlhZyhuKSkpKSxcblx0XHRcdFx0ICAgIGMoc3lzdGVtLnRpbWUoczwtc29sdmUoTXRNKSlbMTozXSxtYXgoYWJzKHMlKiVNdE0tZGlhZyhuKSkpKSxcblx0XHRcdFx0ICAgIGMoc3lzdGVtLnRpbWUoczwtc29sdmUoTXRNKSlbMTozXSxtYXgoYWJzKHMlKiVNdE0tZGlhZyhuKSkpKSkpKVxuY29sbmFtZXModGltZXMpPC1jKFwiY29yZXNcIixcInVzZXJcIixcInN5c3RlbVwiLFwiYWN0dWFsXCIsXCJtYXhEaWZmXCIpXG5zYXZlUkRTKHRpbWVzLHBhc3RlMChqaWQsXCIuUkRTXCIpKSJ9 -->
 <pre class="bash"><code>cat matrix_mult.R
 
-jid&lt;-Sys.getenv('SLURM_JOB_ID')
-cpus&lt;-Sys.getenv('SLURM_CPUS_PER_TASK')
+jid&lt;-Sys.getenv(&#39;SLURM_JOB_ID&#39;)
+cpus&lt;-Sys.getenv(&#39;SLURM_CPUS_PER_TASK&#39;)
 n&lt;-2^14
 set.seed(34534)
 M&lt;-matrix(rnorm(n^2),nrow=n);
@@ -1850,7 +1850,7 @@ purl(&quot;test.Rmd&quot;)</code></pre>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
 <!-- rnb-source-begin eyJkYXRhIjoiUnNjcmlwdCAtZSBcInJtYXJrZG93bjo6cmVuZGVyKCd0ZXN0LlJtZCcpXCIifQ== -->
-<pre class="bash"><code>Rscript -e &quot;rmarkdown::render('test.Rmd')&quot;</code></pre>
+<pre class="bash"><code>Rscript -e &quot;rmarkdown::render(&#39;test.Rmd&#39;)&quot;</code></pre>
 <!-- rnb-source-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
