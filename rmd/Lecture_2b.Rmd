@@ -1,8 +1,8 @@
 ---
-title: "Lecture 2B - Neural Networks"
+title: "Lecture 2B - Neural Networks - Work in Process"
 author: "Robert Settlage"
 authorbox: false
-slug: "Lecture 2B - Neural Networks - Work in Process"
+slug: "Lecture 2B"
 date: 2020-11-05
 publishdate: 2020-11-05
 draft: false
