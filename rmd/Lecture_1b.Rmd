@@ -4,7 +4,7 @@ author: "Robert Settlage"
 authorbox: false
 slug: "Lecture 1B"
 date: 2020-11-5
-publishdate: 2020-11-B
+publishdate: 2020-11-05
 draft: false
 categories:
 - Lecture

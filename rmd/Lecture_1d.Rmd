@@ -3,8 +3,8 @@ title: "Lecture 1D - Going Parallel"
 author: "Robert Settlage"
 authorbox: false
 slug: "Lecture 1D"
-date: 2020-11-5
-publishdate: 2020-11-5
+date: 2020-11-05
+publishdate: 2020-11-05
 draft: false
 categories:
 - Lecture
