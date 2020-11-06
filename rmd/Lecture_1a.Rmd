@@ -1,6 +1,16 @@
 ---
 title: "Lecture 1A - HPC Cluster Organization"
-date: "2020-11-10"
+author: "Robert Settlage"
+authorbox: false
+slug: "Lecture 1A"
+date: 2020-11-5
+publishdate: 2020-11-5
+draft: false
+categories:
+- Lecture
+tags:
+- Lecture
+- HPC
 output: html_notebook
 ---
 

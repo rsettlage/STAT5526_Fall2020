@@ -1,7 +1,18 @@
 ---
 title: "Lecture 1C - Containers and R"
-date: "2020-11-10"
-output: html_notebook 
+author: "Robert Settlage"
+authorbox: false
+slug: "Lecture 1C"
+date: 2020-11-5
+publishdate: 2020-11-5
+draft: false
+categories:
+- Lecture
+tags:
+- Lecture
+- Containers
+- R setup
+output: html_notebook
 ---
 
 ```{r eval=TRUE, echo=FALSE, include=FALSE}

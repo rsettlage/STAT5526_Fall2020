@@ -1,7 +1,17 @@
 ---
 title: "Lecture 1B - Scheduler/Software/Storage"
-date: "2020-11-10"
-output: html_notebook 
+author: "Robert Settlage"
+authorbox: false
+slug: "Lecture 1B"
+date: 2020-11-5
+publishdate: 2020-11-B
+draft: false
+categories:
+- Lecture
+tags:
+- Lecture
+- Scheduler
+output: html_notebook
 ---
 
 ```{r eval=T, echo=F, include=F}
