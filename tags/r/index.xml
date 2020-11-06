@@ -17,9 +17,12 @@
       <pubDate>Thu, 05 Nov 2020 00:00:00 +0000</pubDate>
       
       <guid>http://rsettlage.github.io/STAT5526_Fall2020/notes/r-startup/</guid>
-      <description>R, not unlike Linux, has the ability to customize and automate many tasks/functions. Understanding R’s startup is essential in becoming a power R user. Here, we only need to understand the basics to gain an understanding of how we can configure R for ease of computing and reproducibility on our clusters.
-An exhausting guide is here: https://rstats.wtf/r-startup.html/. Although, I prefer the summary here: https://rviews.rstudio.com/2017/04/19/r-for-enterprise-understanding-r-s-startup/
-include_url(&amp;quot;https://rviews.rstudio.com/post/2017-04-04-rs-quirky-and-powerful-startup_files/R_STARTUP.jpeg&amp;quot;)  Basically, what this is telling us is there are many places where we can customize how our R/Rstudio session look/run/feel.</description>
+      <description>
+&lt;link href=&#34;http://rsettlage.github.io/STAT5526_Fall2020/STAT5526_Fall2020/rmarkdown-libs/anchor-sections/anchor-sections.css&#34; rel=&#34;stylesheet&#34; /&gt;
+&lt;script src=&#34;http://rsettlage.github.io/STAT5526_Fall2020/STAT5526_Fall2020/rmarkdown-libs/anchor-sections/anchor-sections.js&#34;&gt;&lt;/script&gt;
+
+
+&lt;p&gt;R, not unlike Linux, has the ability to customize and automate many tasks/functions. Understanding R’s startup is essential in becoming a power R user. </description>
     </item>
     
   </channel>

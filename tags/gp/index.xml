@@ -17,11 +17,13 @@
       <pubDate>Thu, 05 Nov 2020 00:00:00 +0000</pubDate>
       
       <guid>http://rsettlage.github.io/STAT5526_Fall2020/notes/good-programming/</guid>
-      <description>Good Programming Practices and Reproducible Research are worth YOUR time. They will save YOUR bacan. This is worth the read!!
-https://www.stat.ubc.ca/~jenny/STAT545A/block19_codeFormattingOrganization.html
-I could end here and be done. This says it all.
-The only thing I want to emphasize is file organization. You will develop your own preferences, but it is a good habit to get into early. Here is one I have seen multiple times:
-As expanded on here: https://www.</description>
+      <description>
+&lt;link href=&#34;http://rsettlage.github.io/STAT5526_Fall2020/STAT5526_Fall2020/rmarkdown-libs/anchor-sections/anchor-sections.css&#34; rel=&#34;stylesheet&#34; /&gt;
+&lt;script src=&#34;http://rsettlage.github.io/STAT5526_Fall2020/STAT5526_Fall2020/rmarkdown-libs/anchor-sections/anchor-sections.js&#34;&gt;&lt;/script&gt;
+
+
+&lt;p&gt;Good Programming Practices and Reproducible Research are worth &lt;strong&gt;&lt;em&gt;YOUR&lt;/em&gt;&lt;/strong&gt; time. They will save &lt;strong&gt;&lt;em&gt;YOUR&lt;/em&gt;&lt;/strong&gt; bacan. This is worth the read!!&lt;/p&gt;
+</description>
     </item>
     
   </channel>
