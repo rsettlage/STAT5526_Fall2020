@@ -9,7 +9,6 @@ draft: false
 categories:
 - Lecture2
 tags:
-- Lecture2
 - Monte Carlo
 output:
   html_document: default

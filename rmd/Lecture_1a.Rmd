@@ -9,7 +9,6 @@ draft: false
 categories:
 - Lecture1
 tags:
-- Lecture1
 - HPC
 output:
   html_document: default

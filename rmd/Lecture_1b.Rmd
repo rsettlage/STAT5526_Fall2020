@@ -9,7 +9,6 @@ draft: false
 categories:
 - Lecture1
 tags:
-- Lecture1
 - Scheduler
 output:
   html_document: default
