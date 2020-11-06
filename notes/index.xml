@@ -22,8 +22,6 @@
 &lt;script src=&#34;http://rsettlage.github.io/STAT5526_Fall2020/STAT5526_Fall2020/rmarkdown-libs/anchor-sections/anchor-sections.js&#34;&gt;&lt;/script&gt;
 
 
-&lt;div id=&#34;scheduler&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;Scheduler&lt;/h2&gt;
 &lt;p&gt;High performance computing clusters are characterized by login nodes fronting a pool of compute resources. Access to the compute resources is controlled via a resource scheduler.&lt;/p&gt;
 </description>
     </item>
