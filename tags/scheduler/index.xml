@@ -13,10 +13,10 @@
     
     <item>
       <title>Lecture 1B - Scheduler/Software/Storage</title>
-      <link>http://rsettlage.github.io/STAT5526_Fall2020/2020/11/05/lecture-1b/</link>
+      <link>http://rsettlage.github.io/STAT5526_Fall2020/posts/lecture-1b/</link>
       <pubDate>Thu, 05 Nov 2020 00:00:00 +0000</pubDate>
       
-      <guid>http://rsettlage.github.io/STAT5526_Fall2020/2020/11/05/lecture-1b/</guid>
+      <guid>http://rsettlage.github.io/STAT5526_Fall2020/posts/lecture-1b/</guid>
       <description>Interacting with a scheduler As shown in the previous note, high performance computing clusters are characterized by a (or several) login nodes. The nodes serve as the gateway to the rest of the cluster. To gain access to the compute power within the cluster, you must “reserve” time on a compute node. This is done through a resource manager commonly termed a scheduler.
 HPC system diagram
  On ARC systems, we are migrating to SLURM which stands for Simple Linux Utility for Resource Management.</description>

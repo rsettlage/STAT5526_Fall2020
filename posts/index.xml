@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Posts on STAT-5526 Fall 2020</title>
+    <link>http://rsettlage.github.io/STAT5526_Fall2020/posts/</link>
+    <description>Recent content in Posts on STAT-5526 Fall 2020</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 05 Nov 2020 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="http://rsettlage.github.io/STAT5526_Fall2020/posts/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Lecture 1B - Scheduler/Software/Storage</title>
+      <link>http://rsettlage.github.io/STAT5526_Fall2020/posts/lecture-1b/</link>
+      <pubDate>Thu, 05 Nov 2020 00:00:00 +0000</pubDate>
+      
+      <guid>http://rsettlage.github.io/STAT5526_Fall2020/posts/lecture-1b/</guid>
+      <description>Interacting with a scheduler As shown in the previous note, high performance computing clusters are characterized by a (or several) login nodes. The nodes serve as the gateway to the rest of the cluster. To gain access to the compute power within the cluster, you must “reserve” time on a compute node. This is done through a resource manager commonly termed a scheduler.
+HPC system diagram
+ On ARC systems, we are migrating to SLURM which stands for Simple Linux Utility for Resource Management.</description>
+    </item>
+    
+    <item>
+      <title>Lecture 1C - Containers and R</title>
+      <link>http://rsettlage.github.io/STAT5526_Fall2020/posts/lecture-1c/</link>
+      <pubDate>Thu, 05 Nov 2020 00:00:00 +0000</pubDate>
+      
+      <guid>http://rsettlage.github.io/STAT5526_Fall2020/posts/lecture-1c/</guid>
+      <description>R and Containers. Finally. OK, I listed this as R, then containers, but we will do containers then R. Eh.
+So, where have we come from and where are we going?
+ Prototyping Generally, Into to Data Analytics classes focus on algorithms and stay in Rstudio or Jupyter Notebooks. These IDEs are fantatic for a quick(-ish), iterative approach to data munging, EDA, data cleaning, plotting, creating reports, etc. Some project data sets are too large, there are too many parameter combinations to try, or perhaps the data is a real time continuous stream, necessitating a different approach.</description>
+    </item>
+    
+    <item>
+      <title>Lecture 1D - Going Parallel</title>
+      <link>http://rsettlage.github.io/STAT5526_Fall2020/posts/lecture-1d/</link>
+      <pubDate>Thu, 05 Nov 2020 00:00:00 +0000</pubDate>
+      
+      <guid>http://rsettlage.github.io/STAT5526_Fall2020/posts/lecture-1d/</guid>
+      <description>Topics Parallelization + MKL/OpenBLAS vectorization + OpenMP + MPI
+plot(cars) Add a new chunk by clicking the Insert Chunk button on the toolbar or by pressing Cmd+Option+I.
+When you save the notebook, an HTML file containing the code and output will be saved alongside it (click the Preview button or press Cmd+Shift+K to preview the HTML file).
+The preview shows you a rendered HTML copy of the contents of the editor.</description>
+    </item>
+    
+    <item>
+      <title>Lecture 1A - HPC Cluster Organization</title>
+      <link>http://rsettlage.github.io/STAT5526_Fall2020/posts/lecture-1a/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://rsettlage.github.io/STAT5526_Fall2020/posts/lecture-1a/</guid>
+      <description>HPC, HTC and Cloud HPC, HTC, and Cloud Computing are modern answers to “too much data”. As given by the facts listed here:
+ 1.7MB of data is created every second by every person during 2020. In the last two years alone, the astonishing 90% of the world’s data has been created. 2.5 quintillion bytes of data are produced by humans every day. 463 exabytes of data will be generated each day by humans as of 2025.</description>
+    </item>
+    
+  </channel>
+</rss>
