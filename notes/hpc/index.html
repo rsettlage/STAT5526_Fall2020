@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en-us">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>1 - HPC notes - STAT-5526 Fall 2020</title>
+	<script>(function(d,e){d[e]=d[e].replace("no-js","js");})(document.documentElement,"className");</script>
+	<meta name="description" content="">
+	<meta property="og:title" content="1 - HPC notes" />
+<meta property="og:description" content="Scheduler High performance computing clusters are characterized by login nodes fronting a pool of compute resources. Access to the compute resources is controlled via a resource scheduler. In our case, this is Slurm. Simple Linux Utility for Resource Management (SLURM) by SchedMD https://www.schedmd.com/. Access can be either interactive or via submitting scripts via batch jobs. Here are a few basic commands you will find useful:
+get list of running and queued jobs squeue  get list of YOUR running and queued jobs – replace  with your VT pid" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://rsettlage.github.io/STAT5526_Fall2020/notes/hpc/" />
+<meta property="article:published_time" content="2020-11-05T00:00:00+00:00" />
+<meta property="article:modified_time" content="2020-11-05T00:00:00+00:00" />
+
+	
+	<link rel="dns-prefetch" href="//fonts.googleapis.com">
+	<link rel="dns-prefetch" href="//fonts.gstatic.com">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700">
+	<link rel="stylesheet" href="/STAT5526_Fall2020/css/style.css">
+	
+	<link rel="shortcut icon" href="/STAT5526_Fall2020/favicon.ico">
+		
+</head>
+<body class="body">
+	<div class="container container--outer">
+		<header class="header">
+	<div class="container">
+		<div class="logo">
+			<a class="logo__link" href="/STAT5526_Fall2020/" title="STAT-5526 Fall 2020" rel="home">
+				<div class="logo__title">STAT-5526 Fall 2020</div>
+				<div class="logo__tagline">Official place to find course material.</div>
+			</a>
+		</div>
+		
+<nav class="menu">
+	<button class="menu__btn" aria-haspopup="true" aria-expanded="false" tabindex="0">
+		<span class="menu__btn-title" tabindex="-1">Menu</span>
+	</button>
+	<ul class="menu__list">
+		<li class="menu__item">
+			<a class="menu__link" href="/STAT5526_Fall2020/">Home</a>
+		</li>
+		<li class="menu__item">
+			<a class="menu__link" href="/STAT5526_Fall2020/topics">Topics</a>
+		</li>
+		<li class="menu__item">
+			<a class="menu__link" href="/STAT5526_Fall2020/posts">posts</a>
+		</li>
+		<li class="menu__item">
+			<a class="menu__link" href="https://github.com/rsettlage/STAT5526_Fall2020/tree/master/homework">Homework</a>
+		</li>
+		<li class="menu__item">
+			<a class="menu__link" href="https://github.com/rsettlage/STAT5526_Fall2020/tree/master/rmd">Rmd</a>
+		</li>
+		<li class="menu__item">
+			<a class="menu__link" href="/STAT5526_Fall2020/homework-submit">Submitting homework</a>
+		</li>
+		<li class="menu__item">
+			<a class="menu__link" href="/STAT5526_Fall2020/notes">notes</a>
+		</li>
+		<li class="menu__item">
+			<a class="menu__link" href="/STAT5526_Fall2020/about/">About</a>
+		</li>
+	</ul>
+</nav>
+
+	</div>
+</header>
+		<div class="wrapper flex">
+			<div class="primary">
+			
+<main class="main" role="main">
+	<article class="post">
+		<header class="post__header">
+			<h1 class="post__title">1 - HPC notes</h1>
+			<div class="post__meta meta">
+<div class="meta__item-datetime meta__item">
+	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0C7 0 1 6 1 14s6 14 14 14 14-6 14-14S23 0 15 0zm0 25C9 25 4 20 4 14S9 3 15 3s11 5 11 11-5 11-11 11zm1-18h-2v8.4l6.8 4.4L22 18l-6-3.8V7z"/></svg>
+	<time class="meta__text" datetime="2020-11-05T00:00:00">November 05, 2020</time>
+</div>
+
+<div class="meta__item-categories meta__item">
+	<svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2l1 2h8v11h-16v-13z"/></svg>
+	<span class="meta__text"><a class="meta__link" href="/STAT5526_Fall2020/categories/course-logistics" rel="category">Course Logistics</a></span>
+</div>
+</div>
+		</header><div class="content post__content clearfix">
+			
+<link href="/STAT5526_Fall2020/rmarkdown-libs/anchor-sections/anchor-sections.css" rel="stylesheet" />
+<script src="/STAT5526_Fall2020/rmarkdown-libs/anchor-sections/anchor-sections.js"></script>
+
+
+<div id="scheduler" class="section level2">
+<h2>Scheduler</h2>
+<p>High performance computing clusters are characterized by login nodes fronting a pool of compute resources. Access to the compute resources is controlled via a resource scheduler. In our case, this is Slurm. Simple Linux Utility for Resource Management (SLURM) by SchedMD <a href="https://www.schedmd.com/" class="uri">https://www.schedmd.com/</a>. Access can be either interactive or via submitting scripts via batch jobs. Here are a few basic commands you will find useful:</p>
+<div id="get-list-of-running-and-queued-jobs" class="section level5">
+<h5>get list of running and queued jobs</h5>
+<pre class="bash"><code>squeue</code></pre>
+</div>
+<div id="get-list-of-your-running-and-queued-jobs" class="section level5">
+<h5>get list of YOUR running and queued jobs</h5>
+<p>– replace <pid> with your VT pid</p>
+<pre class="bash"><code>&gt;squeue -u &lt;pid&gt;</code></pre>
+</div>
+<div id="check-your-storage-and-account-quotas" class="section level5">
+<h5>check your storage and account quotas</h5>
+<pre class="bash"><code>&gt;quota</code></pre>
+</div>
+<div id="start-an-interactive-job-using-class-account-in-normal_q-for-1-hour-on" class="section level5">
+<h5>start an interactive job using class account in normal_q for 1 hour on:</h5>
+<p>– 1 node with 2 tasks, each with 3 cores</p>
+<pre class="bash"><code>&gt;salloc --partition=normal_q -N 1 -n 2 -c 3 --time=01:00:00 --account=stat5526-fall2020</code></pre>
+</div>
+<div id="start-a-script-in-batch-mode" class="section level5">
+<h5>start a script in batch mode</h5>
+<pre class="bash"><code>&gt;sbatch sbatch --export=FILE=matrix_mult.R cool_script.sh</code></pre>
+</div>
+<div id="where-the-script-has-everything-it-needs-to-run" class="section level5">
+<h5>where the script has everything it needs to run</h5>
+<pre class="bash"><code>&gt;cat generic_script.slrm</code></pre>
+<pre class="bash"><code>#!/bin/bash
+
+## sbatch --export=FILE=matrix_mult.R generic_script.slrm
+
+###########################################################################
+####### job customization
+#SBATCH --job-name=matrixmult
+#SBATCH -N 1
+#SBATCH -n 24
+#SBATCH -t 01:00:00
+#SBATCH -p normal_q
+#SBATCH -A stat5526-fall2020
+#SBATCH --mail-user=&lt;pid&gt;@vt.edu  ## &lt;----- change me
+#SBATCH --mail-type=FAIL
+####### end of job customization
+###########################################################################
+module reset
+module load containers/singularity
+singularity exec /projects/arcsingularity/ood-rstudio-basic:4.0.0 Rscript $FILE</code></pre>
+<hr />
+</div>
+</div>
+<div id="software" class="section level2">
+<h2>Software</h2>
+<p>Software on ARC clusters is either a) user installed or b) system managed. For many packages, user installation is difficult or impossible due to use of system directories users do not have priveledges to write to. For system managed software, ARC uses a module system. This allows for multiple versions of software packages to be available to users. To access system managed software, you must load the appropriate module. These modules may have dependencies that also need loading. A few commands/modules that could be useful:</p>
+<pre class="bash"><code># find, load and make avaible R on TinkerCliffs
+&gt;module spider R
+&gt;module load R/4.0.2-foss-2020a
+
+# load Singularity on TinkerCliffs
+&gt;module load containers/singularity
+</code></pre>
+<hr />
+</div>
+<div id="containers" class="section level2">
+<h2>Containers</h2>
+<p>Containers, eg Docker, Singularity, etc., are IMO a reproducible researchers dream. Basically, you create an image (like burning a DVD) which is then a (mostly) portable copy of everything you put in the image. Operating system, software libraries, environment variables, any scripts you pushed in, perhaps even data. You can then instantiate the images as a running container. Inside the container, you should have a stable computing environment insulated from host changes. For R, I have done extensive testing on matrix operations and have found NO penalty to using a container vs using a module. For me, this makes installing and managing software super easy. For users, this means they can build and manage thier own software stack from thier local computer as well. Here, we will use containers I manage. To use R, the command looks a little (ok a lot) more complicated, but there are advantages:</p>
+<pre class="bash"><code># get fresh environment, load singularity, start an R container 
+#    and get sessionInfo() from R in the container
+&gt;module reset
+&gt;module load containers/singularity
+&gt;singularity exec --bind $TMPFS:/tmp \
+    /projects/arcsingularity/ood-rstudio-basic_4.0.0-tc-amd.sif \
+    Rscript -e &quot;sessionInfo()&quot;
+</code></pre>
+<hr />
+</div>
+<div id="r" class="section level2">
+<h2>R</h2>
+<p>One of the elements of R that makes it powerful is the extensibility of the platform, ie community developed and shared packages. To make use of packages not prepackaged in the R installation (module or container), users need to specify where R should install a package. As stated above, not all paths that R would like to install to are writable by the user. In fact, NONE of the paths within the container are writable. To deal with this, we need to specify a location with write privilidges, ~/R for instance. The correct way to do this is by specifying this in an Renviron file. For the images I make, I change the name of this file to avoid conflicts to .Renvion.OOD. In that file, you can do something like:</p>
+<pre class="bash"><code>&gt;cat ~/.Renviron.OOD
+R_LIBS_USER=/home/rsettlag/R/OOD/Ubuntu-20.04-4.0.3</code></pre>
+<p>Now, you can do the following:</p>
+<pre class="bash"><code>&gt;singularity exec --bind $TMPFS:/tmp /projects/arcsingularity/ood-rstudio-basic_4.0.3.sif Rscript -e &quot;.libPaths()&quot;</code></pre>
+<p>Which, for me gives the following output:</p>
+<p>[1] “/usr/local/lib/R/site-library”<br />
+[2] “/usr/local/lib/R/library”<br />
+[3] “/home/rsettlag/R/OOD/Ubuntu-20.04-4.0.3”</p>
+<p>NOTE: this order is backwards. I am currently working with the R developers to figure out why. I am told it should not be happening and in fact, if you run Rstudio in this same image, it is ordered the correct way. If you need to install software, before you do the install, you can do: “.libPaths(.libPaths()[c(3,1,2)])” at the R prompt or specify it in the install.packages call as “install.packages(PACKAGE,lib=.libPaths()[3])”. Alternatively, use the Rstudio associated with this image <a href="https://ood.arc.vt.edu" class="uri">https://ood.arc.vt.edu</a> to install and configure the environment before running your scripts.</p>
+</div>
+
+		</div>
+		
+<div class="post__tags tags clearfix">
+	<svg class="tags__icon icon icon-tag" width="16" height="16" viewBox="0 0 32 32"><path d="M32 19c0 1-1 2-1 2L21 31s-1 1-2 1-2-1-2-1L2 16c-1-1-1.4-2-1.4-2S0 12.5 0 11V3C0 1.5.8.8.8.8S1.5 0 3 0h8c1.5 0 3 .6 3 .6S15 1 16 2l15 15s1 1 1 2zM7 10a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/></svg>
+	<ul class="tags__list">
+		<li class="tags__item"><a class="tags__link btn" href="/STAT5526_Fall2020/tags/hpc/" rel="tag">HPC</a></li>
+	</ul>
+</div>
+	</article>
+</main>
+
+
+<nav class="post-nav flex">
+	<div class="post-nav__item post-nav__item--prev">
+		<a class="post-nav__link" href="/STAT5526_Fall2020/notes/r-startup/" rel="prev"><span class="post-nav__caption">«&thinsp;Previous</span><p class="post-nav__post-title">2 - R startup</p></a>
+	</div>
+</nav>
+
+
+			</div>
+			<aside class="sidebar"><div class="widget-search widget">
+	<form class="widget-search__form" role="search" method="get" action="https://google.com/search">
+		<label>
+			<input class="widget-search__field" type="search" placeholder="SEARCH..." value="" name="q" aria-label="SEARCH...">
+		</label>
+		<input class="widget-search__submit" type="submit" value="Search">
+		<input type="hidden" name="sitesearch" value="http://rsettlage.github.io/STAT5526_Fall2020/" />
+	</form>
+</div>
+<div class="widget-recent widget">
+	<h4 class="widget__title">Recent Posts</h4>
+	<div class="widget__content">
+		<ul class="widget__list">
+			<li class="widget__item"><a class="widget__link" href="/STAT5526_Fall2020/posts/lecture-1b/">Lecture 1B - Scheduler/Software/Storage</a></li>
+			<li class="widget__item"><a class="widget__link" href="/STAT5526_Fall2020/posts/lecture-1c/">Lecture 1C - Containers and R</a></li>
+			<li class="widget__item"><a class="widget__link" href="/STAT5526_Fall2020/posts/lecture-1d/">Lecture 1D - Going Parallel</a></li>
+		</ul>
+	</div>
+</div>
+<div class="widget-categories widget">
+	<h4 class="widget__title">Categories</h4>
+	<div class="widget__content">
+		<ul class="widget__list">
+			<li class="widget__item"><a class="widget__link" href="/STAT5526_Fall2020/categories/course-logistics">Course logistics</a></li>
+			<li class="widget__item"><a class="widget__link" href="/STAT5526_Fall2020/categories/lecture">Lecture</a></li>
+			<li class="widget__item"><a class="widget__link" href="/STAT5526_Fall2020/categories/lecture1">Lecture1</a></li>
+		</ul>
+	</div>
+</div>
+<div class="widget-taglist widget">
+	<h4 class="widget__title">Tags</h4>
+	<div class="widget__content">
+		<a class="widget-taglist__link widget__link btn" href="/STAT5526_Fall2020/tags/containers" title="Containers">Containers</a>
+		<a class="widget-taglist__link widget__link btn" href="/STAT5526_Fall2020/tags/gp" title="Gp">Gp</a>
+		<a class="widget-taglist__link widget__link btn" href="/STAT5526_Fall2020/tags/homework" title="Homework">Homework</a>
+		<a class="widget-taglist__link widget__link btn" href="/STAT5526_Fall2020/tags/hpc" title="Hpc">Hpc</a>
+		<a class="widget-taglist__link widget__link btn" href="/STAT5526_Fall2020/tags/lecture" title="Lecture">Lecture</a>
+		<a class="widget-taglist__link widget__link btn" href="/STAT5526_Fall2020/tags/lecture1" title="Lecture1">Lecture1</a>
+		<a class="widget-taglist__link widget__link btn" href="/STAT5526_Fall2020/tags/parallelizing" title="Parallelizing">Parallelizing</a>
+		<a class="widget-taglist__link widget__link btn" href="/STAT5526_Fall2020/tags/r" title="R">R</a>
+		<a class="widget-taglist__link widget__link btn" href="/STAT5526_Fall2020/tags/r-setup" title="R setup">R setup</a>
+		<a class="widget-taglist__link widget__link btn" href="/STAT5526_Fall2020/tags/scheduler" title="Scheduler">Scheduler</a>
+		<a class="widget-taglist__link widget__link btn" href="/STAT5526_Fall2020/tags/topics" title="Topics">Topics</a>
+	</div>
+</div>
+</aside>
+		</div>
+		<footer class="footer">
+	<div class="container footer__container flex">
+		
+		<div class="footer__copyright">
+			&copy; 2020 STAT-5526 Fall 2020.
+			<span class="footer__copyright-credits">Generated with <a href="https://gohugo.io/" rel="nofollow noopener" target="_blank">Hugo</a> and <a href="https://github.com/Vimux/Mainroad/" rel="nofollow noopener" target="_blank">Mainroad</a> theme.</span>
+		</div>
+	</div>
+</footer>
+	</div>
+<script async defer src="/STAT5526_Fall2020/js/menu.js"></script></body>
+</html>

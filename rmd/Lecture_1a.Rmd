@@ -7,9 +7,9 @@ date: 2020-11-5
 publishdate: 2020-11-5
 draft: false
 categories:
-- Lecture
+- Lecture1
 tags:
-- Lecture
+- Lecture1
 - HPC
 output:
   html_document: default

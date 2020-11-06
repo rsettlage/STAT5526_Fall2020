@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>R on STAT-5526 Fall 2020</title>
+    <link>http://rsettlage.github.io/STAT5526_Fall2020/tags/r/</link>
+    <description>Recent content in R on STAT-5526 Fall 2020</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 05 Nov 2020 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="http://rsettlage.github.io/STAT5526_Fall2020/tags/r/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>2 - R startup</title>
+      <link>http://rsettlage.github.io/STAT5526_Fall2020/notes/r-startup/</link>
+      <pubDate>Thu, 05 Nov 2020 00:00:00 +0000</pubDate>
+      
+      <guid>http://rsettlage.github.io/STAT5526_Fall2020/notes/r-startup/</guid>
+      <description>R, not unlike Linux, has the ability to customize and automate many tasks/functions. Understanding R’s startup is essential in becoming a power R user. Here, we only need to understand the basics to gain an understanding of how we can configure R for ease of computing and reproducibility on our clusters.
+An exhausting guide is here: https://rstats.wtf/r-startup.html/. Although, I prefer the summary here: https://rviews.rstudio.com/2017/04/19/r-for-enterprise-understanding-r-s-startup/
+include_url(&amp;quot;https://rviews.rstudio.com/post/2017-04-04-rs-quirky-and-powerful-startup_files/R_STARTUP.jpeg&amp;quot;)  Basically, what this is telling us is there are many places where we can customize how our R/Rstudio session look/run/feel.</description>
+    </item>
+    
+  </channel>
+</rss>

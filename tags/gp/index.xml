@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>GP on STAT-5526 Fall 2020</title>
+    <link>http://rsettlage.github.io/STAT5526_Fall2020/tags/gp/</link>
+    <description>Recent content in GP on STAT-5526 Fall 2020</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 05 Nov 2020 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="http://rsettlage.github.io/STAT5526_Fall2020/tags/gp/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>3 - Good Programming</title>
+      <link>http://rsettlage.github.io/STAT5526_Fall2020/notes/good-programming/</link>
+      <pubDate>Thu, 05 Nov 2020 00:00:00 +0000</pubDate>
+      
+      <guid>http://rsettlage.github.io/STAT5526_Fall2020/notes/good-programming/</guid>
+      <description>Good Programming Practices and Reproducible Research are worth YOUR time. They will save YOUR bacan. This is worth the read!!
+https://www.stat.ubc.ca/~jenny/STAT545A/block19_codeFormattingOrganization.html
+I could end here and be done. This says it all.
+The only thing I want to emphasize is file organization. You will develop your own preferences, but it is a good habit to get into early. Here is one I have seen multiple times:
+As expanded on here: https://www.</description>
+    </item>
+    
+  </channel>
+</rss>

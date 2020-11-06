@@ -7,9 +7,9 @@ date: 2020-11-5
 publishdate: 2020-11-05
 draft: false
 categories:
-- Lecture
+- Lecture1
 tags:
-- Lecture
+- Lecture1
 - Scheduler
 output:
   html_document: default

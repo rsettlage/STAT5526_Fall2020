@@ -12,6 +12,19 @@
     
     
     <item>
+      <title>3 - Good Programming</title>
+      <link>http://rsettlage.github.io/STAT5526_Fall2020/notes/good-programming/</link>
+      <pubDate>Thu, 05 Nov 2020 00:00:00 +0000</pubDate>
+      
+      <guid>http://rsettlage.github.io/STAT5526_Fall2020/notes/good-programming/</guid>
+      <description>Good Programming Practices and Reproducible Research are worth YOUR time. They will save YOUR bacan. This is worth the read!!
+https://www.stat.ubc.ca/~jenny/STAT545A/block19_codeFormattingOrganization.html
+I could end here and be done. This says it all.
+The only thing I want to emphasize is file organization. You will develop your own preferences, but it is a good habit to get into early. Here is one I have seen multiple times:
+As expanded on here: https://www.</description>
+    </item>
+    
+    <item>
       <title>Submitting homework</title>
       <link>http://rsettlage.github.io/STAT5526_Fall2020/homework-submit/</link>
       <pubDate>Thu, 05 Nov 2020 00:00:00 +0000</pubDate>

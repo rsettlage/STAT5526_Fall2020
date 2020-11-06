@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Notes on STAT-5526 Fall 2020</title>
+    <link>http://rsettlage.github.io/STAT5526_Fall2020/notes/</link>
+    <description>Recent content in Notes on STAT-5526 Fall 2020</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 05 Nov 2020 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="http://rsettlage.github.io/STAT5526_Fall2020/notes/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>1 - HPC notes</title>
+      <link>http://rsettlage.github.io/STAT5526_Fall2020/notes/hpc/</link>
+      <pubDate>Thu, 05 Nov 2020 00:00:00 +0000</pubDate>
+      
+      <guid>http://rsettlage.github.io/STAT5526_Fall2020/notes/hpc/</guid>
+      <description>Scheduler High performance computing clusters are characterized by login nodes fronting a pool of compute resources. Access to the compute resources is controlled via a resource scheduler. In our case, this is Slurm. Simple Linux Utility for Resource Management (SLURM) by SchedMD https://www.schedmd.com/. Access can be either interactive or via submitting scripts via batch jobs. Here are a few basic commands you will find useful:
+get list of running and queued jobs squeue  get list of YOUR running and queued jobs – replace  with your VT pid</description>
+    </item>
+    
+    <item>
+      <title>2 - R startup</title>
+      <link>http://rsettlage.github.io/STAT5526_Fall2020/notes/r-startup/</link>
+      <pubDate>Thu, 05 Nov 2020 00:00:00 +0000</pubDate>
+      
+      <guid>http://rsettlage.github.io/STAT5526_Fall2020/notes/r-startup/</guid>
+      <description>R, not unlike Linux, has the ability to customize and automate many tasks/functions. Understanding R’s startup is essential in becoming a power R user. Here, we only need to understand the basics to gain an understanding of how we can configure R for ease of computing and reproducibility on our clusters.
+An exhausting guide is here: https://rstats.wtf/r-startup.html/. Although, I prefer the summary here: https://rviews.rstudio.com/2017/04/19/r-for-enterprise-understanding-r-s-startup/
+include_url(&amp;quot;https://rviews.rstudio.com/post/2017-04-04-rs-quirky-and-powerful-startup_files/R_STARTUP.jpeg&amp;quot;)  Basically, what this is telling us is there are many places where we can customize how our R/Rstudio session look/run/feel.</description>
+    </item>
+    
+    <item>
+      <title>3 - Good Programming</title>
+      <link>http://rsettlage.github.io/STAT5526_Fall2020/notes/good-programming/</link>
+      <pubDate>Thu, 05 Nov 2020 00:00:00 +0000</pubDate>
+      
+      <guid>http://rsettlage.github.io/STAT5526_Fall2020/notes/good-programming/</guid>
+      <description>Good Programming Practices and Reproducible Research are worth YOUR time. They will save YOUR bacan. This is worth the read!!
+https://www.stat.ubc.ca/~jenny/STAT545A/block19_codeFormattingOrganization.html
+I could end here and be done. This says it all.
+The only thing I want to emphasize is file organization. You will develop your own preferences, but it is a good habit to get into early. Here is one I have seen multiple times:
+As expanded on here: https://www.</description>
+    </item>
+    
+  </channel>
+</rss>

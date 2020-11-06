@@ -3,6 +3,21 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>http://rsettlage.github.io/STAT5526_Fall2020/notes/hpc/</loc>
+    <lastmod>2020-11-05T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://rsettlage.github.io/STAT5526_Fall2020/notes/r-startup/</loc>
+    <lastmod>2020-11-05T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://rsettlage.github.io/STAT5526_Fall2020/notes/good-programming/</loc>
+    <lastmod>2020-11-05T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>http://rsettlage.github.io/STAT5526_Fall2020/categories/</loc>
     <lastmod>2020-11-05T00:00:00+00:00</lastmod>
   </url>
@@ -18,7 +33,17 @@
   </url>
   
   <url>
+    <loc>http://rsettlage.github.io/STAT5526_Fall2020/tags/gp/</loc>
+    <lastmod>2020-11-05T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>http://rsettlage.github.io/STAT5526_Fall2020/tags/homework/</loc>
+    <lastmod>2020-11-05T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://rsettlage.github.io/STAT5526_Fall2020/tags/hpc/</loc>
     <lastmod>2020-11-05T00:00:00+00:00</lastmod>
   </url>
   
@@ -48,12 +73,32 @@
   </url>
   
   <url>
+    <loc>http://rsettlage.github.io/STAT5526_Fall2020/tags/lecture1/</loc>
+    <lastmod>2020-11-05T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://rsettlage.github.io/STAT5526_Fall2020/categories/lecture1/</loc>
+    <lastmod>2020-11-05T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://rsettlage.github.io/STAT5526_Fall2020/notes/</loc>
+    <lastmod>2020-11-05T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>http://rsettlage.github.io/STAT5526_Fall2020/tags/parallelizing/</loc>
     <lastmod>2020-11-05T00:00:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>http://rsettlage.github.io/STAT5526_Fall2020/posts/</loc>
+    <lastmod>2020-11-05T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://rsettlage.github.io/STAT5526_Fall2020/tags/r/</loc>
     <lastmod>2020-11-05T00:00:00+00:00</lastmod>
   </url>
   
@@ -88,16 +133,6 @@
   </url>
   
   <url>
-    <loc>http://rsettlage.github.io/STAT5526_Fall2020/containers/</loc>
-    <lastmod>2020-11-04T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://rsettlage.github.io/STAT5526_Fall2020/tags/docker/</loc>
-    <lastmod>2020-11-04T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
     <loc>http://rsettlage.github.io/STAT5526_Fall2020/topics/</loc>
     <lastmod>2020-11-04T00:00:00+00:00</lastmod>
   </url>
@@ -105,10 +140,6 @@
   <url>
     <loc>http://rsettlage.github.io/STAT5526_Fall2020/tags/topics/</loc>
     <lastmod>2020-11-04T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://rsettlage.github.io/STAT5526_Fall2020/tags/hpc/</loc>
   </url>
   
   <url>

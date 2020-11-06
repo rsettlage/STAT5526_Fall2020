@@ -6,9 +6,20 @@
     <description>Recent content in HPC on STAT-5526 Fall 2020</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
+    <lastBuildDate>Thu, 05 Nov 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="http://rsettlage.github.io/STAT5526_Fall2020/tags/hpc/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>1 - HPC notes</title>
+      <link>http://rsettlage.github.io/STAT5526_Fall2020/notes/hpc/</link>
+      <pubDate>Thu, 05 Nov 2020 00:00:00 +0000</pubDate>
+      
+      <guid>http://rsettlage.github.io/STAT5526_Fall2020/notes/hpc/</guid>
+      <description>Scheduler High performance computing clusters are characterized by login nodes fronting a pool of compute resources. Access to the compute resources is controlled via a resource scheduler. In our case, this is Slurm. Simple Linux Utility for Resource Management (SLURM) by SchedMD https://www.schedmd.com/. Access can be either interactive or via submitting scripts via batch jobs. Here are a few basic commands you will find useful:
+get list of running and queued jobs squeue  get list of YOUR running and queued jobs – replace  with your VT pid</description>
+    </item>
     
     <item>
       <title>Lecture 1A - HPC Cluster Organization</title>

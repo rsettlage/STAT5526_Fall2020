@@ -21,11 +21,29 @@
     </item>
     
     <item>
+      <title>GP</title>
+      <link>http://rsettlage.github.io/STAT5526_Fall2020/tags/gp/</link>
+      <pubDate>Thu, 05 Nov 2020 00:00:00 +0000</pubDate>
+      
+      <guid>http://rsettlage.github.io/STAT5526_Fall2020/tags/gp/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>homework</title>
       <link>http://rsettlage.github.io/STAT5526_Fall2020/tags/homework/</link>
       <pubDate>Thu, 05 Nov 2020 00:00:00 +0000</pubDate>
       
       <guid>http://rsettlage.github.io/STAT5526_Fall2020/tags/homework/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>HPC</title>
+      <link>http://rsettlage.github.io/STAT5526_Fall2020/tags/hpc/</link>
+      <pubDate>Thu, 05 Nov 2020 00:00:00 +0000</pubDate>
+      
+      <guid>http://rsettlage.github.io/STAT5526_Fall2020/tags/hpc/</guid>
       <description></description>
     </item>
     
@@ -39,11 +57,29 @@
     </item>
     
     <item>
+      <title>Lecture1</title>
+      <link>http://rsettlage.github.io/STAT5526_Fall2020/tags/lecture1/</link>
+      <pubDate>Thu, 05 Nov 2020 00:00:00 +0000</pubDate>
+      
+      <guid>http://rsettlage.github.io/STAT5526_Fall2020/tags/lecture1/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>Parallelizing</title>
       <link>http://rsettlage.github.io/STAT5526_Fall2020/tags/parallelizing/</link>
       <pubDate>Thu, 05 Nov 2020 00:00:00 +0000</pubDate>
       
       <guid>http://rsettlage.github.io/STAT5526_Fall2020/tags/parallelizing/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>R</title>
+      <link>http://rsettlage.github.io/STAT5526_Fall2020/tags/r/</link>
+      <pubDate>Thu, 05 Nov 2020 00:00:00 +0000</pubDate>
+      
+      <guid>http://rsettlage.github.io/STAT5526_Fall2020/tags/r/</guid>
       <description></description>
     </item>
     
@@ -66,29 +102,11 @@
     </item>
     
     <item>
-      <title>Docker</title>
-      <link>http://rsettlage.github.io/STAT5526_Fall2020/tags/docker/</link>
-      <pubDate>Wed, 04 Nov 2020 00:00:00 +0000</pubDate>
-      
-      <guid>http://rsettlage.github.io/STAT5526_Fall2020/tags/docker/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>Topics</title>
       <link>http://rsettlage.github.io/STAT5526_Fall2020/tags/topics/</link>
       <pubDate>Wed, 04 Nov 2020 00:00:00 +0000</pubDate>
       
       <guid>http://rsettlage.github.io/STAT5526_Fall2020/tags/topics/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>HPC</title>
-      <link>http://rsettlage.github.io/STAT5526_Fall2020/tags/hpc/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>http://rsettlage.github.io/STAT5526_Fall2020/tags/hpc/</guid>
       <description></description>
     </item>
     
