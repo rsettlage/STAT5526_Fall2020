@@ -1,5 +1,5 @@
 ---
-title: "Lecture 2A - Monte Carlo"
+title: "Lecture 2A - Monte Carlo - Work in Process"
 author: "Robert Settlage"
 authorbox: false
 slug: "Lecture 2A"

@@ -22,7 +22,7 @@ header-includes: \setlength\parindent{24pt} \usepackage{MnSymbol} \usepackage{ma
 
 # Reasons why your compute can be taking too long 
 
-Ok, the point to today's discussion.  Your project has exceeded what you can do locally.  Possible reasons why:
+Ok, the point to today's discussion.  Your *project* has exceeded what you can do locally.  Possible reasons why:
 
 1. memory limits
 2. storage limits

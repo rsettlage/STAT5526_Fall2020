@@ -1,5 +1,5 @@
 ---
-title: "Lecture 2C - R and Keras"
+title: "Lecture 2C - R and Keras - Work in Process"
 author: "Robert Settlage"
 authorbox: false
 slug: "Lecture 2C"
