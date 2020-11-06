@@ -12,7 +12,14 @@ tags:
 - Lecture
 - Containers
 - R setup
-output: html_notebook
+output:
+  html_document: default
+  fig_caption: yes
+  fig_height: 6
+  fig_width: 7
+  pdf_document: null
+  classoption: landscape
+header-includes: \setlength\parindent{24pt} \usepackage{MnSymbol} \usepackage{mathrsfs}
 ---
 
 ```{r eval=TRUE, echo=FALSE, include=FALSE}
