@@ -17,8 +17,13 @@
       <pubDate>Wed, 04 Nov 2020 00:00:00 +0000</pubDate>
       
       <guid>http://rsettlage.github.io/STAT5526_Fall2020/docker-config/</guid>
-      <description>OK, decided to ditch the local config. In spite of the fact that Docker is supposed to be platform agnostic, it needs some sort of virtualization layer, so some versions of Windows are a no-go, eg Windows Home Ed. We will use DockerHub connected to GitHub to build images on a remote server.
-Let’s talk a little about Docker. Docker, imo, takes us to the extreme end of reproducible research.</description>
+      <description>
+&lt;link href=&#34;http://rsettlage.github.io/STAT5526_Fall2020/STAT5526_Fall2020/rmarkdown-libs/anchor-sections/anchor-sections.css&#34; rel=&#34;stylesheet&#34; /&gt;
+&lt;script src=&#34;http://rsettlage.github.io/STAT5526_Fall2020/STAT5526_Fall2020/rmarkdown-libs/anchor-sections/anchor-sections.js&#34;&gt;&lt;/script&gt;
+
+
+&lt;p&gt;Docker/GitHub/Singularity workflow for STAT 5526 HPC/R section, Fall 2020.
+</description>
     </item>
     
     <item>
