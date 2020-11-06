@@ -76,16 +76,98 @@
 			<div class="primary">
 			
 <main class="main list" role="main">
-	
-		<div class="warning">
-			<svg class="warning__icon icon icon-files" width="96" height="96" viewBox="0 0 384 384"><path d="m368 64h-224-16v16 288 16h16 224 16v-16-288-16zm-16 288h-192v-256h192zm-320-320h192v16h32v-32-16h-16-224-16v16 288 16h16 96v-32h-80zm144 272h160v-32h-160zm0-64h160v-32h-160zm0-64h160v-32h-160zm-128 64h64v-32h-64zm0-64h64v-32h-64zm0-64h64v-32h-64z"/></svg>
-			<h3 class="warning__headline">You don't have any posts yet!</h3>
-			<div class="warning__text">
-				<p class="warning__description">Once you post something in any folder (section) under the <b>content</b> directory, it will appear here. Only one section (with the most posts) will be displayed on the main page by default.</p>
-				<p class="warning__tip"><b>Tip:</b> You can show as many sections as you like with <b><a href="https://gohugo.io/functions/where/#mainsections"rel="nofollow noopener" target="_blank">mainSections</a></b> config parameter.</p>
-			</div>
-		</div>
-	
+	<article class="list__item post">
+	<header class="list__header">
+		<h3 class="list__title post__title ">
+			<a href="/STAT5526_Fall2020/2020/11/05/lecture-1b/" rel="bookmark">
+			Lecture 1B - Scheduler/Software/Storage
+			</a>
+		</h3>
+		<div class="list__meta meta">
+<div class="meta__item-datetime meta__item">
+	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0C7 0 1 6 1 14s6 14 14 14 14-6 14-14S23 0 15 0zm0 25C9 25 4 20 4 14S9 3 15 3s11 5 11 11-5 11-11 11zm1-18h-2v8.4l6.8 4.4L22 18l-6-3.8V7z"/></svg>
+	<time class="meta__text" datetime="2020-11-05T00:00:00">November 05, 2020</time>
+</div>
+
+<div class="meta__item-categories meta__item">
+	<svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2l1 2h8v11h-16v-13z"/></svg>
+	<span class="meta__text"><a class="meta__link" href="/STAT5526_Fall2020/categories/lecture" rel="category">Lecture</a></span>
+</div>
+</div>
+	</header>
+	<div class="content list__excerpt post__content clearfix">
+		Interacting with a scheduler As shown in the previous note, high performance computing clusters are characterized by a (or several) login nodes. The nodes serve as the gateway to the rest of the cluster. To gain access to the compute power within the cluster, you must “reserve” time on a compute node. This is done through a resource manager commonly termed a scheduler.
+HPC system diagram
+ On ARC systems, we are migrating to SLURM which stands for Simple Linux Utility for Resource Management.
+	</div>
+</article><article class="list__item post">
+	<header class="list__header">
+		<h3 class="list__title post__title ">
+			<a href="/STAT5526_Fall2020/2020/11/05/lecture-1c/" rel="bookmark">
+			Lecture 1C - Containers and R
+			</a>
+		</h3>
+		<div class="list__meta meta">
+<div class="meta__item-datetime meta__item">
+	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0C7 0 1 6 1 14s6 14 14 14 14-6 14-14S23 0 15 0zm0 25C9 25 4 20 4 14S9 3 15 3s11 5 11 11-5 11-11 11zm1-18h-2v8.4l6.8 4.4L22 18l-6-3.8V7z"/></svg>
+	<time class="meta__text" datetime="2020-11-05T00:00:00">November 05, 2020</time>
+</div>
+
+<div class="meta__item-categories meta__item">
+	<svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2l1 2h8v11h-16v-13z"/></svg>
+	<span class="meta__text"><a class="meta__link" href="/STAT5526_Fall2020/categories/lecture" rel="category">Lecture</a></span>
+</div>
+</div>
+	</header>
+	<div class="content list__excerpt post__content clearfix">
+		R and Containers. Finally. OK, I listed this as R, then containers, but we will do containers then R. Eh.
+So, where have we come from and where are we going?
+ Prototyping Generally, Into to Data Analytics classes focus on algorithms and stay in Rstudio or Jupyter Notebooks. These IDEs are fantatic for a quick(-ish), iterative approach to data munging, EDA, data cleaning, plotting, creating reports, etc. Some project data sets are too large, there are too many parameter combinations to try, or perhaps the data is a real time continuous stream, necessitating a different approach.
+	</div>
+</article><article class="list__item post">
+	<header class="list__header">
+		<h3 class="list__title post__title ">
+			<a href="/STAT5526_Fall2020/2020/11/05/lecture-1d/" rel="bookmark">
+			Lecture 1D - Going Parallel
+			</a>
+		</h3>
+		<div class="list__meta meta">
+<div class="meta__item-datetime meta__item">
+	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0C7 0 1 6 1 14s6 14 14 14 14-6 14-14S23 0 15 0zm0 25C9 25 4 20 4 14S9 3 15 3s11 5 11 11-5 11-11 11zm1-18h-2v8.4l6.8 4.4L22 18l-6-3.8V7z"/></svg>
+	<time class="meta__text" datetime="2020-11-05T00:00:00">November 05, 2020</time>
+</div>
+
+<div class="meta__item-categories meta__item">
+	<svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2l1 2h8v11h-16v-13z"/></svg>
+	<span class="meta__text"><a class="meta__link" href="/STAT5526_Fall2020/categories/lecture" rel="category">Lecture</a></span>
+</div>
+</div>
+	</header>
+	<div class="content list__excerpt post__content clearfix">
+		Topics Parallelization + MKL/OpenBLAS vectorization + OpenMP + MPI
+plot(cars) Add a new chunk by clicking the Insert Chunk button on the toolbar or by pressing Cmd+Option+I.
+When you save the notebook, an HTML file containing the code and output will be saved alongside it (click the Preview button or press Cmd+Shift+K to preview the HTML file).
+The preview shows you a rendered HTML copy of the contents of the editor.
+	</div>
+</article><article class="list__item post">
+	<header class="list__header">
+		<h3 class="list__title post__title ">
+			<a href="/STAT5526_Fall2020/1/01/01/lecture-1a/" rel="bookmark">
+			Lecture 1A - HPC Cluster Organization
+			</a>
+		</h3>
+		<div class="list__meta meta">
+<div class="meta__item-categories meta__item">
+	<svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2l1 2h8v11h-16v-13z"/></svg>
+	<span class="meta__text"><a class="meta__link" href="/STAT5526_Fall2020/categories/lecture" rel="category">Lecture</a></span>
+</div>
+</div>
+	</header>
+	<div class="content list__excerpt post__content clearfix">
+		HPC, HTC and Cloud HPC, HTC, and Cloud Computing are modern answers to “too much data”. As given by the facts listed here:
+ 1.7MB of data is created every second by every person during 2020. In the last two years alone, the astonishing 90% of the world’s data has been created. 2.5 quintillion bytes of data are produced by humans every day. 463 exabytes of data will be generated each day by humans as of 2025.
+	</div>
+</article>
 </main>
 
 
@@ -99,19 +181,36 @@
 		<input type="hidden" name="sitesearch" value="http://rsettlage.github.io/STAT5526_Fall2020/" />
 	</form>
 </div>
+<div class="widget-recent widget">
+	<h4 class="widget__title">Recent Posts</h4>
+	<div class="widget__content">
+		<ul class="widget__list">
+			<li class="widget__item"><a class="widget__link" href="/STAT5526_Fall2020/2020/11/05/lecture-1b/">Lecture 1B - Scheduler/Software/Storage</a></li>
+			<li class="widget__item"><a class="widget__link" href="/STAT5526_Fall2020/2020/11/05/lecture-1c/">Lecture 1C - Containers and R</a></li>
+			<li class="widget__item"><a class="widget__link" href="/STAT5526_Fall2020/2020/11/05/lecture-1d/">Lecture 1D - Going Parallel</a></li>
+		</ul>
+	</div>
+</div>
 <div class="widget-categories widget">
 	<h4 class="widget__title">Categories</h4>
 	<div class="widget__content">
 		<ul class="widget__list">
 			<li class="widget__item"><a class="widget__link" href="/STAT5526_Fall2020/categories/course-logistics">Course logistics</a></li>
+			<li class="widget__item"><a class="widget__link" href="/STAT5526_Fall2020/categories/lecture">Lecture</a></li>
 		</ul>
 	</div>
 </div>
 <div class="widget-taglist widget">
 	<h4 class="widget__title">Tags</h4>
 	<div class="widget__content">
+		<a class="widget-taglist__link widget__link btn" href="/STAT5526_Fall2020/tags/containers" title="Containers">Containers</a>
 		<a class="widget-taglist__link widget__link btn" href="/STAT5526_Fall2020/tags/docker" title="Docker">Docker</a>
 		<a class="widget-taglist__link widget__link btn" href="/STAT5526_Fall2020/tags/homework" title="Homework">Homework</a>
+		<a class="widget-taglist__link widget__link btn" href="/STAT5526_Fall2020/tags/hpc" title="Hpc">Hpc</a>
+		<a class="widget-taglist__link widget__link btn" href="/STAT5526_Fall2020/tags/lecture" title="Lecture">Lecture</a>
+		<a class="widget-taglist__link widget__link btn" href="/STAT5526_Fall2020/tags/parallelizing" title="Parallelizing">Parallelizing</a>
+		<a class="widget-taglist__link widget__link btn" href="/STAT5526_Fall2020/tags/r-setup" title="R setup">R setup</a>
+		<a class="widget-taglist__link widget__link btn" href="/STAT5526_Fall2020/tags/scheduler" title="Scheduler">Scheduler</a>
 		<a class="widget-taglist__link widget__link btn" href="/STAT5526_Fall2020/tags/topics" title="Topics">Topics</a>
 	</div>
 </div>

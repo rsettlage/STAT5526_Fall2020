@@ -12,11 +12,56 @@
     
     
     <item>
+      <title>Containers</title>
+      <link>http://rsettlage.github.io/STAT5526_Fall2020/tags/containers/</link>
+      <pubDate>Thu, 05 Nov 2020 00:00:00 +0000</pubDate>
+      
+      <guid>http://rsettlage.github.io/STAT5526_Fall2020/tags/containers/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>homework</title>
       <link>http://rsettlage.github.io/STAT5526_Fall2020/tags/homework/</link>
       <pubDate>Thu, 05 Nov 2020 00:00:00 +0000</pubDate>
       
       <guid>http://rsettlage.github.io/STAT5526_Fall2020/tags/homework/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Lecture</title>
+      <link>http://rsettlage.github.io/STAT5526_Fall2020/tags/lecture/</link>
+      <pubDate>Thu, 05 Nov 2020 00:00:00 +0000</pubDate>
+      
+      <guid>http://rsettlage.github.io/STAT5526_Fall2020/tags/lecture/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Parallelizing</title>
+      <link>http://rsettlage.github.io/STAT5526_Fall2020/tags/parallelizing/</link>
+      <pubDate>Thu, 05 Nov 2020 00:00:00 +0000</pubDate>
+      
+      <guid>http://rsettlage.github.io/STAT5526_Fall2020/tags/parallelizing/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>R setup</title>
+      <link>http://rsettlage.github.io/STAT5526_Fall2020/tags/r-setup/</link>
+      <pubDate>Thu, 05 Nov 2020 00:00:00 +0000</pubDate>
+      
+      <guid>http://rsettlage.github.io/STAT5526_Fall2020/tags/r-setup/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Scheduler</title>
+      <link>http://rsettlage.github.io/STAT5526_Fall2020/tags/scheduler/</link>
+      <pubDate>Thu, 05 Nov 2020 00:00:00 +0000</pubDate>
+      
+      <guid>http://rsettlage.github.io/STAT5526_Fall2020/tags/scheduler/</guid>
       <description></description>
     </item>
     
@@ -35,6 +80,15 @@
       <pubDate>Wed, 04 Nov 2020 00:00:00 +0000</pubDate>
       
       <guid>http://rsettlage.github.io/STAT5526_Fall2020/tags/topics/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>HPC</title>
+      <link>http://rsettlage.github.io/STAT5526_Fall2020/tags/hpc/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://rsettlage.github.io/STAT5526_Fall2020/tags/hpc/</guid>
       <description></description>
     </item>
     

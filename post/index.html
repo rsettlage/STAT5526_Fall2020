@@ -4,19 +4,19 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>Course Logistics - STAT-5526 Fall 2020</title>
+	<title>Posts - STAT-5526 Fall 2020</title>
 	<script>(function(d,e){d[e]=d[e].replace("no-js","js");})(document.documentElement,"className");</script>
 	<meta name="description" content="">
-	<meta property="og:title" content="Course Logistics" />
+	<meta property="og:title" content="Posts" />
 <meta property="og:description" content="Location for course material for STAT-5526 HPC/R discussions" />
 <meta property="og:type" content="website" />
-<meta property="og:url" content="http://rsettlage.github.io/STAT5526_Fall2020/categories/course-logistics/" />
+<meta property="og:url" content="http://rsettlage.github.io/STAT5526_Fall2020/post/" />
 <meta property="og:updated_time" content="2020-11-05T00:00:00+00:00" />
 
 	
 	<link rel="dns-prefetch" href="//fonts.googleapis.com">
 	<link rel="dns-prefetch" href="//fonts.gstatic.com">
-	<link rel="alternate" type="application/rss+xml" href="/STAT5526_Fall2020/categories/course-logistics/index.xml" title="STAT-5526 Fall 2020">
+	<link rel="alternate" type="application/rss+xml" href="/STAT5526_Fall2020/post/index.xml" title="STAT-5526 Fall 2020">
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700">
 	<link rel="stylesheet" href="/STAT5526_Fall2020/css/style.css">
 	
@@ -76,12 +76,12 @@
 			
 <main class="main list" role="main">
 	<header class="main__header">
-		<h1 class="main__title">Course Logistics</h1>
+		<h1 class="main__title">Posts</h1>
 	</header><article class="list__item post">
 	<header class="list__header">
 		<h3 class="list__title post__title ">
-			<a href="/STAT5526_Fall2020/homework-submit/" rel="bookmark">
-			Submitting homework
+			<a href="/STAT5526_Fall2020/2020/11/05/lecture-1b/" rel="bookmark">
+			Lecture 1B - Scheduler/Software/Storage
 			</a>
 		</h3>
 		<div class="list__meta meta">
@@ -92,74 +92,81 @@
 
 <div class="meta__item-categories meta__item">
 	<svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2l1 2h8v11h-16v-13z"/></svg>
-	<span class="meta__text"><a class="meta__link" href="/STAT5526_Fall2020/categories/course-logistics" rel="category">Course Logistics</a></span>
+	<span class="meta__text"><a class="meta__link" href="/STAT5526_Fall2020/categories/lecture" rel="category">Lecture</a></span>
 </div>
 </div>
 	</header>
 	<div class="content list__excerpt post__content clearfix">
-		
-<link href="/STAT5526_Fall2020/rmarkdown-libs/anchor-sections/anchor-sections.css" rel="stylesheet" />
-<script src="/STAT5526_Fall2020/rmarkdown-libs/anchor-sections/anchor-sections.js"></script>
-
-
-<p>Homework submissions will be accomplished through Canvas and GitHub. In Canvas, I would like the final code, instructions to run the code and a final report.<br />
-
+		Interacting with a scheduler As shown in the previous note, high performance computing clusters are characterized by a (or several) login nodes. The nodes serve as the gateway to the rest of the cluster. To gain access to the compute power within the cluster, you must “reserve” time on a compute node. This is done through a resource manager commonly termed a scheduler.
+HPC system diagram
+ On ARC systems, we are migrating to SLURM which stands for Simple Linux Utility for Resource Management.
 	</div>
 </article><article class="list__item post">
 	<header class="list__header">
 		<h3 class="list__title post__title ">
-			<a href="/STAT5526_Fall2020/containers/" rel="bookmark">
-			Configuring Docker
+			<a href="/STAT5526_Fall2020/2020/11/05/lecture-1c/" rel="bookmark">
+			Lecture 1C - Containers and R
 			</a>
 		</h3>
 		<div class="list__meta meta">
 <div class="meta__item-datetime meta__item">
 	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0C7 0 1 6 1 14s6 14 14 14 14-6 14-14S23 0 15 0zm0 25C9 25 4 20 4 14S9 3 15 3s11 5 11 11-5 11-11 11zm1-18h-2v8.4l6.8 4.4L22 18l-6-3.8V7z"/></svg>
-	<time class="meta__text" datetime="2020-11-04T00:00:00">November 04, 2020</time>
+	<time class="meta__text" datetime="2020-11-05T00:00:00">November 05, 2020</time>
 </div>
 
 <div class="meta__item-categories meta__item">
 	<svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2l1 2h8v11h-16v-13z"/></svg>
-	<span class="meta__text"><a class="meta__link" href="/STAT5526_Fall2020/categories/course-logistics" rel="category">Course Logistics</a></span>
+	<span class="meta__text"><a class="meta__link" href="/STAT5526_Fall2020/categories/lecture" rel="category">Lecture</a></span>
 </div>
 </div>
 	</header>
 	<div class="content list__excerpt post__content clearfix">
-		
-<link href="/STAT5526_Fall2020/rmarkdown-libs/anchor-sections/anchor-sections.css" rel="stylesheet" />
-<script src="/STAT5526_Fall2020/rmarkdown-libs/anchor-sections/anchor-sections.js"></script>
-
-
-<p>Docker/GitHub/Singularity workflow for STAT 5526 HPC/R section, Fall 2020.
-
+		R and Containers. Finally. OK, I listed this as R, then containers, but we will do containers then R. Eh.
+So, where have we come from and where are we going?
+ Prototyping Generally, Into to Data Analytics classes focus on algorithms and stay in Rstudio or Jupyter Notebooks. These IDEs are fantatic for a quick(-ish), iterative approach to data munging, EDA, data cleaning, plotting, creating reports, etc. Some project data sets are too large, there are too many parameter combinations to try, or perhaps the data is a real time continuous stream, necessitating a different approach.
 	</div>
 </article><article class="list__item post">
 	<header class="list__header">
 		<h3 class="list__title post__title ">
-			<a href="/STAT5526_Fall2020/topics/" rel="bookmark">
-			Stat 5526 Fall 2020 HPC/R Topics
+			<a href="/STAT5526_Fall2020/2020/11/05/lecture-1d/" rel="bookmark">
+			Lecture 1D - Going Parallel
 			</a>
 		</h3>
 		<div class="list__meta meta">
 <div class="meta__item-datetime meta__item">
 	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0C7 0 1 6 1 14s6 14 14 14 14-6 14-14S23 0 15 0zm0 25C9 25 4 20 4 14S9 3 15 3s11 5 11 11-5 11-11 11zm1-18h-2v8.4l6.8 4.4L22 18l-6-3.8V7z"/></svg>
-	<time class="meta__text" datetime="2020-11-04T00:00:00">November 04, 2020</time>
+	<time class="meta__text" datetime="2020-11-05T00:00:00">November 05, 2020</time>
 </div>
 
 <div class="meta__item-categories meta__item">
 	<svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2l1 2h8v11h-16v-13z"/></svg>
-	<span class="meta__text"><a class="meta__link" href="/STAT5526_Fall2020/categories/course-logistics" rel="category">Course Logistics</a></span>
+	<span class="meta__text"><a class="meta__link" href="/STAT5526_Fall2020/categories/lecture" rel="category">Lecture</a></span>
 </div>
 </div>
 	</header>
 	<div class="content list__excerpt post__content clearfix">
-		
-<link href="/STAT5526_Fall2020/rmarkdown-libs/anchor-sections/anchor-sections.css" rel="stylesheet" />
-<script src="/STAT5526_Fall2020/rmarkdown-libs/anchor-sections/anchor-sections.js"></script>
-
-
-<p>Topics for STAT 5526 HPC/R section, Fall 2020.
-
+		Topics Parallelization + MKL/OpenBLAS vectorization + OpenMP + MPI
+plot(cars) Add a new chunk by clicking the Insert Chunk button on the toolbar or by pressing Cmd+Option+I.
+When you save the notebook, an HTML file containing the code and output will be saved alongside it (click the Preview button or press Cmd+Shift+K to preview the HTML file).
+The preview shows you a rendered HTML copy of the contents of the editor.
+	</div>
+</article><article class="list__item post">
+	<header class="list__header">
+		<h3 class="list__title post__title ">
+			<a href="/STAT5526_Fall2020/1/01/01/lecture-1a/" rel="bookmark">
+			Lecture 1A - HPC Cluster Organization
+			</a>
+		</h3>
+		<div class="list__meta meta">
+<div class="meta__item-categories meta__item">
+	<svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2l1 2h8v11h-16v-13z"/></svg>
+	<span class="meta__text"><a class="meta__link" href="/STAT5526_Fall2020/categories/lecture" rel="category">Lecture</a></span>
+</div>
+</div>
+	</header>
+	<div class="content list__excerpt post__content clearfix">
+		HPC, HTC and Cloud HPC, HTC, and Cloud Computing are modern answers to “too much data”. As given by the facts listed here:
+ 1.7MB of data is created every second by every person during 2020. In the last two years alone, the astonishing 90% of the world’s data has been created. 2.5 quintillion bytes of data are produced by humans every day. 463 exabytes of data will be generated each day by humans as of 2025.
 	</div>
 </article>
 </main>

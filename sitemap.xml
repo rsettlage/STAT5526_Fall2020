@@ -8,12 +8,62 @@
   </url>
   
   <url>
+    <loc>http://rsettlage.github.io/STAT5526_Fall2020/tags/containers/</loc>
+    <lastmod>2020-11-05T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>http://rsettlage.github.io/STAT5526_Fall2020/categories/course-logistics/</loc>
     <lastmod>2020-11-05T00:00:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>http://rsettlage.github.io/STAT5526_Fall2020/tags/homework/</loc>
+    <lastmod>2020-11-05T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://rsettlage.github.io/STAT5526_Fall2020/tags/lecture/</loc>
+    <lastmod>2020-11-05T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://rsettlage.github.io/STAT5526_Fall2020/categories/lecture/</loc>
+    <lastmod>2020-11-05T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://rsettlage.github.io/STAT5526_Fall2020/2020/11/05/lecture-1b/</loc>
+    <lastmod>2020-11-05T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://rsettlage.github.io/STAT5526_Fall2020/2020/11/05/lecture-1c/</loc>
+    <lastmod>2020-11-05T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://rsettlage.github.io/STAT5526_Fall2020/2020/11/05/lecture-1d/</loc>
+    <lastmod>2020-11-05T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://rsettlage.github.io/STAT5526_Fall2020/tags/parallelizing/</loc>
+    <lastmod>2020-11-05T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://rsettlage.github.io/STAT5526_Fall2020/post/</loc>
+    <lastmod>2020-11-05T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://rsettlage.github.io/STAT5526_Fall2020/tags/r-setup/</loc>
+    <lastmod>2020-11-05T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://rsettlage.github.io/STAT5526_Fall2020/tags/scheduler/</loc>
     <lastmod>2020-11-05T00:00:00+00:00</lastmod>
   </url>
   
@@ -55,6 +105,14 @@
   <url>
     <loc>http://rsettlage.github.io/STAT5526_Fall2020/tags/topics/</loc>
     <lastmod>2020-11-04T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://rsettlage.github.io/STAT5526_Fall2020/tags/hpc/</loc>
+  </url>
+  
+  <url>
+    <loc>http://rsettlage.github.io/STAT5526_Fall2020/1/01/01/lecture-1a/</loc>
   </url>
   
 </urlset>

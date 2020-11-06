@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>STAT-5526 Fall 2020</title>
-    <link>http://rsettlage.github.io/STAT5526_Fall2020/</link>
-    <description>Recent content on STAT-5526 Fall 2020</description>
+    <title>Lecture on STAT-5526 Fall 2020</title>
+    <link>http://rsettlage.github.io/STAT5526_Fall2020/categories/lecture/</link>
+    <description>Recent content in Lecture on STAT-5526 Fall 2020</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Thu, 05 Nov 2020 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="http://rsettlage.github.io/STAT5526_Fall2020/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="http://rsettlage.github.io/STAT5526_Fall2020/categories/lecture/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
@@ -43,61 +43,6 @@ So, where have we come from and where are we going?
 plot(cars) Add a new chunk by clicking the Insert Chunk button on the toolbar or by pressing Cmd+Option+I.
 When you save the notebook, an HTML file containing the code and output will be saved alongside it (click the Preview button or press Cmd+Shift+K to preview the HTML file).
 The preview shows you a rendered HTML copy of the contents of the editor.</description>
-    </item>
-    
-    <item>
-      <title>Submitting homework</title>
-      <link>http://rsettlage.github.io/STAT5526_Fall2020/homework-submit/</link>
-      <pubDate>Thu, 05 Nov 2020 00:00:00 +0000</pubDate>
-      
-      <guid>http://rsettlage.github.io/STAT5526_Fall2020/homework-submit/</guid>
-      <description>
-&lt;link href=&#34;http://rsettlage.github.io/STAT5526_Fall2020/STAT5526_Fall2020/rmarkdown-libs/anchor-sections/anchor-sections.css&#34; rel=&#34;stylesheet&#34; /&gt;
-&lt;script src=&#34;http://rsettlage.github.io/STAT5526_Fall2020/STAT5526_Fall2020/rmarkdown-libs/anchor-sections/anchor-sections.js&#34;&gt;&lt;/script&gt;
-
-
-&lt;p&gt;Homework submissions will be accomplished through Canvas and GitHub. In Canvas, I would like the final code, instructions to run the code and a final report.&lt;br /&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>About</title>
-      <link>http://rsettlage.github.io/STAT5526_Fall2020/about/</link>
-      <pubDate>Wed, 04 Nov 2020 00:00:00 +0000</pubDate>
-      
-      <guid>http://rsettlage.github.io/STAT5526_Fall2020/about/</guid>
-      <description>This class is STAT 5526. This series is about scaling your compute. The point being, sooner or later, you will find a data set too large to compute on your local computer/laptop. At that point, you have three options:
- Buy a larger computer Scale via Cloud Scale via HPC  I would argue these last two platforms/methods are merging. Here, we discuss computing on the high performance computing (HPC) clusters managed by Advanced Research Compting at Virginia Tech.</description>
-    </item>
-    
-    <item>
-      <title>Configuring Docker</title>
-      <link>http://rsettlage.github.io/STAT5526_Fall2020/containers/</link>
-      <pubDate>Wed, 04 Nov 2020 00:00:00 +0000</pubDate>
-      
-      <guid>http://rsettlage.github.io/STAT5526_Fall2020/containers/</guid>
-      <description>
-&lt;link href=&#34;http://rsettlage.github.io/STAT5526_Fall2020/STAT5526_Fall2020/rmarkdown-libs/anchor-sections/anchor-sections.css&#34; rel=&#34;stylesheet&#34; /&gt;
-&lt;script src=&#34;http://rsettlage.github.io/STAT5526_Fall2020/STAT5526_Fall2020/rmarkdown-libs/anchor-sections/anchor-sections.js&#34;&gt;&lt;/script&gt;
-
-
-&lt;p&gt;Docker/GitHub/Singularity workflow for STAT 5526 HPC/R section, Fall 2020.
-</description>
-    </item>
-    
-    <item>
-      <title>Stat 5526 Fall 2020 HPC/R Topics</title>
-      <link>http://rsettlage.github.io/STAT5526_Fall2020/topics/</link>
-      <pubDate>Wed, 04 Nov 2020 00:00:00 +0000</pubDate>
-      
-      <guid>http://rsettlage.github.io/STAT5526_Fall2020/topics/</guid>
-      <description>
-&lt;link href=&#34;http://rsettlage.github.io/STAT5526_Fall2020/STAT5526_Fall2020/rmarkdown-libs/anchor-sections/anchor-sections.css&#34; rel=&#34;stylesheet&#34; /&gt;
-&lt;script src=&#34;http://rsettlage.github.io/STAT5526_Fall2020/STAT5526_Fall2020/rmarkdown-libs/anchor-sections/anchor-sections.js&#34;&gt;&lt;/script&gt;
-
-
-&lt;p&gt;Topics for STAT 5526 HPC/R section, Fall 2020.
-</description>
     </item>
     
     <item>
