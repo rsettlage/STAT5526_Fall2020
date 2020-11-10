@@ -8,7 +8,7 @@
 	<script>(function(d,e){d[e]=d[e].replace("no-js","js");})(document.documentElement,"className");</script>
 	<meta name="description" content="">
 	<meta property="og:title" content="HPC homework" />
-<meta property="og:description" content="Monte Carlo warm up Here we want to use Monte Carlo integration to reliably estimate pi to the 5th decimal place. By reliably, I mean correct to the 5th decimal place 95% of the time. What we need to do is determine what sample size is required to do this, ie what N. The integral we are looking to estmate is:
+<meta property="og:description" content="Monte Carlo warm up Here we want to use Monte Carlo integration to reliably estimate pi to the 5th decimal place. By reliably, I mean correct to the 5th decimal place 97 out of 100 times. What we need to do is determine what sample size is required to do this, ie what N. The integral we are looking to estimate is:
 \[\begin{equation} I = \int_0^1 \sqrt{1-x^2} dx = \frac{\pi}{4} \end{equation}\]" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="http://rsettlage.github.io/STAT5526_Fall2020/homework/homework/" />
@@ -89,13 +89,13 @@
 </div>
 		</header><div class="content post__content clearfix">
 			
-<link href="/rmarkdown-libs/anchor-sections/anchor-sections.css" rel="stylesheet" />
-<script src="/rmarkdown-libs/anchor-sections/anchor-sections.js"></script>
+<link href="/STAT5526_Fall2020/rmarkdown-libs/anchor-sections/anchor-sections.css" rel="stylesheet" />
+<script src="/STAT5526_Fall2020/rmarkdown-libs/anchor-sections/anchor-sections.js"></script>
 
 
 <div id="monte-carlo-warm-up" class="section level2">
 <h2>Monte Carlo warm up</h2>
-<p>Here we want to use Monte Carlo integration to reliably estimate pi to the 5th decimal place. By reliably, I mean correct to the 5th decimal place 95% of the time. What we need to do is determine what sample size is required to do this, ie what N. The integral we are looking to estmate is:</p>
+<p>Here we want to use Monte Carlo integration to reliably estimate pi to the 5th decimal place. By reliably, I mean correct to the 5th decimal place 97 out of 100 times. What we need to do is determine what sample size is required to do this, ie what N. The integral we are looking to estimate is:</p>
 <p><span class="math display">\[\begin{equation}
 I = \int_0^1 \sqrt{1-x^2} dx = \frac{\pi}{4}
 \end{equation}\]</span></p>
@@ -104,6 +104,7 @@ I = \int_0^1 \sqrt{1-x^2} dx = \frac{\pi}{4}
 I \approx \sum_{x_i \sim unif(0,1)} 4*\sqrt{1-x_{i}^2} \frac{1}{N}
 \end{equation}\]</span></p>
 <p>Notes: REALLY big or small numbers are generally a problem. You may need to take sums/means of subsets of the data.</p>
+<p>To do this in a reasonable amount of time without killing your local platform, create a script to do this and submit it to the TinkerCliffs queue to run. When you have determined what N seems sufficient, be sure to check it out, ie run it with the proposed N 100 times.</p>
 </div>
 <div id="nns-for-linear-regression" class="section level2">
 <h2>NNs for linear regression</h2>
