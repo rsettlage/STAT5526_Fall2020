@@ -2,24 +2,24 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>HPC on STAT-5526 Fall 2020</title>
-    <link>http://rsettlage.github.io/STAT5526_Fall2020/tags/hpc/</link>
+    <link>/tags/hpc/</link>
     <description>Recent content in HPC on STAT-5526 Fall 2020</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Thu, 05 Nov 2020 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="http://rsettlage.github.io/STAT5526_Fall2020/tags/hpc/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="/tags/hpc/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>1 - HPC notes</title>
-      <link>http://rsettlage.github.io/STAT5526_Fall2020/notes/hpc/</link>
+      <link>/notes/hpc/</link>
       <pubDate>Thu, 05 Nov 2020 00:00:00 +0000</pubDate>
       
-      <guid>http://rsettlage.github.io/STAT5526_Fall2020/notes/hpc/</guid>
+      <guid>/notes/hpc/</guid>
       <description>
-&lt;link href=&#34;http://rsettlage.github.io/STAT5526_Fall2020/STAT5526_Fall2020/rmarkdown-libs/anchor-sections/anchor-sections.css&#34; rel=&#34;stylesheet&#34; /&gt;
-&lt;script src=&#34;http://rsettlage.github.io/STAT5526_Fall2020/STAT5526_Fall2020/rmarkdown-libs/anchor-sections/anchor-sections.js&#34;&gt;&lt;/script&gt;
+&lt;link href=&#34;/STAT5526_Fall2020/rmarkdown-libs/anchor-sections/anchor-sections.css&#34; rel=&#34;stylesheet&#34; /&gt;
+&lt;script src=&#34;/STAT5526_Fall2020/rmarkdown-libs/anchor-sections/anchor-sections.js&#34;&gt;&lt;/script&gt;
 
 
 &lt;p&gt;High performance computing clusters are characterized by login nodes fronting a pool of compute resources. Access to the compute resources is controlled via a resource scheduler.&lt;/p&gt;
@@ -28,12 +28,19 @@
     
     <item>
       <title>Lecture 1A - HPC Cluster Organization</title>
-      <link>http://rsettlage.github.io/STAT5526_Fall2020/posts/lecture-1a/</link>
+      <link>/posts/lecture-1a/</link>
       <pubDate>Thu, 05 Nov 2020 00:00:00 +0000</pubDate>
       
-      <guid>http://rsettlage.github.io/STAT5526_Fall2020/posts/lecture-1a/</guid>
-      <description>HPC, HTC and Cloud HPC, HTC, and Cloud Computing are modern answers to “too much data”. As given by the facts listed here:
- 1.7MB of data is created every second by every person during 2020. In the last two years alone, the astonishing 90% of the world’s data has been created. 2.5 quintillion bytes of data are produced by humans every day. 463 exabytes of data will be generated each day by humans as of 2025.</description>
+      <guid>/posts/lecture-1a/</guid>
+      <description>
+&lt;link href=&#34;/rmarkdown-libs/anchor-sections/anchor-sections.css&#34; rel=&#34;stylesheet&#34; /&gt;
+&lt;script src=&#34;/rmarkdown-libs/anchor-sections/anchor-sections.js&#34;&gt;&lt;/script&gt;
+
+
+&lt;div id=&#34;hpc-htc-and-cloud&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;HPC, HTC and Cloud&lt;/h3&gt;
+&lt;p&gt;HPC, HTC, and Cloud Computing are modern answers to “too much data”.&lt;/p&gt;
+</description>
     </item>
     
   </channel>

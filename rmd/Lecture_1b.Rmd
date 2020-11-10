@@ -26,11 +26,16 @@ library(knitr)
 
 ### Interacting with a scheduler
 
+As shown in the previous note, high performance computing clusters are characterized by a (or several) login nodes.  
+
+<!--more-->
+
 As shown in the previous note, high performance computing clusters are characterized by a (or several) login nodes.  The nodes serve as the gateway to the rest of the cluster.  To gain access to the compute power within the cluster, you must "reserve" time on a compute node.  This is done through a resource manager commonly termed a scheduler. 
 
 ![HPC system diagram](../img/system-diagram.png){width=100%}
+----
 
-On ARC systems, we are migrating to [SLURM](<https://slurm.schedmd.com/>) which stands for Simple Linux Utility for Resource Management. You can think of SLURM much like you would your calendar.  SLURM tracks the state of the resources defined for the cluster and tries to optimize the utilization of those resources given use policies.  If configured, SLURM also physically isolates users from each other so they do not inadvertantly create resource conflicts.
+On ARC systems, we are migrating to [SLURM](<https://slurm.schedmd.com/>) which stands for Simple Linux Utility for Resource Management. You can think of SLURM much like you would your calendar.  SLURM tracks the state of the resources defined for the cluster and tries to optimize the utilization of those resources given use policies.  If configured, SLURM also physically isolates users from each other so they do not inadvertently create resource conflicts.
 
 There are two main scenarios we are concerned with --
 
@@ -42,7 +47,9 @@ Before we start a job, we probably have a couple of questions:
 + how are the resources organized
 + what resources are available
 
-#### Cluster organization
+----
+
+### Cluster organization
 
 The compute nodes are organized into queues or partitions.  These partitions are usually dedicated to hardware differences or user needs.  To see what partitions are setup, we need to log into a cluster and then query SLURM.  In a browser, go to ood.arc.vt.edu (you must have the VPN on), cluster tab and choose TinkerCliffs.
 
@@ -61,15 +68,20 @@ sinfo -s
 |interactive_q  | up  |infinite   |         0/1/0/1 | tc308             |
 |intel_q        | up  |infinite   |       0/16/0/16 | tc-intel[001-016] |
 
+----
+
 From this, we can see there are many queues/partitions we can potentially submit to.  How do you choose?  For ARC, we publish the hardware specifics on our website, arc.vt.edu, Resources, Computing Systems.  While there, you should look at queue limits.  For this class, we will use *normal_q*.  Let's submit a job.
 
 ```{bash, eval=F, include=T}
 salloc --partition=normal_q --nodes 1 --ntasks 2 --cpus-per-task 3 --time=01:00:00 --account=stat5526-fall2020
+exit
 ```
 
 Ok, what did we just request??  We requested 1 hour of total time on a single node.  On that node, we want to have available 2 potential tasks with 3 cores reserved for each task, ie a total of 6 cores.  We will talk about these flags and settings more later.
 
 An important node, what happens after an hour?  Well, SLURM kills your job, cleans up the local node and if you had anything in progress, it is basically similar to holding the power button on your local computer, dead.
+
+----
 
 When you typed that `salloc` command, what happened?  You console session transfered from the login node to the compute node.  If you type `exit`, you will go back to the login node.
 
@@ -84,6 +96,8 @@ hostname
 ```
 
 What happened?
+
+----
 
 ### Software
 
@@ -101,6 +115,8 @@ module list
 
 What have we seen/learned?  
 
+----
+
 ### Storage
 
 ![HPC system storage](../img/system-storage.png){width=100%}
@@ -111,10 +127,16 @@ As depicted, there are several different disk stores available the compute nodes
 \work -- think of this more like a work directory you may make on your local system
 \projects -- think of this like your Google Drive, good place to work with others
 
+----
+
+### Local storage
+
 In addition to the networked file systems, each compute node, much like your laptop, contains a hard disk and RAM.  Each of these can also be accessed.  We do so via environment variables.  We use environment variables because the directories we have access to change according to the job names.  SLURM deletes these directories when our jobs finish as a cleanup step, ie be sure to copy and data from local to networked storage if you want to keep it.  The two storage locations on a local node we will use are:
 
 $TMPDIR -- think of this like c: on your local machine
 $TMPFS  -- this is the RAM of the local node, but we can write to it!!
+
+---
 
 Let's try it.  From the console, do:
 

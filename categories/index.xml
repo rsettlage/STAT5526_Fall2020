@@ -2,39 +2,39 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Categories on STAT-5526 Fall 2020</title>
-    <link>http://rsettlage.github.io/STAT5526_Fall2020/categories/</link>
+    <link>/categories/</link>
     <description>Recent content in Categories on STAT-5526 Fall 2020</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Thu, 05 Nov 2020 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="http://rsettlage.github.io/STAT5526_Fall2020/categories/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="/categories/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Course Logistics</title>
-      <link>http://rsettlage.github.io/STAT5526_Fall2020/categories/course-logistics/</link>
+      <link>/categories/course-logistics/</link>
       <pubDate>Thu, 05 Nov 2020 00:00:00 +0000</pubDate>
       
-      <guid>http://rsettlage.github.io/STAT5526_Fall2020/categories/course-logistics/</guid>
+      <guid>/categories/course-logistics/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Lecture1</title>
-      <link>http://rsettlage.github.io/STAT5526_Fall2020/categories/lecture1/</link>
+      <link>/categories/lecture1/</link>
       <pubDate>Thu, 05 Nov 2020 00:00:00 +0000</pubDate>
       
-      <guid>http://rsettlage.github.io/STAT5526_Fall2020/categories/lecture1/</guid>
+      <guid>/categories/lecture1/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Lecture2</title>
-      <link>http://rsettlage.github.io/STAT5526_Fall2020/categories/lecture2/</link>
+      <link>/categories/lecture2/</link>
       <pubDate>Thu, 05 Nov 2020 00:00:00 +0000</pubDate>
       
-      <guid>http://rsettlage.github.io/STAT5526_Fall2020/categories/lecture2/</guid>
+      <guid>/categories/lecture2/</guid>
       <description></description>
     </item>
     

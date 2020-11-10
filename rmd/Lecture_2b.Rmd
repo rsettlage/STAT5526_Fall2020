@@ -22,6 +22,8 @@ header-includes: \setlength\parindent{24pt} \usepackage{MnSymbol} \usepackage{ma
 
 ## Neural networks coming soon ...
 
+<!--more-->
+
 NN for linear regression
 NN for image classification
 - binary

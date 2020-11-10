@@ -24,7 +24,11 @@ header-includes: \setlength\parindent{24pt} \usepackage{MnSymbol} \usepackage{ma
 library(knitr)
 ```
 
-## HPC, HTC and Cloud
+### HPC, HTC and Cloud
+
+HPC, HTC, and Cloud Computing are modern answers to "too much data".  
+
+<!--more-->
 
 HPC, HTC, and Cloud Computing are modern answers to "too much data".  As given by the facts listed [here](<https://techjury.net/blog/how-much-data-is-created-every-day/#gref>):
 
@@ -36,29 +40,32 @@ HPC, HTC, and Cloud Computing are modern answers to "too much data".  As given b
 + By the end of 2020, 44 zettabytes will make up the entire digital universe.
 + Every day, 306.4 billion emails are sent, and 5 million Tweets are made.
 
-
 It is pretty easy to immerse oneself in data and quickly run out of the necessary horsepower to complete a project in a timely manner.  Today, we scale our compute.
 
-What were you doing during the debates?? 
+----
+
+### What were you doing during the debates?? 
 
 ![Market by President's Party](../img/party_returns.jpg){width=100%}
+
+----
 
 Returns averaged by party and corrected for plans for tax rate:
 
 |party | NASDAQ|  NYA|   SP| DJIA|
 |:-----|:------|:----|:----|:----|
-|Rep   |   0.20| 0.12| 0.14| 0.14|
-|Dem   |   0.09| 0.06| 0.07| 0.06|
+|Dem   |   0.20| 0.12| 0.14| 0.14|
+|Rep   |   0.09| 0.06| 0.07| 0.06|
 
 
 |Party | NASDAQ-corr| NYA-corr| SP-corr| DJIA-corr|
 |:-----|:-----------|:--------|:-------|:---------|
-|Rep   |        0.17|     0.10|    0.12|      0.12|
-|Dem   |        0.06|     0.04|    0.04|      0.04|
+|Dem   |        0.17|     0.10|    0.12|      0.12|
+|Rep   |        0.06|     0.04|    0.04|      0.04|
 
 ----
 
-## HPC
+### HPC
 
 HPC, high performance computing, is generally characterized by low latency, high bandwith connections between many identical nodes organized as a single cluster.  HTC, replace the low latency connection with standard ethernet and Cloud abstracts the hardware away with virtual machines and removes the generalization of nodes being identical.  Here we will talk through high performance computing as it is configured and practiced at Virginia Tech.
 
@@ -76,9 +83,15 @@ There are a couple of items to note.
 + compute nodes
 + storage
 
+----
 
 ![HPC cluster roll up](../img/system-layout.png){width=100%}
+Above is old news!!
+TinkerCliffs:
+1 AMD node = 2 sockets => 64 cores/socket => 128 cores/node
+308 nodes => 40448 (+ 1536 cores -- 96 cores/node on 16 Intel nodes)
 
+----
 
 This leads us to a number of terms:
 
@@ -94,8 +107,8 @@ This leads us to a number of terms:
 
 ----
 
-## GUT check
+### GUT check
 
 Can everyone log in to <https://ood.arc.vt.edu> Remember, VPN must be on!
 
-## Break while answering the above ...
+### Break while answering the above ...

@@ -2,24 +2,24 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>homework on STAT-5526 Fall 2020</title>
-    <link>http://rsettlage.github.io/STAT5526_Fall2020/tags/homework/</link>
+    <link>/tags/homework/</link>
     <description>Recent content in homework on STAT-5526 Fall 2020</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Thu, 05 Nov 2020 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="http://rsettlage.github.io/STAT5526_Fall2020/tags/homework/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="/tags/homework/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>3 - Good Programming</title>
-      <link>http://rsettlage.github.io/STAT5526_Fall2020/notes/good-programming/</link>
+      <link>/notes/good-programming/</link>
       <pubDate>Thu, 05 Nov 2020 00:00:00 +0000</pubDate>
       
-      <guid>http://rsettlage.github.io/STAT5526_Fall2020/notes/good-programming/</guid>
+      <guid>/notes/good-programming/</guid>
       <description>
-&lt;link href=&#34;http://rsettlage.github.io/STAT5526_Fall2020/STAT5526_Fall2020/rmarkdown-libs/anchor-sections/anchor-sections.css&#34; rel=&#34;stylesheet&#34; /&gt;
-&lt;script src=&#34;http://rsettlage.github.io/STAT5526_Fall2020/STAT5526_Fall2020/rmarkdown-libs/anchor-sections/anchor-sections.js&#34;&gt;&lt;/script&gt;
+&lt;link href=&#34;/STAT5526_Fall2020/rmarkdown-libs/anchor-sections/anchor-sections.css&#34; rel=&#34;stylesheet&#34; /&gt;
+&lt;script src=&#34;/STAT5526_Fall2020/rmarkdown-libs/anchor-sections/anchor-sections.js&#34;&gt;&lt;/script&gt;
 
 
 &lt;p&gt;Good Programming Practices and Reproducible Research are worth &lt;strong&gt;&lt;em&gt;YOUR&lt;/em&gt;&lt;/strong&gt; time. They will save &lt;strong&gt;&lt;em&gt;YOUR&lt;/em&gt;&lt;/strong&gt; bacan. This is worth the read!!&lt;/p&gt;
@@ -28,13 +28,13 @@
     
     <item>
       <title>Submitting homework</title>
-      <link>http://rsettlage.github.io/STAT5526_Fall2020/homework-submit/</link>
+      <link>/homework-submit/</link>
       <pubDate>Thu, 05 Nov 2020 00:00:00 +0000</pubDate>
       
-      <guid>http://rsettlage.github.io/STAT5526_Fall2020/homework-submit/</guid>
+      <guid>/homework-submit/</guid>
       <description>
-&lt;link href=&#34;http://rsettlage.github.io/STAT5526_Fall2020/STAT5526_Fall2020/rmarkdown-libs/anchor-sections/anchor-sections.css&#34; rel=&#34;stylesheet&#34; /&gt;
-&lt;script src=&#34;http://rsettlage.github.io/STAT5526_Fall2020/STAT5526_Fall2020/rmarkdown-libs/anchor-sections/anchor-sections.js&#34;&gt;&lt;/script&gt;
+&lt;link href=&#34;/STAT5526_Fall2020/rmarkdown-libs/anchor-sections/anchor-sections.css&#34; rel=&#34;stylesheet&#34; /&gt;
+&lt;script src=&#34;/STAT5526_Fall2020/rmarkdown-libs/anchor-sections/anchor-sections.js&#34;&gt;&lt;/script&gt;
 
 
 &lt;p&gt;Homework submissions will be accomplished through Canvas and GitHub. In Canvas, I would like the final code, instructions to run the code and a final report.&lt;br /&gt;

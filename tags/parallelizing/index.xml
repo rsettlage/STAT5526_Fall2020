@@ -2,23 +2,28 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Parallelizing on STAT-5526 Fall 2020</title>
-    <link>http://rsettlage.github.io/STAT5526_Fall2020/tags/parallelizing/</link>
+    <link>/tags/parallelizing/</link>
     <description>Recent content in Parallelizing on STAT-5526 Fall 2020</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Thu, 05 Nov 2020 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="http://rsettlage.github.io/STAT5526_Fall2020/tags/parallelizing/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="/tags/parallelizing/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Lecture 1D - Going Parallel - Work In Process</title>
-      <link>http://rsettlage.github.io/STAT5526_Fall2020/posts/lecture-1d/</link>
+      <link>/posts/lecture-1d/</link>
       <pubDate>Thu, 05 Nov 2020 00:00:00 +0000</pubDate>
       
-      <guid>http://rsettlage.github.io/STAT5526_Fall2020/posts/lecture-1d/</guid>
-      <description>Reasons why your compute can be taking too long Ok, the point to today’s discussion. Your project has exceeded what you can do locally. Possible reasons why:
-memory limits storage limits compute time is too long  For most workstations, 16-48 GB of RAM and a few TB’s of local disk is about the practical limit. Most HPC clusters have nodes with much more RAM and networked parallel storage.</description>
+      <guid>/posts/lecture-1d/</guid>
+      <description>
+&lt;link href=&#34;/rmarkdown-libs/anchor-sections/anchor-sections.css&#34; rel=&#34;stylesheet&#34; /&gt;
+&lt;script src=&#34;/rmarkdown-libs/anchor-sections/anchor-sections.js&#34;&gt;&lt;/script&gt;
+
+
+&lt;p&gt;Ok, the point to today’s discussion. Your &lt;em&gt;project&lt;/em&gt; has exceeded what you can do locally. Possible reasons why:&lt;/p&gt;
+</description>
     </item>
     
   </channel>

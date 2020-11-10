@@ -8,11 +8,17 @@
 	<script>(function(d,e){d[e]=d[e].replace("no-js","js");})(document.documentElement,"className");</script>
 	<meta name="description" content="">
 	<meta property="og:title" content="Lecture 1B - Scheduler/Software/Storage" />
-<meta property="og:description" content="Interacting with a scheduler As shown in the previous note, high performance computing clusters are characterized by a (or several) login nodes. The nodes serve as the gateway to the rest of the cluster. To gain access to the compute power within the cluster, you must “reserve” time on a compute node. This is done through a resource manager commonly termed a scheduler.
-HPC system diagram
- On ARC systems, we are migrating to SLURM which stands for Simple Linux Utility for Resource Management." />
+<meta property="og:description" content="
+
+
+
+
+
+Interacting with a scheduler
+As shown in the previous note, high performance computing clusters are characterized by a (or several) login nodes.
+" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="http://rsettlage.github.io/STAT5526_Fall2020/posts/lecture-1b/" />
+<meta property="og:url" content="/posts/lecture-1b/" />
 <meta property="article:published_time" content="2020-11-05T00:00:00+00:00" />
 <meta property="article:modified_time" content="2020-11-05T00:00:00+00:00" />
 
@@ -20,9 +26,9 @@ HPC system diagram
 	<link rel="dns-prefetch" href="//fonts.googleapis.com">
 	<link rel="dns-prefetch" href="//fonts.gstatic.com">
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700">
-	<link rel="stylesheet" href="/STAT5526_Fall2020/css/style.css">
+	<link rel="stylesheet" href="/css/style.css">
 	
-	<link rel="shortcut icon" href="/STAT5526_Fall2020/favicon.ico">
+	<link rel="shortcut icon" href="/favicon.ico">
 		
 </head>
 <body class="body">
@@ -30,7 +36,7 @@ HPC system diagram
 		<header class="header">
 	<div class="container">
 		<div class="logo">
-			<a class="logo__link" href="/STAT5526_Fall2020/" title="STAT-5526 Fall 2020" rel="home">
+			<a class="logo__link" href="/" title="STAT-5526 Fall 2020" rel="home">
 				<div class="logo__title">STAT-5526 Fall 2020</div>
 				<div class="logo__tagline">Official place to find course material.</div>
 			</a>
@@ -42,13 +48,13 @@ HPC system diagram
 	</button>
 	<ul class="menu__list">
 		<li class="menu__item">
-			<a class="menu__link" href="/STAT5526_Fall2020/">Home</a>
+			<a class="menu__link" href="/">Home</a>
 		</li>
 		<li class="menu__item">
-			<a class="menu__link" href="/STAT5526_Fall2020/topics">Topics</a>
+			<a class="menu__link" href="/topics">Topics</a>
 		</li>
 		<li class="menu__item">
-			<a class="menu__link" href="/STAT5526_Fall2020/posts">posts</a>
+			<a class="menu__link" href="/posts">posts</a>
 		</li>
 		<li class="menu__item">
 			<a class="menu__link" href="https://github.com/rsettlage/STAT5526_Fall2020/tree/master/homework">Homework</a>
@@ -57,13 +63,13 @@ HPC system diagram
 			<a class="menu__link" href="https://github.com/rsettlage/STAT5526_Fall2020/tree/master/rmd">Rmd</a>
 		</li>
 		<li class="menu__item">
-			<a class="menu__link" href="/STAT5526_Fall2020/homework-submit">Submitting homework</a>
+			<a class="menu__link" href="/homework-submit">Submitting homework</a>
 		</li>
 		<li class="menu__item">
-			<a class="menu__link" href="/STAT5526_Fall2020/notes">notes</a>
+			<a class="menu__link" href="/notes">notes</a>
 		</li>
 		<li class="menu__item">
-			<a class="menu__link" href="/STAT5526_Fall2020/about/">About</a>
+			<a class="menu__link" href="/about/">About</a>
 		</li>
 	</ul>
 </nav>
@@ -85,23 +91,15 @@ HPC system diagram
 
 <div class="meta__item-categories meta__item">
 	<svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2l1 2h8v11h-16v-13z"/></svg>
-	<span class="meta__text"><a class="meta__link" href="/STAT5526_Fall2020/categories/lecture1" rel="category">Lecture1</a></span>
+	<span class="meta__text"><a class="meta__link" href="/categories/lecture1" rel="category">Lecture1</a></span>
 </div>
 </div>
 		</header><div class="content post__content clearfix">
-			
-<link href="/STAT5526_Fall2020/rmarkdown-libs/anchor-sections/anchor-sections.css" rel="stylesheet" />
-<script src="/STAT5526_Fall2020/rmarkdown-libs/anchor-sections/anchor-sections.js"></script>
-
-
-<div id="interacting-with-a-scheduler" class="section level3">
-<h3>Interacting with a scheduler</h3>
-<p>As shown in the previous note, high performance computing clusters are characterized by a (or several) login nodes. The nodes serve as the gateway to the rest of the cluster. To gain access to the compute power within the cluster, you must “reserve” time on a compute node. This is done through a resource manager commonly termed a scheduler.</p>
-<div class="figure">
-<img src="../img/system-diagram.png" style="width:100.0%" alt="" />
-<p class="caption">HPC system diagram</p>
+			<p>As shown in the previous note, high performance computing clusters are characterized by a (or several) login nodes. The nodes serve as the gateway to the rest of the cluster. To gain access to the compute power within the cluster, you must “reserve” time on a compute node. This is done through a resource manager commonly termed a scheduler.</p>
 </div>
-<p>On ARC systems, we are migrating to <a href="https://slurm.schedmd.com/">SLURM</a> which stands for Simple Linux Utility for Resource Management. You can think of SLURM much like you would your calendar. SLURM tracks the state of the resources defined for the cluster and tries to optimize the utilization of those resources given use policies. If configured, SLURM also physically isolates users from each other so they do not inadvertantly create resource conflicts.</p>
+<div id="hpc-system-diagram" class="section level2">
+<h2><img src="../img/system-diagram.png" style="width:100.0%" alt="HPC system diagram" /></h2>
+<p>On ARC systems, we are migrating to <a href="https://slurm.schedmd.com/">SLURM</a> which stands for Simple Linux Utility for Resource Management. You can think of SLURM much like you would your calendar. SLURM tracks the state of the resources defined for the cluster and tries to optimize the utilization of those resources given use policies. If configured, SLURM also physically isolates users from each other so they do not inadvertently create resource conflicts.</p>
 <p>There are two main scenarios we are concerned with –</p>
 <ol style="list-style-type: decimal">
 <li>you want an interactive job to work much like you would on your local laptop</li>
@@ -112,8 +110,9 @@ HPC system diagram
 <li>how are the resources organized</li>
 <li>what resources are available</li>
 </ul>
-<div id="cluster-organization" class="section level4">
-<h4>Cluster organization</h4>
+<hr />
+<div id="cluster-organization" class="section level3">
+<h3>Cluster organization</h3>
 <p>The compute nodes are organized into queues or partitions. These partitions are usually dedicated to hardware differences or user needs. To see what partitions are setup, we need to log into a cluster and then query SLURM. In a browser, go to ood.arc.vt.edu (you must have the VPN on), cluster tab and choose TinkerCliffs.</p>
 <p>Now type:</p>
 <pre class="bash"><code>sinfo -s</code></pre>
@@ -172,10 +171,13 @@ HPC system diagram
 </tr>
 </tbody>
 </table>
+<hr />
 <p>From this, we can see there are many queues/partitions we can potentially submit to. How do you choose? For ARC, we publish the hardware specifics on our website, arc.vt.edu, Resources, Computing Systems. While there, you should look at queue limits. For this class, we will use <em>normal_q</em>. Let’s submit a job.</p>
-<pre class="bash"><code>salloc --partition=normal_q --nodes 1 --ntasks 2 --cpus-per-task 3 --time=01:00:00 --account=stat5526-fall2020</code></pre>
+<pre class="bash"><code>salloc --partition=normal_q --nodes 1 --ntasks 2 --cpus-per-task 3 --time=01:00:00 --account=stat5526-fall2020
+exit</code></pre>
 <p>Ok, what did we just request?? We requested 1 hour of total time on a single node. On that node, we want to have available 2 potential tasks with 3 cores reserved for each task, ie a total of 6 cores. We will talk about these flags and settings more later.</p>
 <p>An important node, what happens after an hour? Well, SLURM kills your job, cleans up the local node and if you had anything in progress, it is basically similar to holding the power button on your local computer, dead.</p>
+<hr />
 <p>When you typed that <code>salloc</code> command, what happened? You console session transfered from the login node to the compute node. If you type <code>exit</code>, you will go back to the login node.</p>
 <p>Try this, from a fresh session, ie you are on the login node:</p>
 <pre class="bash"><code>hostname
@@ -184,7 +186,7 @@ hostname
 exit
 hostname</code></pre>
 <p>What happened?</p>
-</div>
+<hr />
 </div>
 <div id="software" class="section level3">
 <h3>Software</h3>
@@ -197,6 +199,7 @@ R
 module reset
 module list</code></pre>
 <p>What have we seen/learned?</p>
+<hr />
 </div>
 <div id="storage" class="section level3">
 <h3>Storage</h3>
@@ -208,9 +211,14 @@ module list</code></pre>
 <p>– think of this like /Users/you on a Mac
 – think of this more like a work directory you may make on your local system
 – think of this like your Google Drive, good place to work with others</p>
+<hr />
+</div>
+<div id="local-storage" class="section level3">
+<h3>Local storage</h3>
 <p>In addition to the networked file systems, each compute node, much like your laptop, contains a hard disk and RAM. Each of these can also be accessed. We do so via environment variables. We use environment variables because the directories we have access to change according to the job names. SLURM deletes these directories when our jobs finish as a cleanup step, ie be sure to copy and data from local to networked storage if you want to keep it. The two storage locations on a local node we will use are:</p>
 <p>$TMPDIR – think of this like c: on your local machine
 $TMPFS – this is the RAM of the local node, but we can write to it!!</p>
+<hr />
 <p>Let’s try it. From the console, do:</p>
 <pre class="bash"><code>hostname
 alias la=&#39;ls -lah&#39;
@@ -228,27 +236,20 @@ pwd
 cd /
 df -h</code></pre>
 </div>
+</div>
 
 		</div>
 		
 <div class="post__tags tags clearfix">
 	<svg class="tags__icon icon icon-tag" width="16" height="16" viewBox="0 0 32 32"><path d="M32 19c0 1-1 2-1 2L21 31s-1 1-2 1-2-1-2-1L2 16c-1-1-1.4-2-1.4-2S0 12.5 0 11V3C0 1.5.8.8.8.8S1.5 0 3 0h8c1.5 0 3 .6 3 .6S15 1 16 2l15 15s1 1 1 2zM7 10a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/></svg>
 	<ul class="tags__list">
-		<li class="tags__item"><a class="tags__link btn" href="/STAT5526_Fall2020/tags/scheduler/" rel="tag">Scheduler</a></li>
+		<li class="tags__item"><a class="tags__link btn" href="/tags/scheduler/" rel="tag">Scheduler</a></li>
 	</ul>
 </div>
 	</article>
 </main>
 
 
-<nav class="post-nav flex">
-	<div class="post-nav__item post-nav__item--prev">
-		<a class="post-nav__link" href="/STAT5526_Fall2020/posts/lecture-1c/" rel="prev"><span class="post-nav__caption">«&thinsp;Previous</span><p class="post-nav__post-title">Lecture 1C - Containers and R</p></a>
-	</div>
-	<div class="post-nav__item post-nav__item--next">
-		<a class="post-nav__link" href="/STAT5526_Fall2020/posts/lecture-1a/" rel="next"><span class="post-nav__caption">Next&thinsp;»</span><p class="post-nav__post-title">Lecture 1A - HPC Cluster Organization</p></a>
-	</div>
-</nav>
 
 
 			</div>
@@ -258,16 +259,16 @@ df -h</code></pre>
 			<input class="widget-search__field" type="search" placeholder="SEARCH..." value="" name="q" aria-label="SEARCH...">
 		</label>
 		<input class="widget-search__submit" type="submit" value="Search">
-		<input type="hidden" name="sitesearch" value="http://rsettlage.github.io/STAT5526_Fall2020/" />
+		<input type="hidden" name="sitesearch" value="/" />
 	</form>
 </div>
 <div class="widget-recent widget">
 	<h4 class="widget__title">Recent Posts</h4>
 	<div class="widget__content">
 		<ul class="widget__list">
-			<li class="widget__item"><a class="widget__link" href="/STAT5526_Fall2020/posts/lecture-1a/">Lecture 1A - HPC Cluster Organization</a></li>
-			<li class="widget__item"><a class="widget__link" href="/STAT5526_Fall2020/posts/lecture-1b/">Lecture 1B - Scheduler/Software/Storage</a></li>
-			<li class="widget__item"><a class="widget__link" href="/STAT5526_Fall2020/posts/lecture-1c/">Lecture 1C - Containers and R</a></li>
+			<li class="widget__item"><a class="widget__link" href="/posts/lecture-1a/">Lecture 1A - HPC Cluster Organization</a></li>
+			<li class="widget__item"><a class="widget__link" href="/posts/lecture-1b/">Lecture 1B - Scheduler/Software/Storage</a></li>
+			<li class="widget__item"><a class="widget__link" href="/posts/lecture-1c/">Lecture 1C - Containers and R</a></li>
 		</ul>
 	</div>
 </div>
@@ -275,28 +276,28 @@ df -h</code></pre>
 	<h4 class="widget__title">Categories</h4>
 	<div class="widget__content">
 		<ul class="widget__list">
-			<li class="widget__item"><a class="widget__link" href="/STAT5526_Fall2020/categories/course-logistics">Course logistics</a></li>
-			<li class="widget__item"><a class="widget__link" href="/STAT5526_Fall2020/categories/lecture1">Lecture1</a></li>
-			<li class="widget__item"><a class="widget__link" href="/STAT5526_Fall2020/categories/lecture2">Lecture2</a></li>
+			<li class="widget__item"><a class="widget__link" href="/categories/course-logistics">Course logistics</a></li>
+			<li class="widget__item"><a class="widget__link" href="/categories/lecture1">Lecture1</a></li>
+			<li class="widget__item"><a class="widget__link" href="/categories/lecture2">Lecture2</a></li>
 		</ul>
 	</div>
 </div>
 <div class="widget-taglist widget">
 	<h4 class="widget__title">Tags</h4>
 	<div class="widget__content">
-		<a class="widget-taglist__link widget__link btn" href="/STAT5526_Fall2020/tags/containers" title="Containers">Containers</a>
-		<a class="widget-taglist__link widget__link btn" href="/STAT5526_Fall2020/tags/git" title="Git">Git</a>
-		<a class="widget-taglist__link widget__link btn" href="/STAT5526_Fall2020/tags/gp" title="Gp">Gp</a>
-		<a class="widget-taglist__link widget__link btn" href="/STAT5526_Fall2020/tags/homework" title="Homework">Homework</a>
-		<a class="widget-taglist__link widget__link btn" href="/STAT5526_Fall2020/tags/hpc" title="Hpc">Hpc</a>
-		<a class="widget-taglist__link widget__link btn" href="/STAT5526_Fall2020/tags/keras" title="Keras">Keras</a>
-		<a class="widget-taglist__link widget__link btn" href="/STAT5526_Fall2020/tags/monte-carlo" title="Monte carlo">Monte carlo</a>
-		<a class="widget-taglist__link widget__link btn" href="/STAT5526_Fall2020/tags/neural-networks" title="Neural networks">Neural networks</a>
-		<a class="widget-taglist__link widget__link btn" href="/STAT5526_Fall2020/tags/parallelizing" title="Parallelizing">Parallelizing</a>
-		<a class="widget-taglist__link widget__link btn" href="/STAT5526_Fall2020/tags/r" title="R">R</a>
-		<a class="widget-taglist__link widget__link btn" href="/STAT5526_Fall2020/tags/r-setup" title="R setup">R setup</a>
-		<a class="widget-taglist__link widget__link btn" href="/STAT5526_Fall2020/tags/scheduler" title="Scheduler">Scheduler</a>
-		<a class="widget-taglist__link widget__link btn" href="/STAT5526_Fall2020/tags/topics" title="Topics">Topics</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/containers" title="Containers">Containers</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/git" title="Git">Git</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/gp" title="Gp">Gp</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/homework" title="Homework">Homework</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/hpc" title="Hpc">Hpc</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/keras" title="Keras">Keras</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/monte-carlo" title="Monte carlo">Monte carlo</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/neural-networks" title="Neural networks">Neural networks</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/parallelizing" title="Parallelizing">Parallelizing</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/r" title="R">R</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/r-setup" title="R setup">R setup</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/scheduler" title="Scheduler">Scheduler</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/topics" title="Topics">Topics</a>
 	</div>
 </div>
 </aside>
@@ -307,9 +308,12 @@ df -h</code></pre>
 		<div class="footer__copyright">
 			&copy; 2020 STAT-5526 Fall 2020.
 			<span class="footer__copyright-credits">Generated with <a href="https://gohugo.io/" rel="nofollow noopener" target="_blank">Hugo</a> and <a href="https://github.com/Vimux/Mainroad/" rel="nofollow noopener" target="_blank">Mainroad</a> theme.</span>
+			<script type="text/javascript"
+        src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+      </script>
 		</div>
 	</div>
 </footer>
 	</div>
-<script async defer src="/STAT5526_Fall2020/js/menu.js"></script></body>
+<script async defer src="/js/menu.js"></script></body>
 </html>

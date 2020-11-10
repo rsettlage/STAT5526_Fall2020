@@ -2,24 +2,24 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>STAT-5526 Fall 2020</title>
-    <link>http://rsettlage.github.io/STAT5526_Fall2020/</link>
+    <link>/</link>
     <description>Recent content on STAT-5526 Fall 2020</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Thu, 05 Nov 2020 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="http://rsettlage.github.io/STAT5526_Fall2020/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>1 - HPC notes</title>
-      <link>http://rsettlage.github.io/STAT5526_Fall2020/notes/hpc/</link>
+      <link>/notes/hpc/</link>
       <pubDate>Thu, 05 Nov 2020 00:00:00 +0000</pubDate>
       
-      <guid>http://rsettlage.github.io/STAT5526_Fall2020/notes/hpc/</guid>
+      <guid>/notes/hpc/</guid>
       <description>
-&lt;link href=&#34;http://rsettlage.github.io/STAT5526_Fall2020/STAT5526_Fall2020/rmarkdown-libs/anchor-sections/anchor-sections.css&#34; rel=&#34;stylesheet&#34; /&gt;
-&lt;script src=&#34;http://rsettlage.github.io/STAT5526_Fall2020/STAT5526_Fall2020/rmarkdown-libs/anchor-sections/anchor-sections.js&#34;&gt;&lt;/script&gt;
+&lt;link href=&#34;/STAT5526_Fall2020/rmarkdown-libs/anchor-sections/anchor-sections.css&#34; rel=&#34;stylesheet&#34; /&gt;
+&lt;script src=&#34;/STAT5526_Fall2020/rmarkdown-libs/anchor-sections/anchor-sections.js&#34;&gt;&lt;/script&gt;
 
 
 &lt;p&gt;High performance computing clusters are characterized by login nodes fronting a pool of compute resources. Access to the compute resources is controlled via a resource scheduler.&lt;/p&gt;
@@ -28,13 +28,13 @@
     
     <item>
       <title>2 - R startup</title>
-      <link>http://rsettlage.github.io/STAT5526_Fall2020/notes/r-startup/</link>
+      <link>/notes/r-startup/</link>
       <pubDate>Thu, 05 Nov 2020 00:00:00 +0000</pubDate>
       
-      <guid>http://rsettlage.github.io/STAT5526_Fall2020/notes/r-startup/</guid>
+      <guid>/notes/r-startup/</guid>
       <description>
-&lt;link href=&#34;http://rsettlage.github.io/STAT5526_Fall2020/STAT5526_Fall2020/rmarkdown-libs/anchor-sections/anchor-sections.css&#34; rel=&#34;stylesheet&#34; /&gt;
-&lt;script src=&#34;http://rsettlage.github.io/STAT5526_Fall2020/STAT5526_Fall2020/rmarkdown-libs/anchor-sections/anchor-sections.js&#34;&gt;&lt;/script&gt;
+&lt;link href=&#34;/rmarkdown-libs/anchor-sections/anchor-sections.css&#34; rel=&#34;stylesheet&#34; /&gt;
+&lt;script src=&#34;/rmarkdown-libs/anchor-sections/anchor-sections.js&#34;&gt;&lt;/script&gt;
 
 
 &lt;p&gt;R, not unlike Linux, has the ability to customize and automate many tasks/functions. Understanding R’s startup is essential in becoming a power R user. </description>
@@ -42,13 +42,13 @@
     
     <item>
       <title>3 - Good Programming</title>
-      <link>http://rsettlage.github.io/STAT5526_Fall2020/notes/good-programming/</link>
+      <link>/notes/good-programming/</link>
       <pubDate>Thu, 05 Nov 2020 00:00:00 +0000</pubDate>
       
-      <guid>http://rsettlage.github.io/STAT5526_Fall2020/notes/good-programming/</guid>
+      <guid>/notes/good-programming/</guid>
       <description>
-&lt;link href=&#34;http://rsettlage.github.io/STAT5526_Fall2020/STAT5526_Fall2020/rmarkdown-libs/anchor-sections/anchor-sections.css&#34; rel=&#34;stylesheet&#34; /&gt;
-&lt;script src=&#34;http://rsettlage.github.io/STAT5526_Fall2020/STAT5526_Fall2020/rmarkdown-libs/anchor-sections/anchor-sections.js&#34;&gt;&lt;/script&gt;
+&lt;link href=&#34;/STAT5526_Fall2020/rmarkdown-libs/anchor-sections/anchor-sections.css&#34; rel=&#34;stylesheet&#34; /&gt;
+&lt;script src=&#34;/STAT5526_Fall2020/rmarkdown-libs/anchor-sections/anchor-sections.js&#34;&gt;&lt;/script&gt;
 
 
 &lt;p&gt;Good Programming Practices and Reproducible Research are worth &lt;strong&gt;&lt;em&gt;YOUR&lt;/em&gt;&lt;/strong&gt; time. They will save &lt;strong&gt;&lt;em&gt;YOUR&lt;/em&gt;&lt;/strong&gt; bacan. This is worth the read!!&lt;/p&gt;
@@ -57,52 +57,76 @@
     
     <item>
       <title>Lecture 1A - HPC Cluster Organization</title>
-      <link>http://rsettlage.github.io/STAT5526_Fall2020/posts/lecture-1a/</link>
+      <link>/posts/lecture-1a/</link>
       <pubDate>Thu, 05 Nov 2020 00:00:00 +0000</pubDate>
       
-      <guid>http://rsettlage.github.io/STAT5526_Fall2020/posts/lecture-1a/</guid>
-      <description>HPC, HTC and Cloud HPC, HTC, and Cloud Computing are modern answers to “too much data”. As given by the facts listed here:
- 1.7MB of data is created every second by every person during 2020. In the last two years alone, the astonishing 90% of the world’s data has been created. 2.5 quintillion bytes of data are produced by humans every day. 463 exabytes of data will be generated each day by humans as of 2025.</description>
+      <guid>/posts/lecture-1a/</guid>
+      <description>
+&lt;link href=&#34;/rmarkdown-libs/anchor-sections/anchor-sections.css&#34; rel=&#34;stylesheet&#34; /&gt;
+&lt;script src=&#34;/rmarkdown-libs/anchor-sections/anchor-sections.js&#34;&gt;&lt;/script&gt;
+
+
+&lt;div id=&#34;hpc-htc-and-cloud&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;HPC, HTC and Cloud&lt;/h3&gt;
+&lt;p&gt;HPC, HTC, and Cloud Computing are modern answers to “too much data”.&lt;/p&gt;
+</description>
     </item>
     
     <item>
       <title>Lecture 1B - Scheduler/Software/Storage</title>
-      <link>http://rsettlage.github.io/STAT5526_Fall2020/posts/lecture-1b/</link>
+      <link>/posts/lecture-1b/</link>
       <pubDate>Thu, 05 Nov 2020 00:00:00 +0000</pubDate>
       
-      <guid>http://rsettlage.github.io/STAT5526_Fall2020/posts/lecture-1b/</guid>
-      <description>Interacting with a scheduler As shown in the previous note, high performance computing clusters are characterized by a (or several) login nodes. The nodes serve as the gateway to the rest of the cluster. To gain access to the compute power within the cluster, you must “reserve” time on a compute node. This is done through a resource manager commonly termed a scheduler.
-HPC system diagram
- On ARC systems, we are migrating to SLURM which stands for Simple Linux Utility for Resource Management.</description>
+      <guid>/posts/lecture-1b/</guid>
+      <description>
+&lt;link href=&#34;/rmarkdown-libs/anchor-sections/anchor-sections.css&#34; rel=&#34;stylesheet&#34; /&gt;
+&lt;script src=&#34;/rmarkdown-libs/anchor-sections/anchor-sections.js&#34;&gt;&lt;/script&gt;
+
+
+&lt;div id=&#34;interacting-with-a-scheduler&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Interacting with a scheduler&lt;/h3&gt;
+&lt;p&gt;As shown in the previous note, high performance computing clusters are characterized by a (or several) login nodes.&lt;/p&gt;
+</description>
     </item>
     
     <item>
       <title>Lecture 1C - Containers and R</title>
-      <link>http://rsettlage.github.io/STAT5526_Fall2020/posts/lecture-1c/</link>
+      <link>/posts/lecture-1c/</link>
       <pubDate>Thu, 05 Nov 2020 00:00:00 +0000</pubDate>
       
-      <guid>http://rsettlage.github.io/STAT5526_Fall2020/posts/lecture-1c/</guid>
-      <description>R and Containers. Finally. OK, I listed this as R, then containers, but we will do containers then R. Eh.
-So, where have we come from and where are we going?
- Prototyping Generally, Into to Data Analytics classes focus on algorithms and stay in Rstudio or Jupyter Notebooks. These IDEs are fantatic for a quick(-ish), iterative approach to data munging, EDA, data cleaning, plotting, creating reports, etc. Some project data sets are too large, there are too many parameter combinations to try, or perhaps the data is a real time continuous stream, necessitating a different approach.</description>
+      <guid>/posts/lecture-1c/</guid>
+      <description>
+&lt;link href=&#34;/rmarkdown-libs/anchor-sections/anchor-sections.css&#34; rel=&#34;stylesheet&#34; /&gt;
+&lt;script src=&#34;/rmarkdown-libs/anchor-sections/anchor-sections.js&#34;&gt;&lt;/script&gt;
+
+
+&lt;div id=&#34;r-and-containers.-finally.&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;R and Containers. Finally.&lt;/h2&gt;
+&lt;p&gt;OK, I listed this as R, then containers, but we will do containers then R. Eh.&lt;/p&gt;
+</description>
     </item>
     
     <item>
       <title>Lecture 1D - Going Parallel - Work In Process</title>
-      <link>http://rsettlage.github.io/STAT5526_Fall2020/posts/lecture-1d/</link>
+      <link>/posts/lecture-1d/</link>
       <pubDate>Thu, 05 Nov 2020 00:00:00 +0000</pubDate>
       
-      <guid>http://rsettlage.github.io/STAT5526_Fall2020/posts/lecture-1d/</guid>
-      <description>Reasons why your compute can be taking too long Ok, the point to today’s discussion. Your project has exceeded what you can do locally. Possible reasons why:
-memory limits storage limits compute time is too long  For most workstations, 16-48 GB of RAM and a few TB’s of local disk is about the practical limit. Most HPC clusters have nodes with much more RAM and networked parallel storage.</description>
+      <guid>/posts/lecture-1d/</guid>
+      <description>
+&lt;link href=&#34;/rmarkdown-libs/anchor-sections/anchor-sections.css&#34; rel=&#34;stylesheet&#34; /&gt;
+&lt;script src=&#34;/rmarkdown-libs/anchor-sections/anchor-sections.js&#34;&gt;&lt;/script&gt;
+
+
+&lt;p&gt;Ok, the point to today’s discussion. Your &lt;em&gt;project&lt;/em&gt; has exceeded what you can do locally. Possible reasons why:&lt;/p&gt;
+</description>
     </item>
     
     <item>
       <title>Lecture 2A - Monte Carlo - Work in Process</title>
-      <link>http://rsettlage.github.io/STAT5526_Fall2020/posts/lecture-2a/</link>
+      <link>/posts/lecture-2a/</link>
       <pubDate>Thu, 05 Nov 2020 00:00:00 +0000</pubDate>
       
-      <guid>http://rsettlage.github.io/STAT5526_Fall2020/posts/lecture-2a/</guid>
+      <guid>/posts/lecture-2a/</guid>
       <description>Monte Carlo coming soon … plot(cars)  Add a new chunk by clicking the Insert Chunk button on the toolbar or by pressing Cmd+Option+I.
 When you save the notebook, an HTML file containing the code and output will be saved alongside it (click the Preview button or press Cmd+Shift+K to preview the HTML file).
 The preview shows you a rendered HTML copy of the contents of the editor. Consequently, unlike Knit, Preview does not run any R code chunks.</description>
@@ -110,10 +134,10 @@ The preview shows you a rendered HTML copy of the contents of the editor. Conseq
     
     <item>
       <title>Lecture 2B - Neural Networks - Work in Process</title>
-      <link>http://rsettlage.github.io/STAT5526_Fall2020/posts/lecture-2b/</link>
+      <link>/posts/lecture-2b/</link>
       <pubDate>Thu, 05 Nov 2020 00:00:00 +0000</pubDate>
       
-      <guid>http://rsettlage.github.io/STAT5526_Fall2020/posts/lecture-2b/</guid>
+      <guid>/posts/lecture-2b/</guid>
       <description>Neural networks coming soon … NN for linear regression NN for image classification - binary - categorical NN for image segmentation (stretch)
 plot(cars) Add a new chunk by clicking the Insert Chunk button on the toolbar or by pressing Cmd+Option+I.
 When you save the notebook, an HTML file containing the code and output will be saved alongside it (click the Preview button or press Cmd+Shift+K to preview the HTML file).</description>
@@ -121,10 +145,10 @@ When you save the notebook, an HTML file containing the code and output will be 
     
     <item>
       <title>Lecture 2C - R and Keras - Work in Process</title>
-      <link>http://rsettlage.github.io/STAT5526_Fall2020/posts/lecture-2c/</link>
+      <link>/posts/lecture-2c/</link>
       <pubDate>Thu, 05 Nov 2020 00:00:00 +0000</pubDate>
       
-      <guid>http://rsettlage.github.io/STAT5526_Fall2020/posts/lecture-2c/</guid>
+      <guid>/posts/lecture-2c/</guid>
       <description>R and Keras coming soon … NN for linear regression NN for image classification - binary - categorical NN for image segmentation (stretch)
 plot(cars) Add a new chunk by clicking the Insert Chunk button on the toolbar or by pressing Cmd+Option+I.
 When you save the notebook, an HTML file containing the code and output will be saved alongside it (click the Preview button or press Cmd+Shift+K to preview the HTML file).</description>
@@ -132,13 +156,13 @@ When you save the notebook, an HTML file containing the code and output will be 
     
     <item>
       <title>Submitting homework</title>
-      <link>http://rsettlage.github.io/STAT5526_Fall2020/homework-submit/</link>
+      <link>/homework-submit/</link>
       <pubDate>Thu, 05 Nov 2020 00:00:00 +0000</pubDate>
       
-      <guid>http://rsettlage.github.io/STAT5526_Fall2020/homework-submit/</guid>
+      <guid>/homework-submit/</guid>
       <description>
-&lt;link href=&#34;http://rsettlage.github.io/STAT5526_Fall2020/STAT5526_Fall2020/rmarkdown-libs/anchor-sections/anchor-sections.css&#34; rel=&#34;stylesheet&#34; /&gt;
-&lt;script src=&#34;http://rsettlage.github.io/STAT5526_Fall2020/STAT5526_Fall2020/rmarkdown-libs/anchor-sections/anchor-sections.js&#34;&gt;&lt;/script&gt;
+&lt;link href=&#34;/STAT5526_Fall2020/rmarkdown-libs/anchor-sections/anchor-sections.css&#34; rel=&#34;stylesheet&#34; /&gt;
+&lt;script src=&#34;/STAT5526_Fall2020/rmarkdown-libs/anchor-sections/anchor-sections.js&#34;&gt;&lt;/script&gt;
 
 
 &lt;p&gt;Homework submissions will be accomplished through Canvas and GitHub. In Canvas, I would like the final code, instructions to run the code and a final report.&lt;br /&gt;
@@ -147,13 +171,13 @@ When you save the notebook, an HTML file containing the code and output will be 
     
     <item>
       <title>4 - Configuring Docker</title>
-      <link>http://rsettlage.github.io/STAT5526_Fall2020/notes/containers/</link>
+      <link>/notes/containers/</link>
       <pubDate>Wed, 04 Nov 2020 00:00:00 +0000</pubDate>
       
-      <guid>http://rsettlage.github.io/STAT5526_Fall2020/notes/containers/</guid>
+      <guid>/notes/containers/</guid>
       <description>
-&lt;link href=&#34;http://rsettlage.github.io/STAT5526_Fall2020/STAT5526_Fall2020/rmarkdown-libs/anchor-sections/anchor-sections.css&#34; rel=&#34;stylesheet&#34; /&gt;
-&lt;script src=&#34;http://rsettlage.github.io/STAT5526_Fall2020/STAT5526_Fall2020/rmarkdown-libs/anchor-sections/anchor-sections.js&#34;&gt;&lt;/script&gt;
+&lt;link href=&#34;/STAT5526_Fall2020/rmarkdown-libs/anchor-sections/anchor-sections.css&#34; rel=&#34;stylesheet&#34; /&gt;
+&lt;script src=&#34;/STAT5526_Fall2020/rmarkdown-libs/anchor-sections/anchor-sections.js&#34;&gt;&lt;/script&gt;
 
 
 &lt;p&gt;Docker/GitHub/Singularity workflow for STAT 5526 HPC/R section, Fall 2020.
@@ -162,13 +186,13 @@ When you save the notebook, an HTML file containing the code and output will be 
     
     <item>
       <title>5 - Git Conf</title>
-      <link>http://rsettlage.github.io/STAT5526_Fall2020/notes/git-config/</link>
+      <link>/notes/git-config/</link>
       <pubDate>Wed, 04 Nov 2020 00:00:00 +0000</pubDate>
       
-      <guid>http://rsettlage.github.io/STAT5526_Fall2020/notes/git-config/</guid>
+      <guid>/notes/git-config/</guid>
       <description>
-&lt;link href=&#34;http://rsettlage.github.io/STAT5526_Fall2020/STAT5526_Fall2020/rmarkdown-libs/anchor-sections/anchor-sections.css&#34; rel=&#34;stylesheet&#34; /&gt;
-&lt;script src=&#34;http://rsettlage.github.io/STAT5526_Fall2020/STAT5526_Fall2020/rmarkdown-libs/anchor-sections/anchor-sections.js&#34;&gt;&lt;/script&gt;
+&lt;link href=&#34;/STAT5526_Fall2020/rmarkdown-libs/anchor-sections/anchor-sections.css&#34; rel=&#34;stylesheet&#34; /&gt;
+&lt;script src=&#34;/STAT5526_Fall2020/rmarkdown-libs/anchor-sections/anchor-sections.js&#34;&gt;&lt;/script&gt;
 
 
 &lt;p&gt;Note, this is here from my STAT 5014 class. I have brought it over for those interested. Basically, we need to have:
@@ -177,23 +201,23 @@ When you save the notebook, an HTML file containing the code and output will be 
     
     <item>
       <title>About</title>
-      <link>http://rsettlage.github.io/STAT5526_Fall2020/about/</link>
+      <link>/about/</link>
       <pubDate>Wed, 04 Nov 2020 00:00:00 +0000</pubDate>
       
-      <guid>http://rsettlage.github.io/STAT5526_Fall2020/about/</guid>
+      <guid>/about/</guid>
       <description>This class is STAT 5526. This series is about scaling your compute. The point being, sooner or later, you will find a data set too large to compute on your local computer/laptop. At that point, you have three options:
  Buy a larger computer Scale via Cloud Scale via HPC  I would argue these last two platforms/methods are merging. Here, we discuss computing on the high performance computing (HPC) clusters managed by Advanced Research Compting at Virginia Tech.</description>
     </item>
     
     <item>
       <title>Stat 5526 Fall 2020 HPC/R Topics</title>
-      <link>http://rsettlage.github.io/STAT5526_Fall2020/topics/</link>
+      <link>/topics/</link>
       <pubDate>Wed, 04 Nov 2020 00:00:00 +0000</pubDate>
       
-      <guid>http://rsettlage.github.io/STAT5526_Fall2020/topics/</guid>
+      <guid>/topics/</guid>
       <description>
-&lt;link href=&#34;http://rsettlage.github.io/STAT5526_Fall2020/STAT5526_Fall2020/rmarkdown-libs/anchor-sections/anchor-sections.css&#34; rel=&#34;stylesheet&#34; /&gt;
-&lt;script src=&#34;http://rsettlage.github.io/STAT5526_Fall2020/STAT5526_Fall2020/rmarkdown-libs/anchor-sections/anchor-sections.js&#34;&gt;&lt;/script&gt;
+&lt;link href=&#34;/STAT5526_Fall2020/rmarkdown-libs/anchor-sections/anchor-sections.css&#34; rel=&#34;stylesheet&#34; /&gt;
+&lt;script src=&#34;/STAT5526_Fall2020/rmarkdown-libs/anchor-sections/anchor-sections.js&#34;&gt;&lt;/script&gt;
 
 
 &lt;p&gt;Topics for STAT 5526 HPC/R section, Fall 2020.

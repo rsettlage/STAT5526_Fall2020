@@ -8,10 +8,15 @@
 	<script>(function(d,e){d[e]=d[e].replace("no-js","js");})(document.documentElement,"className");</script>
 	<meta name="description" content="">
 	<meta property="og:title" content="Lecture 1D - Going Parallel - Work In Process" />
-<meta property="og:description" content="Reasons why your compute can be taking too long Ok, the point to today’s discussion. Your project has exceeded what you can do locally. Possible reasons why:
-memory limits storage limits compute time is too long  For most workstations, 16-48 GB of RAM and a few TB’s of local disk is about the practical limit. Most HPC clusters have nodes with much more RAM and networked parallel storage." />
+<meta property="og:description" content="
+
+
+
+
+Ok, the point to today’s discussion. Your project has exceeded what you can do locally. Possible reasons why:
+" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="http://rsettlage.github.io/STAT5526_Fall2020/posts/lecture-1d/" />
+<meta property="og:url" content="/posts/lecture-1d/" />
 <meta property="article:published_time" content="2020-11-05T00:00:00+00:00" />
 <meta property="article:modified_time" content="2020-11-05T00:00:00+00:00" />
 
@@ -19,9 +24,9 @@ memory limits storage limits compute time is too long  For most workstations, 16
 	<link rel="dns-prefetch" href="//fonts.googleapis.com">
 	<link rel="dns-prefetch" href="//fonts.gstatic.com">
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700">
-	<link rel="stylesheet" href="/STAT5526_Fall2020/css/style.css">
+	<link rel="stylesheet" href="/css/style.css">
 	
-	<link rel="shortcut icon" href="/STAT5526_Fall2020/favicon.ico">
+	<link rel="shortcut icon" href="/favicon.ico">
 		
 </head>
 <body class="body">
@@ -29,7 +34,7 @@ memory limits storage limits compute time is too long  For most workstations, 16
 		<header class="header">
 	<div class="container">
 		<div class="logo">
-			<a class="logo__link" href="/STAT5526_Fall2020/" title="STAT-5526 Fall 2020" rel="home">
+			<a class="logo__link" href="/" title="STAT-5526 Fall 2020" rel="home">
 				<div class="logo__title">STAT-5526 Fall 2020</div>
 				<div class="logo__tagline">Official place to find course material.</div>
 			</a>
@@ -41,13 +46,13 @@ memory limits storage limits compute time is too long  For most workstations, 16
 	</button>
 	<ul class="menu__list">
 		<li class="menu__item">
-			<a class="menu__link" href="/STAT5526_Fall2020/">Home</a>
+			<a class="menu__link" href="/">Home</a>
 		</li>
 		<li class="menu__item">
-			<a class="menu__link" href="/STAT5526_Fall2020/topics">Topics</a>
+			<a class="menu__link" href="/topics">Topics</a>
 		</li>
 		<li class="menu__item">
-			<a class="menu__link" href="/STAT5526_Fall2020/posts">posts</a>
+			<a class="menu__link" href="/posts">posts</a>
 		</li>
 		<li class="menu__item">
 			<a class="menu__link" href="https://github.com/rsettlage/STAT5526_Fall2020/tree/master/homework">Homework</a>
@@ -56,13 +61,13 @@ memory limits storage limits compute time is too long  For most workstations, 16
 			<a class="menu__link" href="https://github.com/rsettlage/STAT5526_Fall2020/tree/master/rmd">Rmd</a>
 		</li>
 		<li class="menu__item">
-			<a class="menu__link" href="/STAT5526_Fall2020/homework-submit">Submitting homework</a>
+			<a class="menu__link" href="/homework-submit">Submitting homework</a>
 		</li>
 		<li class="menu__item">
-			<a class="menu__link" href="/STAT5526_Fall2020/notes">notes</a>
+			<a class="menu__link" href="/notes">notes</a>
 		</li>
 		<li class="menu__item">
-			<a class="menu__link" href="/STAT5526_Fall2020/about/">About</a>
+			<a class="menu__link" href="/about/">About</a>
 		</li>
 	</ul>
 </nav>
@@ -84,31 +89,35 @@ memory limits storage limits compute time is too long  For most workstations, 16
 
 <div class="meta__item-categories meta__item">
 	<svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2l1 2h8v11h-16v-13z"/></svg>
-	<span class="meta__text"><a class="meta__link" href="/STAT5526_Fall2020/categories/lecture1" rel="category">Lecture1</a></span>
+	<span class="meta__text"><a class="meta__link" href="/categories/lecture1" rel="category">Lecture1</a></span>
 </div>
 </div>
 		</header><div class="content post__content clearfix">
-			
-<link href="/STAT5526_Fall2020/rmarkdown-libs/anchor-sections/anchor-sections.css" rel="stylesheet" />
-<script src="/STAT5526_Fall2020/rmarkdown-libs/anchor-sections/anchor-sections.js"></script>
-
-
-<div id="reasons-why-your-compute-can-be-taking-too-long" class="section level1">
-<h1>Reasons why your compute can be taking too long</h1>
-<p>Ok, the point to today’s discussion. Your project has exceeded what you can do locally. Possible reasons why:</p>
+			<div id="reasons-why-your-compute-can-be-taking-too-long" class="section level3">
+<h3>Reasons why your compute can be taking too long</h3>
+<p>Ok, the point to today’s discussion. Your <em>project</em> has exceeded what you can do locally. Possible reasons why:</p>
 <ol style="list-style-type: decimal">
 <li>memory limits</li>
 <li>storage limits</li>
 <li>compute time is too long</li>
 </ol>
 <p>For most workstations, 16-48 GB of RAM and a few TB’s of local disk is about the practical limit. Most HPC clusters have nodes with much more RAM and networked parallel storage. For instance, on ARC machines, most nodes have 128-256 GB of RAM with a few having 3 TB. For storage, many HPC clusters have fast parallel storage. Within ARC, we have 7.5 PB on a parallel file system called BeeGFS.</p>
+<hr />
+</div>
+<div id="compute-time-is-too-long" class="section level3">
+<h3>Compute time is too long</h3>
 <p>The last local compute issue, compute time is too long, is a more complicated discussion. We are going to focus on the last issue and talk about how you can scale your compute on an HPC cluster. Before you start, you should know what the cause of the slowness is. Is the process:</p>
 <ul>
 <li>i/o bound</li>
 <li>memory bound</li>
 <li>CPU bound</li>
 </ul>
-<p>Generally, this is a pretty advanced topic and involves performance tools etc to profile the application’s behavior. We are going to skip all that and think about the compute as a pipeline and classify it based on inputs/outputs and steps/calculations. Here are some possible data flow/computing pipelines (plus some examples):</p>
+<p>Generally, this is a pretty advanced topic and involves performance tools etc to profile the application’s behavior. We are going to skip all that and think about the compute as a pipeline and classify it based on inputs/outputs and steps/calculations.</p>
+<hr />
+</div>
+<div id="reasons-for-long-compute" class="section level3">
+<h3>Reasons for long compute</h3>
+<p>Here are some possible data flow/computing pipelines (plus some examples):</p>
 <ol style="list-style-type: decimal">
 <li>single data set, must all be computed on at one time, involves matrix operations</li>
 </ol>
@@ -145,8 +154,17 @@ memory limits storage limits compute time is too long  For most workstations, 16
 <li>independent models using linear regression</li>
 </ul>
 <p>And really any combination of the above. We will start first by talking through (3) and (5) together.</p>
-<div id="pleasingly-parallel-applications" class="section level2">
-<h2>Pleasingly parallel applications</h2>
+</div>
+<div id="example-problem---darts-for-pie" class="section level3">
+<h3>Example problem - Darts for pi(e)</h3>
+<p>Monte Carlo methods are ones that involve repeated random sampling to estimate unknown parameters. As an example, we can use repeated random sampling from uniform distributions to estimate pi. Consider playing darts where we have inscribed a circle within the area given by a dart board. If the circle and square are centered at c(0,0) where the circle has radius r=1 while the square has sides of length d=2, we can calculate the probablity of hitting the circle vs the square as the ratio of areas given by:</p>
+<p><span class="math display">\[\begin{eqnarray}
+\frac{C}{S} &amp;=&amp; \frac{\pi \ast r^2}{4 \ast r^2} \\
+    &amp;=&amp; \frac{\pi}{4}
+\end{eqnarray}\]</span></p>
+</div>
+<div id="pleasingly-parallel-applications" class="section level3">
+<h3>Pleasingly parallel applications</h3>
 <p>Pleasingly parallel processing is exemplified by tasks that can be performed completely independently of each other.</p>
 <ul>
 <li><p>Suppose for instance, you have a slew of data sets, all independent, and want to create models for each. You could, given a lab with several workstations, start computing a model on each workstation independent of the others. On an HPC system, you would submit each data set + desired compute as a script to a scheduler. In our case Slurm. As compute nodes are available, the various data plus scripted model will be computed and results returned.</p></li>
@@ -155,14 +173,14 @@ memory limits storage limits compute time is too long  For most workstations, 16
 <p>Parallelization
 + MKL/OpenBLAS vectorization
 + OpenMP
+<a href="https://github.com/Rdatatable/data.table/wiki/Installation" class="uri">https://github.com/Rdatatable/data.table/wiki/Installation</a>
 + MPI</p>
 <pre class="r"><code>plot(cars)</code></pre>
-<p><img src="/STAT5526_Fall2020/posts/Lecture_1d_files/figure-html/unnamed-chunk-1-1.png" width="672" /></p>
+<p><img src="/posts/Lecture_1d_files/figure-html/unnamed-chunk-1-1.png" width="672" /></p>
 <p>Add a new chunk by clicking the <em>Insert Chunk</em> button on the toolbar or by pressing <em>Cmd+Option+I</em>.</p>
 <p>When you save the notebook, an HTML file containing the code and output will be saved alongside it (click the <em>Preview</em> button or press <em>Cmd+Shift+K</em> to preview the HTML file).</p>
 <p>The preview shows you a rendered HTML copy of the contents of the editor. Consequently, unlike <em>Knit</em>, <em>Preview</em> does not run any R code chunks. Instead, the output of the chunk when it was last run in the editor is displayed.</p>
 <hr />
-</div>
 </div>
 <div id="topics-2" class="section level1">
 <h1>Topics 2</h1>
@@ -173,21 +191,13 @@ memory limits storage limits compute time is too long  For most workstations, 16
 <div class="post__tags tags clearfix">
 	<svg class="tags__icon icon icon-tag" width="16" height="16" viewBox="0 0 32 32"><path d="M32 19c0 1-1 2-1 2L21 31s-1 1-2 1-2-1-2-1L2 16c-1-1-1.4-2-1.4-2S0 12.5 0 11V3C0 1.5.8.8.8.8S1.5 0 3 0h8c1.5 0 3 .6 3 .6S15 1 16 2l15 15s1 1 1 2zM7 10a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/></svg>
 	<ul class="tags__list">
-		<li class="tags__item"><a class="tags__link btn" href="/STAT5526_Fall2020/tags/parallelizing/" rel="tag">Parallelizing</a></li>
+		<li class="tags__item"><a class="tags__link btn" href="/tags/parallelizing/" rel="tag">Parallelizing</a></li>
 	</ul>
 </div>
 	</article>
 </main>
 
 
-<nav class="post-nav flex">
-	<div class="post-nav__item post-nav__item--prev">
-		<a class="post-nav__link" href="/STAT5526_Fall2020/posts/lecture-2a/" rel="prev"><span class="post-nav__caption">«&thinsp;Previous</span><p class="post-nav__post-title">Lecture 2A - Monte Carlo - Work in Process</p></a>
-	</div>
-	<div class="post-nav__item post-nav__item--next">
-		<a class="post-nav__link" href="/STAT5526_Fall2020/posts/lecture-1c/" rel="next"><span class="post-nav__caption">Next&thinsp;»</span><p class="post-nav__post-title">Lecture 1C - Containers and R</p></a>
-	</div>
-</nav>
 
 
 			</div>
@@ -197,16 +207,16 @@ memory limits storage limits compute time is too long  For most workstations, 16
 			<input class="widget-search__field" type="search" placeholder="SEARCH..." value="" name="q" aria-label="SEARCH...">
 		</label>
 		<input class="widget-search__submit" type="submit" value="Search">
-		<input type="hidden" name="sitesearch" value="http://rsettlage.github.io/STAT5526_Fall2020/" />
+		<input type="hidden" name="sitesearch" value="/" />
 	</form>
 </div>
 <div class="widget-recent widget">
 	<h4 class="widget__title">Recent Posts</h4>
 	<div class="widget__content">
 		<ul class="widget__list">
-			<li class="widget__item"><a class="widget__link" href="/STAT5526_Fall2020/posts/lecture-1a/">Lecture 1A - HPC Cluster Organization</a></li>
-			<li class="widget__item"><a class="widget__link" href="/STAT5526_Fall2020/posts/lecture-1b/">Lecture 1B - Scheduler/Software/Storage</a></li>
-			<li class="widget__item"><a class="widget__link" href="/STAT5526_Fall2020/posts/lecture-1c/">Lecture 1C - Containers and R</a></li>
+			<li class="widget__item"><a class="widget__link" href="/posts/lecture-1a/">Lecture 1A - HPC Cluster Organization</a></li>
+			<li class="widget__item"><a class="widget__link" href="/posts/lecture-1b/">Lecture 1B - Scheduler/Software/Storage</a></li>
+			<li class="widget__item"><a class="widget__link" href="/posts/lecture-1c/">Lecture 1C - Containers and R</a></li>
 		</ul>
 	</div>
 </div>
@@ -214,28 +224,28 @@ memory limits storage limits compute time is too long  For most workstations, 16
 	<h4 class="widget__title">Categories</h4>
 	<div class="widget__content">
 		<ul class="widget__list">
-			<li class="widget__item"><a class="widget__link" href="/STAT5526_Fall2020/categories/course-logistics">Course logistics</a></li>
-			<li class="widget__item"><a class="widget__link" href="/STAT5526_Fall2020/categories/lecture1">Lecture1</a></li>
-			<li class="widget__item"><a class="widget__link" href="/STAT5526_Fall2020/categories/lecture2">Lecture2</a></li>
+			<li class="widget__item"><a class="widget__link" href="/categories/course-logistics">Course logistics</a></li>
+			<li class="widget__item"><a class="widget__link" href="/categories/lecture1">Lecture1</a></li>
+			<li class="widget__item"><a class="widget__link" href="/categories/lecture2">Lecture2</a></li>
 		</ul>
 	</div>
 </div>
 <div class="widget-taglist widget">
 	<h4 class="widget__title">Tags</h4>
 	<div class="widget__content">
-		<a class="widget-taglist__link widget__link btn" href="/STAT5526_Fall2020/tags/containers" title="Containers">Containers</a>
-		<a class="widget-taglist__link widget__link btn" href="/STAT5526_Fall2020/tags/git" title="Git">Git</a>
-		<a class="widget-taglist__link widget__link btn" href="/STAT5526_Fall2020/tags/gp" title="Gp">Gp</a>
-		<a class="widget-taglist__link widget__link btn" href="/STAT5526_Fall2020/tags/homework" title="Homework">Homework</a>
-		<a class="widget-taglist__link widget__link btn" href="/STAT5526_Fall2020/tags/hpc" title="Hpc">Hpc</a>
-		<a class="widget-taglist__link widget__link btn" href="/STAT5526_Fall2020/tags/keras" title="Keras">Keras</a>
-		<a class="widget-taglist__link widget__link btn" href="/STAT5526_Fall2020/tags/monte-carlo" title="Monte carlo">Monte carlo</a>
-		<a class="widget-taglist__link widget__link btn" href="/STAT5526_Fall2020/tags/neural-networks" title="Neural networks">Neural networks</a>
-		<a class="widget-taglist__link widget__link btn" href="/STAT5526_Fall2020/tags/parallelizing" title="Parallelizing">Parallelizing</a>
-		<a class="widget-taglist__link widget__link btn" href="/STAT5526_Fall2020/tags/r" title="R">R</a>
-		<a class="widget-taglist__link widget__link btn" href="/STAT5526_Fall2020/tags/r-setup" title="R setup">R setup</a>
-		<a class="widget-taglist__link widget__link btn" href="/STAT5526_Fall2020/tags/scheduler" title="Scheduler">Scheduler</a>
-		<a class="widget-taglist__link widget__link btn" href="/STAT5526_Fall2020/tags/topics" title="Topics">Topics</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/containers" title="Containers">Containers</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/git" title="Git">Git</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/gp" title="Gp">Gp</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/homework" title="Homework">Homework</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/hpc" title="Hpc">Hpc</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/keras" title="Keras">Keras</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/monte-carlo" title="Monte carlo">Monte carlo</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/neural-networks" title="Neural networks">Neural networks</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/parallelizing" title="Parallelizing">Parallelizing</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/r" title="R">R</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/r-setup" title="R setup">R setup</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/scheduler" title="Scheduler">Scheduler</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/topics" title="Topics">Topics</a>
 	</div>
 </div>
 </aside>
@@ -246,9 +256,12 @@ memory limits storage limits compute time is too long  For most workstations, 16
 		<div class="footer__copyright">
 			&copy; 2020 STAT-5526 Fall 2020.
 			<span class="footer__copyright-credits">Generated with <a href="https://gohugo.io/" rel="nofollow noopener" target="_blank">Hugo</a> and <a href="https://github.com/Vimux/Mainroad/" rel="nofollow noopener" target="_blank">Mainroad</a> theme.</span>
+			<script type="text/javascript"
+        src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+      </script>
 		</div>
 	</div>
 </footer>
 	</div>
-<script async defer src="/STAT5526_Fall2020/js/menu.js"></script></body>
+<script async defer src="/js/menu.js"></script></body>
 </html>

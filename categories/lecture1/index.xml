@@ -2,55 +2,79 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Lecture1 on STAT-5526 Fall 2020</title>
-    <link>http://rsettlage.github.io/STAT5526_Fall2020/categories/lecture1/</link>
+    <link>/categories/lecture1/</link>
     <description>Recent content in Lecture1 on STAT-5526 Fall 2020</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Thu, 05 Nov 2020 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="http://rsettlage.github.io/STAT5526_Fall2020/categories/lecture1/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="/categories/lecture1/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Lecture 1A - HPC Cluster Organization</title>
-      <link>http://rsettlage.github.io/STAT5526_Fall2020/posts/lecture-1a/</link>
+      <link>/posts/lecture-1a/</link>
       <pubDate>Thu, 05 Nov 2020 00:00:00 +0000</pubDate>
       
-      <guid>http://rsettlage.github.io/STAT5526_Fall2020/posts/lecture-1a/</guid>
-      <description>HPC, HTC and Cloud HPC, HTC, and Cloud Computing are modern answers to “too much data”. As given by the facts listed here:
- 1.7MB of data is created every second by every person during 2020. In the last two years alone, the astonishing 90% of the world’s data has been created. 2.5 quintillion bytes of data are produced by humans every day. 463 exabytes of data will be generated each day by humans as of 2025.</description>
+      <guid>/posts/lecture-1a/</guid>
+      <description>
+&lt;link href=&#34;/rmarkdown-libs/anchor-sections/anchor-sections.css&#34; rel=&#34;stylesheet&#34; /&gt;
+&lt;script src=&#34;/rmarkdown-libs/anchor-sections/anchor-sections.js&#34;&gt;&lt;/script&gt;
+
+
+&lt;div id=&#34;hpc-htc-and-cloud&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;HPC, HTC and Cloud&lt;/h3&gt;
+&lt;p&gt;HPC, HTC, and Cloud Computing are modern answers to “too much data”.&lt;/p&gt;
+</description>
     </item>
     
     <item>
       <title>Lecture 1B - Scheduler/Software/Storage</title>
-      <link>http://rsettlage.github.io/STAT5526_Fall2020/posts/lecture-1b/</link>
+      <link>/posts/lecture-1b/</link>
       <pubDate>Thu, 05 Nov 2020 00:00:00 +0000</pubDate>
       
-      <guid>http://rsettlage.github.io/STAT5526_Fall2020/posts/lecture-1b/</guid>
-      <description>Interacting with a scheduler As shown in the previous note, high performance computing clusters are characterized by a (or several) login nodes. The nodes serve as the gateway to the rest of the cluster. To gain access to the compute power within the cluster, you must “reserve” time on a compute node. This is done through a resource manager commonly termed a scheduler.
-HPC system diagram
- On ARC systems, we are migrating to SLURM which stands for Simple Linux Utility for Resource Management.</description>
+      <guid>/posts/lecture-1b/</guid>
+      <description>
+&lt;link href=&#34;/rmarkdown-libs/anchor-sections/anchor-sections.css&#34; rel=&#34;stylesheet&#34; /&gt;
+&lt;script src=&#34;/rmarkdown-libs/anchor-sections/anchor-sections.js&#34;&gt;&lt;/script&gt;
+
+
+&lt;div id=&#34;interacting-with-a-scheduler&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Interacting with a scheduler&lt;/h3&gt;
+&lt;p&gt;As shown in the previous note, high performance computing clusters are characterized by a (or several) login nodes.&lt;/p&gt;
+</description>
     </item>
     
     <item>
       <title>Lecture 1C - Containers and R</title>
-      <link>http://rsettlage.github.io/STAT5526_Fall2020/posts/lecture-1c/</link>
+      <link>/posts/lecture-1c/</link>
       <pubDate>Thu, 05 Nov 2020 00:00:00 +0000</pubDate>
       
-      <guid>http://rsettlage.github.io/STAT5526_Fall2020/posts/lecture-1c/</guid>
-      <description>R and Containers. Finally. OK, I listed this as R, then containers, but we will do containers then R. Eh.
-So, where have we come from and where are we going?
- Prototyping Generally, Into to Data Analytics classes focus on algorithms and stay in Rstudio or Jupyter Notebooks. These IDEs are fantatic for a quick(-ish), iterative approach to data munging, EDA, data cleaning, plotting, creating reports, etc. Some project data sets are too large, there are too many parameter combinations to try, or perhaps the data is a real time continuous stream, necessitating a different approach.</description>
+      <guid>/posts/lecture-1c/</guid>
+      <description>
+&lt;link href=&#34;/rmarkdown-libs/anchor-sections/anchor-sections.css&#34; rel=&#34;stylesheet&#34; /&gt;
+&lt;script src=&#34;/rmarkdown-libs/anchor-sections/anchor-sections.js&#34;&gt;&lt;/script&gt;
+
+
+&lt;div id=&#34;r-and-containers.-finally.&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;R and Containers. Finally.&lt;/h2&gt;
+&lt;p&gt;OK, I listed this as R, then containers, but we will do containers then R. Eh.&lt;/p&gt;
+</description>
     </item>
     
     <item>
       <title>Lecture 1D - Going Parallel - Work In Process</title>
-      <link>http://rsettlage.github.io/STAT5526_Fall2020/posts/lecture-1d/</link>
+      <link>/posts/lecture-1d/</link>
       <pubDate>Thu, 05 Nov 2020 00:00:00 +0000</pubDate>
       
-      <guid>http://rsettlage.github.io/STAT5526_Fall2020/posts/lecture-1d/</guid>
-      <description>Reasons why your compute can be taking too long Ok, the point to today’s discussion. Your project has exceeded what you can do locally. Possible reasons why:
-memory limits storage limits compute time is too long  For most workstations, 16-48 GB of RAM and a few TB’s of local disk is about the practical limit. Most HPC clusters have nodes with much more RAM and networked parallel storage.</description>
+      <guid>/posts/lecture-1d/</guid>
+      <description>
+&lt;link href=&#34;/rmarkdown-libs/anchor-sections/anchor-sections.css&#34; rel=&#34;stylesheet&#34; /&gt;
+&lt;script src=&#34;/rmarkdown-libs/anchor-sections/anchor-sections.js&#34;&gt;&lt;/script&gt;
+
+
+&lt;p&gt;Ok, the point to today’s discussion. Your &lt;em&gt;project&lt;/em&gt; has exceeded what you can do locally. Possible reasons why:&lt;/p&gt;
+</description>
     </item>
     
   </channel>

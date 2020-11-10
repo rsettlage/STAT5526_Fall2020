@@ -22,6 +22,9 @@ header-includes: \setlength\parindent{24pt} \usepackage{MnSymbol} \usepackage{ma
 
 ## R and Keras coming soon ...
 
+
+<!--more-->
+
 NN for linear regression
 NN for image classification
 - binary
