@@ -24,11 +24,11 @@ header-includes: \setlength\parindent{24pt} \usepackage{MnSymbol} \usepackage{ma
 library(knitr)
 ```
 
-### Interacting with a scheduler
-
 As shown in the previous note, high performance computing clusters are characterized by a (or several) login nodes.  
 
 <!--more-->
+
+### Interacting with a scheduler
 
 As shown in the previous note, high performance computing clusters are characterized by a (or several) login nodes.  The nodes serve as the gateway to the rest of the cluster.  To gain access to the compute power within the cluster, you must "reserve" time on a compute node.  This is done through a resource manager commonly termed a scheduler. 
 

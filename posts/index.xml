@@ -35,12 +35,10 @@
       
       <guid>http://rsettlage.github.io/STAT5526_Fall2020/posts/lecture-1b/</guid>
       <description>
-&lt;link href=&#34;http://rsettlage.github.io/STAT5526_Fall2020/rmarkdown-libs/anchor-sections/anchor-sections.css&#34; rel=&#34;stylesheet&#34; /&gt;
-&lt;script src=&#34;http://rsettlage.github.io/STAT5526_Fall2020/rmarkdown-libs/anchor-sections/anchor-sections.js&#34;&gt;&lt;/script&gt;
+&lt;link href=&#34;http://rsettlage.github.io/STAT5526_Fall2020/STAT5526_Fall2020/rmarkdown-libs/anchor-sections/anchor-sections.css&#34; rel=&#34;stylesheet&#34; /&gt;
+&lt;script src=&#34;http://rsettlage.github.io/STAT5526_Fall2020/STAT5526_Fall2020/rmarkdown-libs/anchor-sections/anchor-sections.js&#34;&gt;&lt;/script&gt;
 
 
-&lt;div id=&#34;interacting-with-a-scheduler&#34; class=&#34;section level3&#34;&gt;
-&lt;h3&gt;Interacting with a scheduler&lt;/h3&gt;
 &lt;p&gt;As shown in the previous note, high performance computing clusters are characterized by a (or several) login nodes.&lt;/p&gt;
 </description>
     </item>
