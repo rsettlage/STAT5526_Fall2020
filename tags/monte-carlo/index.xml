@@ -18,12 +18,11 @@
       
       <guid>http://rsettlage.github.io/STAT5526_Fall2020/posts/lecture-2a/</guid>
       <description>
-&lt;link href=&#34;http://rsettlage.github.io/STAT5526_Fall2020/STAT5526_Fall2020/rmarkdown-libs/anchor-sections/anchor-sections.css&#34; rel=&#34;stylesheet&#34; /&gt;
-&lt;script src=&#34;http://rsettlage.github.io/STAT5526_Fall2020/STAT5526_Fall2020/rmarkdown-libs/anchor-sections/anchor-sections.js&#34;&gt;&lt;/script&gt;
+&lt;link href=&#34;http://rsettlage.github.io/STAT5526_Fall2020/rmarkdown-libs/anchor-sections/anchor-sections.css&#34; rel=&#34;stylesheet&#34; /&gt;
+&lt;script src=&#34;http://rsettlage.github.io/STAT5526_Fall2020/rmarkdown-libs/anchor-sections/anchor-sections.js&#34;&gt;&lt;/script&gt;
 
 
-&lt;div id=&#34;monte-carlo-coming-soon&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;Monte Carlo coming soon …&lt;/h2&gt;
+&lt;p&gt;Monte Carlo methods are ones that involve repeated random sampling to estimate unknown parameters.&lt;/p&gt;
 </description>
     </item>
     

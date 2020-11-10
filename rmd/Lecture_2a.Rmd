@@ -1,6 +1,5 @@
 ---
 title: "Lecture 2A - Monte Carlo - Work in Process"
-author: "Robert Settlage"
 authorbox: false
 slug: "Lecture 2A"
 date: 2020-11-05
@@ -20,17 +19,36 @@ output:
 header-includes: \setlength\parindent{24pt} \usepackage{MnSymbol} \usepackage{mathrsfs}
 ---
 
-## Monte Carlo coming soon ... 
+Monte Carlo methods are ones that involve repeated random sampling to estimate unknown parameters. 
 
 <!--more-->
 
-```{r}
-plot(cars) 
-```
+### Monte Carlo Integration
 
-### Example problem - Darts for pi(e)
+Monte Carlo integration is a numerical technique based on distributions and randon numbers.  Unlike Riemann Sums, Monte Carlo integration choose points randomly within the bound of interest and assumes the point frequency corresponds to the "height" at that point in the interval.
 
-Monte Carlo methods are ones that involve repeated random sampling to estimate unknown parameters.  As an example, we can use repeated random sampling from uniform distributions to estimate pi.  Consider playing darts where we have inscribed a circle within the area given by a dart board.  If the circle and square are centered at c(0,0) where the circle has radius r=1 while the square has sides of length d=2, we can calculate the probablity of hitting the circle vs the square as the ratio of areas given by:
+As an example, consider the function and integral:
+
+\begin{equation}
+H(x,y) = 1 if x^2+y^2 \le 1, 0\text{ otherwise}
+\end{equation}
+
+\begin{equation}
+I = \int_{x,y \in [-1,1]} H(x,y)dx dy
+\end{equation}
+
+which we know integrates to pi.  We could evaluate that integral by:
+
+\begin{equation}
+\pi = 4*\frac{1}{N}\Sigma_{i=1}^N H(x_i,y_i)
+\end{equation}
+where ($x_i$,$y_i$) are drawn from unif[0,1].
+
+----
+
+### Estimate $\pi$ using darts
+
+We will come back to the above, for now, we will simply and say Monte Carlo methods are ones that involve repeated random sampling to estimate unknown parameters or distributions.  As an example, we can use repeated random sampling from uniform distributions to estimate pi.  Consider playing darts where we have inscribed a circle within the area given by a dart board.  If the circle and square are centered at c(0,0) where the circle has radius r=1 while the square has sides of length d=2*r, we can calculate the probablity of hitting the circle vs the square as the ratio of areas given by:
 
 \begin{eqnarray}
 \frac{C}{S} &=& \frac{\pi \ast r^2}{(2 \ast r)^2} \\
@@ -39,10 +57,115 @@ Monte Carlo methods are ones that involve repeated random sampling to estimate u
 
 For starters, we will do this using loops and not worry about optimizing via apply functions, memory management or other tricks.
 
-```{r eval=FALSE}
+```{r eval=TRUE, echo=TRUE, include=TRUE}
 options(digits=15)
-cat("pi=",pi,"\n",sep="")
+#cat("pi=",pi,"\n",sep="")
 set.seed(123456)
-while()
+samples <- 10000
+point_container <- matrix(0,nrow=samples, ncol=3)
+i <- 0
+while(i<samples){
+  i <- i+1
+  current_point <- runif(n=2,min=0,max=1) #staying in first quad
+  dist_from_origin <- sqrt(sum(current_point^2))
+  point_container[i,] <- c(current_point,ifelse(dist_from_origin>1,0,1))
+}
+our_pi <- 4*sum(point_container[,3])/samples
+plot(point_container[,1],point_container[,2],
+     col=point_container[,3]+1,pch=20,
+     main=paste("estimate of pi=",our_pi, "vs",pi),
+     xlab="x",ylab="y")
 ```
 
+----
+
+### What about tossing beer cans
+
+Yep, given enough beer, we can estimate pi by throwing empties...
+
+The basic idea is that if you lay out a set of lines separated by the length of the beer can (zero width) and toss beer cans onto the grid, then simply count the beer cans that cross the lines, pi is given by:
+
+\begin{equation}
+\pi = \frac{2 \ast n}{k}
+\end{equation}
+where n = number of empties and k = cans crossing lines.
+
+```{r, eval=TRUE, echo=TRUE, include=TRUE}
+
+n <- 100
+# choose positions of center of needle . Note the " board " is 10X10 , vertical lines x. pos <- runif (n ,0 ,10)
+x.pos <- runif(n,0,10)
+y.pos <- runif(n,0,10)
+rotation <- runif(n,0,pi/2)
+# figure out the x,y coords of the match endpoints
+x.max <- x.pos + 0.5* cos(rotation)
+x.min <- x.pos - 0.5* cos(rotation)
+y.max <- y.pos + 0.5* sin(rotation)
+y.min <- y.pos - 0.5* sin(rotation)
+# draw the board
+
+plot(x=x.pos,y=y.pos,xlim=c(0,10),ylim=c(0,10))
+# draw the lines
+abline(v=seq(1,9,1))
+# draw the needles
+segments(x.min,y.min,x.max,y.max)
+
+```
+
+Check out <http://www.clayford.net/statistics/buffons-needle-problem-or-how-to-use-probability-to-estimate-pi/> for the math and discussion.
+
+----
+
+### Gibbs sampling
+
+```{r, eval=FALSE, include=TRUE, echo=TRUE}
+http://www.stat.cmu.edu/~brian/463-663/week10/Chapter%2004.pdf
+http://rstudio-pubs-static.s3.amazonaws.com/279858_010f9da7c8d744988019397e3fe51cb2.html
+http://www2.stat.duke.edu/~rcs46/modern_bayes17/lecturesModernBayes17/lecture-7/07-gibbs.pdf
+https://jwmi.github.io/BMS/chapter6-gibbs-sampling.pdf
+```
+
+Gibbs sampling follows from the above.  Suppose p(x,y) is some hard to sample from distribution.  However, we can easily sample from the conditional distributions p(x|y) and p(y|x), Gibbs gives us a way to get p(x,y) samples.  The algorithm looks like:
+
+1. set initial values for x and y
+2. sample x|y and y|x
+3. repeat
+
+As an example, consider a bivariate correlated model for a two-stock portfolio.  We want to model the return given by $W = aX + bY$ where a and b are weights of the included stocks with the daily returns given by X and Y.  The conditional distributions are given by:
+
+\begin{eqnarray}
+X & \sim & Norm(\rho Y,\sigma) \\
+Y & \sim & Norm(\rho X, \sigma) \text{ where} \\
+\sigma & = & \sqrt{1-\rho^2}
+\end{eqnarray}
+
+We are also going to model $X_1 \sim Norm(\alpha_1,\beta_1^2$ as a linear transformation using $X_1 = \alpha_1 X + \beta_1$.
+
+----
+
+Code from Gui Larangeira, California State University, East Bay (link above)
+```{r echo=TRUE, eval=TRUE, include=TRUE}
+set.seed(1212)
+m = 100000; x = y = numeric(m); x[1] = y[1] = 0  # initial conditions
+rho = 0.8; sgm = sqrt(1 - rho^2)                 # correlation and standard deviation
+
+for (i in 2:m) {                                 # Gibbs Sampler Loop
+  x[i] = rnorm(1, rho*y[i-1], sgm)
+  y[i] = rnorm(1, rho*x[i], sgm)
+}
+
+alpha.1 = beta.1 = .01
+alpha.2 = .015; beta.2 = .012
+x1 = alpha.1 +beta.1*x          # x1 ~ N(alpha.1, beta.1)
+y1 = alpha.2 +beta.2*y          # x2 ~ N(alpha.2, beta.2)
+
+a= .4; b= .6                    # Portfolio weights
+w = a*x1 + b*y1
+
+par(mfrow=c(2,2), pty="s") # 2 x 2 array of square plots
+plot(x[1:50], y[1:50], type="l")
+plot(x1, y1, pch=".", main = "x1, x2 returns, green = portfolio > 0");points(x1[w>0], y1[w>0], pch=".", col="green4")
+plot(x[1:1000], type="l"); acf(y)
+```
+
+The point to the above is not that you can do this simple model, but to show that MCMC can do useful things and the models can become arbitrarily complex and cumbersome to simulate ... HPC.

@@ -25,11 +25,11 @@ header-includes: \setlength\parindent{24pt} \usepackage{MnSymbol} \usepackage{ma
 library(knitr)
 ```
 
-### R and Containers.  Finally.
-
 OK, I listed this as R, then containers, but we will do R, containers then more R.  Eh.
 
 <!--more--> 
+
+### R and Containers.  Finally.
 
 OK, I listed this as R, then containers, but we will do containers then R.  Eh. So, where have we come from and where are we going? 
 

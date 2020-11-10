@@ -4,10 +4,10 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>Lecture 1D - Going Parallel - STAT-5526 Fall 2020</title>
+	<title>Lecture 1D - Going Parallel (Pleasingly) - STAT-5526 Fall 2020</title>
 	<script>(function(d,e){d[e]=d[e].replace("no-js","js");})(document.documentElement,"className");</script>
 	<meta name="description" content="">
-	<meta property="og:title" content="Lecture 1D - Going Parallel" />
+	<meta property="og:title" content="Lecture 1D - Going Parallel (Pleasingly)" />
 <meta property="og:description" content="
 
 
@@ -36,7 +36,7 @@ Ok, the point to today’s discussion. Your project has exceeded what you can do
 		<div class="logo">
 			<a class="logo__link" href="/STAT5526_Fall2020/" title="STAT-5526 Fall 2020" rel="home">
 				<div class="logo__title">STAT-5526 Fall 2020</div>
-				<div class="logo__tagline">Official place to find course material.</div>
+				<div class="logo__tagline">Official place to find HPC course material.</div>
 			</a>
 		</div>
 		
@@ -55,7 +55,7 @@ Ok, the point to today’s discussion. Your project has exceeded what you can do
 			<a class="menu__link" href="/STAT5526_Fall2020/posts">posts</a>
 		</li>
 		<li class="menu__item">
-			<a class="menu__link" href="https://github.com/rsettlage/STAT5526_Fall2020/tree/master/homework">Homework</a>
+			<a class="menu__link" href="/STAT5526_Fall2020/homework">homework</a>
 		</li>
 		<li class="menu__item">
 			<a class="menu__link" href="https://github.com/rsettlage/STAT5526_Fall2020/tree/master/rmd">Rmd</a>
@@ -80,7 +80,7 @@ Ok, the point to today’s discussion. Your project has exceeded what you can do
 <main class="main" role="main">
 	<article class="post">
 		<header class="post__header">
-			<h1 class="post__title">Lecture 1D - Going Parallel</h1>
+			<h1 class="post__title">Lecture 1D - Going Parallel (Pleasingly)</h1>
 			<div class="post__meta meta">
 <div class="meta__item-datetime meta__item">
 	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0C7 0 1 6 1 14s6 14 14 14 14-6 14-14S23 0 15 0zm0 25C9 25 4 20 4 14S9 3 15 3s11 5 11 11-5 11-11 11zm1-18h-2v8.4l6.8 4.4L22 18l-6-3.8V7z"/></svg>
@@ -115,44 +115,47 @@ Ok, the point to today’s discussion. Your project has exceeded what you can do
 <p>Generally, this is a pretty advanced topic and involves performance tools etc to profile the application’s behavior. We are going to skip all that and think about the compute as a pipeline and classify it based on inputs/outputs and steps/calculations.</p>
 <hr />
 </div>
+<div id="look-at-local-benchmarking" class="section level3">
+<h3>Look at local benchmarking</h3>
+<pre class="r"><code>comp_stats &lt;- read.delim(&quot;../img/user_data.tbl&quot;,sep=&quot;,&quot;)
+comp_stats$size &lt;- as.numeric(comp_stats$size)
+comp_stats &lt;- comp_stats[comp_stats$size&gt;0,]
+ggplot(comp_stats,aes(x=as.factor(user),y=as.numeric(actual_solve))) +
+  geom_violin() + facet_wrap(~size,scales=&quot;free&quot;)</code></pre>
+<p><img src="/posts/Lecture_1d_files/figure-html/unnamed-chunk-2-1.png" width="672" /></p>
+<p><img src="/posts/Lecture_1d_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
+<hr />
+</div>
 <div id="reasons-for-long-compute" class="section level3">
 <h3>Reasons for long compute</h3>
 <p>Here are some possible data flow/computing pipelines (plus some examples):</p>
 <ol style="list-style-type: decimal">
-<li>single data set, must all be computed on at one time, involves matrix operations</li>
-</ol>
+<li>single data set, must all be computed on at one time, involves matrix operations
 <ul>
 <li>simple linear regression</li>
-</ul>
-<ol start="2" style="list-style-type: decimal">
-<li>single data set, must all be computed on at one time, involves loops</li>
-</ol>
+</ul></li>
+<li>single data set, must all be computed on at one time, involves loops
 <ul>
 <li>bootstrapping</li>
 <li>nonlinear regression using gradient descent</li>
 <li>Monte Carlo methods</li>
-</ul>
-<ol start="3" style="list-style-type: decimal">
-<li>single data set, must all be computed on at one time, involves many hyper parameters that must be optimized</li>
-</ol>
+</ul></li>
+<li>single data set, must all be computed on at one time, involves many hyper parameters that must be optimized
 <ul>
 <li>Monte Carlo methods</li>
 <li>gradient descent</li>
 <li>machine learning algorithms</li>
-</ul>
-<ol start="4" style="list-style-type: decimal">
-<li>single data set, can be processed in batches, must be aggregated at end</li>
-</ol>
+</ul></li>
+<li>single data set, can be processed in batches, must be aggregated at end
 <ul>
 <li>ML</li>
 <li>batched gradient descent</li>
-</ul>
-<ol start="5" style="list-style-type: decimal">
-<li>multiple data sets, identical processing on each</li>
-</ol>
+</ul></li>
+<li>multiple data sets, identical processing on each
 <ul>
 <li>independent models using linear regression</li>
-</ul>
+</ul></li>
+</ol>
 <p>And really any combination of the above. We will start first by talking through (3) and (5) together.</p>
 <hr />
 </div>
@@ -176,7 +179,7 @@ Ok, the point to today’s discussion. Your project has exceeded what you can do
 for i in {50}; do sbatch -c64 --export=NCOLS=13 SLRUM_solve_time.sh ; done
 
 # what if we want to vary the parameters in a grid search
-for cores in {4,8,12,16,32,64}; do 
+for cores in {4,8,12,16,32,64,128}; do 
     for ncols in {7..14}; do 
         for reps in {1..7}; do 
             sbatch -c$cores --export=NCOLS=$ncols SLRUM_solve_time.sh;
@@ -186,15 +189,110 @@ done
 </code></pre>
 <hr />
 </div>
+<div id="linux-version-of-the-matrix-ops" class="section level3">
+<h3>Linux version of the matrix ops</h3>
+<pre class="r"><code>linux_side &lt;- readRDS(&quot;../img/linux-128.RDS&quot;)
+linux_side$size &lt;- as.numeric(linux_side$size)
+linux_side &lt;- linux_side[linux_side$size&gt;0,]
+linux_side %&gt;%
+  ggplot(aes(x=as.factor(as.numeric(setthreads)),y=as.numeric(actual_solve))) +
+    geom_violin() + 
+    facet_wrap(~size,scales=&quot;free&quot;) +
+    theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))</code></pre>
+<p><img src="/posts/Lecture_1d_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
+</div>
 <div id="more-opportunities-for-parallelization" class="section level3">
 <h3>More opportunities for parallelization</h3>
-<p>We have really been exploring MKL/OpenBLAS and OpenMP in the code so far. Within a node, MKL/OpenBLAS accelerate matrix math routines such as matrix multiplication, inverting, transposing, etc. The algorithms are way beyond what we need to know here. Where we will end is that many of these algorithms use threading to divide and conquer. The threading is often controlled by OpenMP. This is where we jump in.</p>
+<p>We have been exploring MKL/OpenBLAS and OpenMP in the code so far. Within a node, MKL/OpenBLAS accelerate matrix math routines such as matrix multiplication, inverting, transposing, etc. The algorithms are way beyond what we need to know here. Where we will end is that many of these algorithms use threading to divide and conquer. The threading is often controlled by OpenMP. This is where we jump in.</p>
 <hr />
 </div>
 <div id="openmp" class="section level3">
 <h3>OpenMP</h3>
 <p>OpenMP is basically a fork and join model of task launching within an application for shared memory systems (more on that below). What we did in the pleasingly parallel section can be thought of as a disjointed version of OpenMP. We started with a set of data and a script, we launched a bunch of tasks that completed independently, and now we would aggregate the results.</p>
-<p>OpenMP does this within an application. A typical use of OpenMP is parallelizing for loops. Think linear algebra! Unfortunately for us, OpenMP is for COMPILED languages. Are we out of luck? NO, but we have to use Rcpp or the like to use it, ie unless we have a package that wrote it in C/C++/Fortran or we do something in Rcpp, we won’t see it outside of the linear algebra routines.</p>
+<p>OpenMP does this within an application using threading. A typical use of OpenMP is parallelizing for loops. Think linear algebra! Unfortunately for us, OpenMP is for COMPILED languages. Are we out of luck? NO, but we have to use Rcpp or the like to use it, ie unless we have a package that wrote it in C/C++/Fortran or we do something in Rcpp, we won’t see it outside of the linear algebra routines.</p>
+<hr />
+</div>
+<div id="openmp-example" class="section level3">
+<h3>OpenMP example</h3>
+<pre class="c"><code>## openMPCode example from Rcpp/examples/OpenMP/ by Dirk E.
+openMPCode &lt;- &#39;
+   // assign to C++ vector
+   std::vector&lt;double&gt; x = Rcpp::as&lt;std::vector&lt; double &gt; &gt;(xs);
+   size_t n = x.size();
+#pragma omp parallel for shared(x, n)
+   for (size_t i=0; i&lt;n; i++) {
+       x[i] = ::log(x[i]);
+   }
+   return Rcpp::wrap(x);
+&#39;</code></pre>
+</div>
+<div id="step-back-and-look-at-our-processor" class="section level3">
+<h3>Step back and look at our processor</h3>
+<p>In today’s world, we are getting speedups by having multiple “mini” processors, called cores, bundled together as a single processor.</p>
+<p>TinkerCliffs:
++ 1 node has 2 processors
++ 1 processor has 64 cores</p>
+<p><img src="../img/Processors.png" alt="Processor" />
+### TinkerCliffs</p>
+<p>A single AMD ROME processor has 8 CCD’s, each with 8 cores bundled together to create the full processor.</p>
+<div class="figure">
+<img src="../img/ROME2.png" alt="" />
+<p class="caption">Rome2</p>
+</div>
+</div>
+<div id="rome1" class="section level2">
+<h2><img src="../img/ROME1.png" alt="Rome1" /></h2>
+<div id="machine-differences" class="section level3">
+<h3>Machine differences</h3>
+<p>OK, what is the point to all this??</p>
+<ol style="list-style-type: decimal">
+<li>Node make, model, proc choice matters<br />
+</li>
+<li>Some knowledge of what your script is doing can point to a solution</li>
+</ol>
+<p><img src="/posts/Lecture_1d_files/figure-html/unnamed-chunk-8-1.png" width="672" /></p>
+<hr />
+</div>
+<div id="pleasingly-parallel-vs-coupled" class="section level3">
+<h3>Pleasingly parallel vs coupled</h3>
+<p>Above, we were giving examples of a single data, ie simulated matrix elements, but varying a hyperparameter to show differences in computing speeds. What if we are coupled?</p>
+<p>Couple systems means not independent. Examples:</p>
+<ul>
+<li>iterative updates<br />
+</li>
+<li>Monte Carlo random walks</li>
+</ul>
+<p>In these cases, there may be opportunities for partial parallelization of the algorithm, but perhaps not the whole thing. Often, this means we are stuck to a single node. What can we do within a single node?</p>
+<pre class="r"><code># summary statistics of sample
+n    &lt;- 30
+ybar &lt;- 15
+s2   &lt;- 3
+
+# sample from the joint posterior (mu, tau | data)
+mu     &lt;- rep(NA, 11000)
+tau    &lt;- rep(NA, 11000)
+T      &lt;- 1000    # burnin
+tau[1] &lt;- 1  # initialisation
+for(i in 2:11000) {   
+    mu[i]  &lt;- rnorm(n = 1, mean = ybar, sd = sqrt(1 / (n * tau[i - 1])))    
+    tau[i] &lt;- rgamma(n = 1, shape = n / 2, scale = 2 / ((n - 1) * s2 + n * (mu[i] - ybar)^2))
+}
+mu  &lt;- mu[-(1:T)]   # remove burnin
+tau &lt;- tau[-(1:T)] # remove burnin
+hist(mu)</code></pre>
+<hr />
+</div>
+<div id="other-opportunities-for-parallization" class="section level3">
+<h3>Other opportunities for parallization</h3>
+<ul>
+<li>parallel/foreach package</li>
+<li>Rmpi</li>
+<li>pbdr*</li>
+</ul>
+<p>Within a node, if there are loops or other independent tasks, you can use the parallel or foreach packages to start “workers”. These workers can then perform a task. Generally, the task is similar, but they do not have to be.</p>
+<p>If you must span nodes, but the process is not completely decoupled, you need to think about memory and data location. Rmpi allows passing of messages back and forth (using MPI) between workers on different nodes (more precisely, in non-shared memory spaces) to allow updating of status.</p>
+<p>Finally, the pbdr* suite of packages, allows a combination of the above and includes matrix libraries that can span nodes.</p>
+</div>
 </div>
 
 		</div>
@@ -225,9 +323,9 @@ done
 	<h4 class="widget__title">Recent Posts</h4>
 	<div class="widget__content">
 		<ul class="widget__list">
-			<li class="widget__item"><a class="widget__link" href="/STAT5526_Fall2020/posts/lecture-1a/">Lecture 1A - HPC Cluster Organization</a></li>
-			<li class="widget__item"><a class="widget__link" href="/STAT5526_Fall2020/posts/lecture-1b/">Lecture 1B - Scheduler/Software/Storage</a></li>
-			<li class="widget__item"><a class="widget__link" href="/STAT5526_Fall2020/posts/lecture-1c/">Lecture 1C - Containers and R</a></li>
+			<li class="widget__item"><a class="widget__link" href="/STAT5526_Fall2020/notes/hpc/">1 - HPC notes</a></li>
+			<li class="widget__item"><a class="widget__link" href="/STAT5526_Fall2020/notes/r-startup/">2 - R startup</a></li>
+			<li class="widget__item"><a class="widget__link" href="/STAT5526_Fall2020/notes/good-programming/">3 - Good Programming</a></li>
 		</ul>
 	</div>
 </div>
@@ -236,6 +334,7 @@ done
 	<div class="widget__content">
 		<ul class="widget__list">
 			<li class="widget__item"><a class="widget__link" href="/STAT5526_Fall2020/categories/course-logistics">Course logistics</a></li>
+			<li class="widget__item"><a class="widget__link" href="/STAT5526_Fall2020/categories/homework">Homework</a></li>
 			<li class="widget__item"><a class="widget__link" href="/STAT5526_Fall2020/categories/lecture1">Lecture1</a></li>
 			<li class="widget__item"><a class="widget__link" href="/STAT5526_Fall2020/categories/lecture2">Lecture2</a></li>
 		</ul>
@@ -249,9 +348,7 @@ done
 		<a class="widget-taglist__link widget__link btn" href="/STAT5526_Fall2020/tags/gp" title="Gp">Gp</a>
 		<a class="widget-taglist__link widget__link btn" href="/STAT5526_Fall2020/tags/homework" title="Homework">Homework</a>
 		<a class="widget-taglist__link widget__link btn" href="/STAT5526_Fall2020/tags/hpc" title="Hpc">Hpc</a>
-		<a class="widget-taglist__link widget__link btn" href="/STAT5526_Fall2020/tags/keras" title="Keras">Keras</a>
 		<a class="widget-taglist__link widget__link btn" href="/STAT5526_Fall2020/tags/monte-carlo" title="Monte carlo">Monte carlo</a>
-		<a class="widget-taglist__link widget__link btn" href="/STAT5526_Fall2020/tags/neural-networks" title="Neural networks">Neural networks</a>
 		<a class="widget-taglist__link widget__link btn" href="/STAT5526_Fall2020/tags/parallelizing" title="Parallelizing">Parallelizing</a>
 		<a class="widget-taglist__link widget__link btn" href="/STAT5526_Fall2020/tags/r" title="R">R</a>
 		<a class="widget-taglist__link widget__link btn" href="/STAT5526_Fall2020/tags/r-setup" title="R setup">R setup</a>

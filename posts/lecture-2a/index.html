@@ -13,8 +13,7 @@
 
 
 
-
-Monte Carlo coming soon …
+Monte Carlo methods are ones that involve repeated random sampling to estimate unknown parameters.
 " />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="http://rsettlage.github.io/STAT5526_Fall2020/posts/lecture-2a/" />
@@ -37,7 +36,7 @@ Monte Carlo coming soon …
 		<div class="logo">
 			<a class="logo__link" href="/STAT5526_Fall2020/" title="STAT-5526 Fall 2020" rel="home">
 				<div class="logo__title">STAT-5526 Fall 2020</div>
-				<div class="logo__tagline">Official place to find course material.</div>
+				<div class="logo__tagline">Official place to find HPC course material.</div>
 			</a>
 		</div>
 		
@@ -56,7 +55,7 @@ Monte Carlo coming soon …
 			<a class="menu__link" href="/STAT5526_Fall2020/posts">posts</a>
 		</li>
 		<li class="menu__item">
-			<a class="menu__link" href="https://github.com/rsettlage/STAT5526_Fall2020/tree/master/homework">Homework</a>
+			<a class="menu__link" href="/STAT5526_Fall2020/homework">homework</a>
 		</li>
 		<li class="menu__item">
 			<a class="menu__link" href="https://github.com/rsettlage/STAT5526_Fall2020/tree/master/rmd">Rmd</a>
@@ -94,21 +93,124 @@ Monte Carlo coming soon …
 </div>
 </div>
 		</header><div class="content post__content clearfix">
-			<pre class="r"><code>plot(cars) </code></pre>
-<p><img src="/STAT5526_Fall2020/posts/Lecture_2a_files/figure-html/unnamed-chunk-1-1.png" width="672" /></p>
-<div id="example-problem---darts-for-pie" class="section level3">
-<h3>Example problem - Darts for pi(e)</h3>
-<p>Monte Carlo methods are ones that involve repeated random sampling to estimate unknown parameters. As an example, we can use repeated random sampling from uniform distributions to estimate pi. Consider playing darts where we have inscribed a circle within the area given by a dart board. If the circle and square are centered at c(0,0) where the circle has radius r=1 while the square has sides of length d=2, we can calculate the probablity of hitting the circle vs the square as the ratio of areas given by:</p>
+			<div id="monte-carlo-integration" class="section level3">
+<h3>Monte Carlo Integration</h3>
+<p>Monte Carlo integration is a numerical technique based on distributions and randon numbers. Unlike Riemann Sums, Monte Carlo integration choose points randomly within the bound of interest and assumes the point frequency corresponds to the “height” at that point in the interval.</p>
+<p>As an example, consider the function and integral:</p>
+<p><span class="math display">\[\begin{equation}
+H(x,y) = 1 if x^2+y^2 \le 1, 0\text{ otherwise}
+\end{equation}\]</span></p>
+<p><span class="math display">\[\begin{equation}
+I = \int_{x,y \in [-1,1]} H(x,y)dx dy
+\end{equation}\]</span></p>
+<p>which we know integrates to pi. We could evaluate that integral by:</p>
+<p><span class="math display">\[\begin{equation}
+\pi = 4*\frac{1}{N}\Sigma_{i=1}^N H(x_i,y_i)
+\end{equation}\]</span>
+where (<span class="math inline">\(x_i\)</span>,<span class="math inline">\(y_i\)</span>) are drawn from unif[0,1].</p>
+<hr />
+</div>
+<div id="estimate-pi-using-darts" class="section level3">
+<h3>Estimate <span class="math inline">\(\pi\)</span> using darts</h3>
+<p>We will come back to the above, for now, we will simply and say Monte Carlo methods are ones that involve repeated random sampling to estimate unknown parameters or distributions. As an example, we can use repeated random sampling from uniform distributions to estimate pi. Consider playing darts where we have inscribed a circle within the area given by a dart board. If the circle and square are centered at c(0,0) where the circle has radius r=1 while the square has sides of length d=2*r, we can calculate the probablity of hitting the circle vs the square as the ratio of areas given by:</p>
 <p><span class="math display">\[\begin{eqnarray}
 \frac{C}{S} &amp;=&amp; \frac{\pi \ast r^2}{(2 \ast r)^2} \\
     &amp;=&amp; \frac{\pi}{4}
 \end{eqnarray}\]</span></p>
 <p>For starters, we will do this using loops and not worry about optimizing via apply functions, memory management or other tricks.</p>
 <pre class="r"><code>options(digits=15)
-cat(&quot;pi=&quot;,pi,&quot;\n&quot;,sep=&quot;&quot;)
+#cat(&quot;pi=&quot;,pi,&quot;\n&quot;,sep=&quot;&quot;)
 set.seed(123456)
-while()</code></pre>
+samples &lt;- 10000
+point_container &lt;- matrix(0,nrow=samples, ncol=3)
+i &lt;- 0
+while(i&lt;samples){
+  i &lt;- i+1
+  current_point &lt;- runif(n=2,min=0,max=1) #staying in first quad
+  dist_from_origin &lt;- sqrt(sum(current_point^2))
+  point_container[i,] &lt;- c(current_point,ifelse(dist_from_origin&gt;1,0,1))
+}
+our_pi &lt;- 4*sum(point_container[,3])/samples
+plot(point_container[,1],point_container[,2],
+     col=point_container[,3]+1,pch=20,
+     main=paste(&quot;estimate of pi=&quot;,our_pi, &quot;vs&quot;,pi),
+     xlab=&quot;x&quot;,ylab=&quot;y&quot;)</code></pre>
+<p><img src="/posts/Lecture_2a_files/figure-html/unnamed-chunk-1-1.png" width="672" /></p>
+<hr />
 </div>
+<div id="what-about-tossing-beer-cans" class="section level3">
+<h3>What about tossing beer cans</h3>
+<p>Yep, given enough beer, we can estimate pi by throwing empties…</p>
+<p>The basic idea is that if you lay out a set of lines separated by the length of the beer can (zero width) and toss beer cans onto the grid, then simply count the beer cans that cross the lines, pi is given by:</p>
+<p><span class="math display">\[\begin{equation}
+\pi = \frac{2 \ast n}{k}
+\end{equation}\]</span>
+where n = number of empties and k = cans crossing lines.</p>
+<pre class="r"><code>n &lt;- 100
+# choose positions of center of needle . Note the &quot; board &quot; is 10X10 , vertical lines x. pos &lt;- runif (n ,0 ,10)
+x.pos &lt;- runif(n,0,10)
+y.pos &lt;- runif(n,0,10)
+rotation &lt;- runif(n,0,pi/2)
+# figure out the x,y coords of the match endpoints
+x.max &lt;- x.pos + 0.5* cos(rotation)
+x.min &lt;- x.pos - 0.5* cos(rotation)
+y.max &lt;- y.pos + 0.5* sin(rotation)
+y.min &lt;- y.pos - 0.5* sin(rotation)
+# draw the board
+
+plot(x=x.pos,y=y.pos,xlim=c(0,10),ylim=c(0,10))
+# draw the lines
+abline(v=seq(1,9,1))
+# draw the needles
+segments(x.min,y.min,x.max,y.max)</code></pre>
+<p><img src="/posts/Lecture_2a_files/figure-html/unnamed-chunk-2-1.png" width="672" /></p>
+<p>Check out <a href="http://www.clayford.net/statistics/buffons-needle-problem-or-how-to-use-probability-to-estimate-pi/" class="uri">http://www.clayford.net/statistics/buffons-needle-problem-or-how-to-use-probability-to-estimate-pi/</a> for the math and discussion.</p>
+<hr />
+</div>
+<div id="gibbs-sampling" class="section level3">
+<h3>Gibbs sampling</h3>
+<pre class="r"><code>http://www.stat.cmu.edu/~brian/463-663/week10/Chapter%2004.pdf
+http://rstudio-pubs-static.s3.amazonaws.com/279858_010f9da7c8d744988019397e3fe51cb2.html
+http://www2.stat.duke.edu/~rcs46/modern_bayes17/lecturesModernBayes17/lecture-7/07-gibbs.pdf
+https://jwmi.github.io/BMS/chapter6-gibbs-sampling.pdf</code></pre>
+<p>Gibbs sampling follows from the above. Suppose p(x,y) is some hard to sample from distribution. However, we can easily sample from the conditional distributions p(x|y) and p(y|x), Gibbs gives us a way to get p(x,y) samples. The algorithm looks like:</p>
+<ol style="list-style-type: decimal">
+<li>set initial values for x and y</li>
+<li>sample x|y and y|x</li>
+<li>repeat</li>
+</ol>
+<p>As an example, consider a bivariate correlated model for a two-stock portfolio. We want to model the return given by <span class="math inline">\(W = aX + bY\)</span> where a and b are weights of the included stocks with the daily returns given by X and Y. The conditional distributions are given by:</p>
+<p><span class="math display">\[\begin{eqnarray}
+X &amp; \sim &amp; Norm(\rho Y,\sigma) \\
+Y &amp; \sim &amp; Norm(\rho X, \sigma) \text{ where} \\
+\sigma &amp; = &amp; \sqrt{1-\rho^2}
+\end{eqnarray}\]</span></p>
+<p>We are also going to model <span class="math inline">\(X_1 \sim Norm(\alpha_1,\beta_1^2\)</span> as a linear transformation using <span class="math inline">\(X_1 = \alpha_1 X + \beta_1\)</span>.</p>
+<hr />
+<p>Code from Gui Larangeira, California State University, East Bay (link above)</p>
+<pre class="r"><code>set.seed(1212)
+m = 100000; x = y = numeric(m); x[1] = y[1] = 0  # initial conditions
+rho = 0.8; sgm = sqrt(1 - rho^2)                 # correlation and standard deviation
+
+for (i in 2:m) {                                 # Gibbs Sampler Loop
+  x[i] = rnorm(1, rho*y[i-1], sgm)
+  y[i] = rnorm(1, rho*x[i], sgm)
+}
+
+alpha.1 = beta.1 = .01
+alpha.2 = .015; beta.2 = .012
+x1 = alpha.1 +beta.1*x          # x1 ~ N(alpha.1, beta.1)
+y1 = alpha.2 +beta.2*y          # x2 ~ N(alpha.2, beta.2)
+
+a= .4; b= .6                    # Portfolio weights
+w = a*x1 + b*y1
+
+par(mfrow=c(2,2), pty=&quot;s&quot;) # 2 x 2 array of square plots
+plot(x[1:50], y[1:50], type=&quot;l&quot;)
+plot(x1, y1, pch=&quot;.&quot;, main = &quot;x1, x2 returns, green = portfolio &gt; 0&quot;);points(x1[w&gt;0], y1[w&gt;0], pch=&quot;.&quot;, col=&quot;green4&quot;)
+plot(x[1:1000], type=&quot;l&quot;); acf(y)</code></pre>
+<p><img src="/posts/Lecture_2a_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
+<p>The point to the above is not that you can do this simple model, but to show that MCMC can do useful things and the models can become arbitrarily complex and cumbersome to simulate … HPC.</p>
 </div>
 
 		</div>
@@ -139,9 +241,9 @@ while()</code></pre>
 	<h4 class="widget__title">Recent Posts</h4>
 	<div class="widget__content">
 		<ul class="widget__list">
-			<li class="widget__item"><a class="widget__link" href="/STAT5526_Fall2020/posts/lecture-1a/">Lecture 1A - HPC Cluster Organization</a></li>
-			<li class="widget__item"><a class="widget__link" href="/STAT5526_Fall2020/posts/lecture-1b/">Lecture 1B - Scheduler/Software/Storage</a></li>
-			<li class="widget__item"><a class="widget__link" href="/STAT5526_Fall2020/posts/lecture-1c/">Lecture 1C - Containers and R</a></li>
+			<li class="widget__item"><a class="widget__link" href="/STAT5526_Fall2020/notes/hpc/">1 - HPC notes</a></li>
+			<li class="widget__item"><a class="widget__link" href="/STAT5526_Fall2020/notes/r-startup/">2 - R startup</a></li>
+			<li class="widget__item"><a class="widget__link" href="/STAT5526_Fall2020/notes/good-programming/">3 - Good Programming</a></li>
 		</ul>
 	</div>
 </div>
@@ -150,6 +252,7 @@ while()</code></pre>
 	<div class="widget__content">
 		<ul class="widget__list">
 			<li class="widget__item"><a class="widget__link" href="/STAT5526_Fall2020/categories/course-logistics">Course logistics</a></li>
+			<li class="widget__item"><a class="widget__link" href="/STAT5526_Fall2020/categories/homework">Homework</a></li>
 			<li class="widget__item"><a class="widget__link" href="/STAT5526_Fall2020/categories/lecture1">Lecture1</a></li>
 			<li class="widget__item"><a class="widget__link" href="/STAT5526_Fall2020/categories/lecture2">Lecture2</a></li>
 		</ul>
@@ -163,9 +266,7 @@ while()</code></pre>
 		<a class="widget-taglist__link widget__link btn" href="/STAT5526_Fall2020/tags/gp" title="Gp">Gp</a>
 		<a class="widget-taglist__link widget__link btn" href="/STAT5526_Fall2020/tags/homework" title="Homework">Homework</a>
 		<a class="widget-taglist__link widget__link btn" href="/STAT5526_Fall2020/tags/hpc" title="Hpc">Hpc</a>
-		<a class="widget-taglist__link widget__link btn" href="/STAT5526_Fall2020/tags/keras" title="Keras">Keras</a>
 		<a class="widget-taglist__link widget__link btn" href="/STAT5526_Fall2020/tags/monte-carlo" title="Monte carlo">Monte carlo</a>
-		<a class="widget-taglist__link widget__link btn" href="/STAT5526_Fall2020/tags/neural-networks" title="Neural networks">Neural networks</a>
 		<a class="widget-taglist__link widget__link btn" href="/STAT5526_Fall2020/tags/parallelizing" title="Parallelizing">Parallelizing</a>
 		<a class="widget-taglist__link widget__link btn" href="/STAT5526_Fall2020/tags/r" title="R">R</a>
 		<a class="widget-taglist__link widget__link btn" href="/STAT5526_Fall2020/tags/r-setup" title="R setup">R setup</a>
