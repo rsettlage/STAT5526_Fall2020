@@ -8,9 +8,13 @@
 	<script>(function(d,e){d[e]=d[e].replace("no-js","js");})(document.documentElement,"className");</script>
 	<meta name="description" content="">
 	<meta property="og:title" content="Lecture 2C - R and Keras - Work in Process" />
-<meta property="og:description" content="R and Keras coming soon … NN for linear regression NN for image classification - binary - categorical NN for image segmentation (stretch)
-plot(cars) Add a new chunk by clicking the Insert Chunk button on the toolbar or by pressing Cmd&#43;Option&#43;I.
-When you save the notebook, an HTML file containing the code and output will be saved alongside it (click the Preview button or press Cmd&#43;Shift&#43;K to preview the HTML file)." />
+<meta property="og:description" content="
+
+
+
+
+Keras sits on top of TensorFlow (and others) and creates a highlevel abstraction of the underlying TensorFlow programming model.
+" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="http://rsettlage.github.io/STAT5526_Fall2020/posts/lecture-2c/" />
 <meta property="article:published_time" content="2020-11-05T00:00:00+00:00" />
@@ -32,7 +36,7 @@ When you save the notebook, an HTML file containing the code and output will be 
 		<div class="logo">
 			<a class="logo__link" href="/STAT5526_Fall2020/" title="STAT-5526 Fall 2020" rel="home">
 				<div class="logo__title">STAT-5526 Fall 2020</div>
-				<div class="logo__tagline">Official place to find course material.</div>
+				<div class="logo__tagline">Official place to find HPC course material.</div>
 			</a>
 		</div>
 		
@@ -51,7 +55,7 @@ When you save the notebook, an HTML file containing the code and output will be 
 			<a class="menu__link" href="/STAT5526_Fall2020/posts">posts</a>
 		</li>
 		<li class="menu__item">
-			<a class="menu__link" href="https://github.com/rsettlage/STAT5526_Fall2020/tree/master/homework">Homework</a>
+			<a class="menu__link" href="/STAT5526_Fall2020/homework">homework</a>
 		</li>
 		<li class="menu__item">
 			<a class="menu__link" href="https://github.com/rsettlage/STAT5526_Fall2020/tree/master/rmd">Rmd</a>
@@ -89,23 +93,79 @@ When you save the notebook, an HTML file containing the code and output will be 
 </div>
 </div>
 		</header><div class="content post__content clearfix">
-			
-<link href="/STAT5526_Fall2020/rmarkdown-libs/anchor-sections/anchor-sections.css" rel="stylesheet" />
-<script src="/STAT5526_Fall2020/rmarkdown-libs/anchor-sections/anchor-sections.js"></script>
-
-
-<div id="r-and-keras-coming-soon" class="section level2">
-<h2>R and Keras coming soon …</h2>
-<p>NN for linear regression
-NN for image classification
-- binary
-- categorical
-NN for image segmentation (stretch)</p>
-<pre class="r"><code>plot(cars)</code></pre>
-<p><img src="/STAT5526_Fall2020/posts/Lecture_2c_files/figure-html/unnamed-chunk-1-1.png" width="672" /></p>
-<p>Add a new chunk by clicking the <em>Insert Chunk</em> button on the toolbar or by pressing <em>Cmd+Option+I</em>.</p>
-<p>When you save the notebook, an HTML file containing the code and output will be saved alongside it (click the <em>Preview</em> button or press <em>Cmd+Shift+K</em> to preview the HTML file).</p>
-<p>The preview shows you a rendered HTML copy of the contents of the editor. Consequently, unlike <em>Knit</em>, <em>Preview</em> does not run any R code chunks. Instead, the output of the chunk when it was last run in the editor is displayed.</p>
+			<p>Keras sits on top of TensorFlow (and others) and creates a highlevel abstraction of the underlying TensorFlow programming model.</p>
+<p>There are a ton of really nice walk-throughs <a href="https://keras.rstudio.com/" class="uri">https://keras.rstudio.com/</a></p>
+<p>The basic elements we will need are:</p>
+<ul>
+<li>data<br />
+</li>
+<li>model<br />
+</li>
+<li>learning process<br />
+</li>
+<li><h2 id="predictions">predictions</h2></li>
+</ul>
+<div id="data" class="section level3">
+<h3>Data</h3>
+<p>We need 2-3 buckets of data:</p>
+<ol style="list-style-type: decimal">
+<li>training data (used in training)<br />
+</li>
+<li>validation data (used during training, but not for training)<br />
+</li>
+<li><h2 id="testing-data-used-after-final-model-is-created">testing data (used after final model is created)</h2></li>
+</ol>
+</div>
+<div id="keras-get-data" class="section level3">
+<h3>Keras – get data</h3>
+<pre class="r"><code>library(keras); library(tibble)
+boston_housing &lt;- dataset_boston_housing()
+c(train_data, train_labels) %&lt;-% boston_housing$train
+c(test_data, test_labels) %&lt;-% boston_housing$test
+#check out caret (or caTools) package for splitting data
+column_names &lt;- c(’CRIM’, ’ZN’, ’INDUS’, ’CHAS’, ’NOX’,’RM’, ’AGE’, ’DIS’, ’RAD’, ’TAX’, ’PTRATIO’, ’B’, ’LSTAT’)
+train_df &lt;- as_tibble(train_data)colnames(train_df) &lt;- column_names
+train_df</code></pre>
+<table style="width:7%;">
+<colgroup>
+<col width="6%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td>### Keras – data engineering</td>
+</tr>
+<tr class="even">
+<td>In many learning tasks, data normalization, scaling etc can assist in overcoming bias towards a particular feature.</td>
+</tr>
+<tr class="odd">
+<td>NOTE: always try to visualize your data …</td>
+</tr>
+<tr class="even">
+<td><code>r #Normalize training data train_data &lt;- scale(train_data) #center and scale col_means_train &lt;- attr(train_data, "scaled:center") col_stddevs_train &lt;- attr(train_data, "scaled:scale") test_data &lt;- scale(test_data, center = col_means_train,scale = col_stddevs_train)</code></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="keras-build-model" class="section level3">
+<h3>Keras – build model</h3>
+<p>Keras uses the concept of layers. Here we have a single layer. Fully connected or dense. We also specify the loss function and optimizer.</p>
+<pre class="r"><code>mdel &lt;- keras_model_sequential() %&gt;%
+  layer_dense(units = 1, activation = &quot;linear&quot;,
+              input_shape = dim(train_data)[2])
+model %&gt;% compile(loss = &quot;mse&quot;,
+                  optimizer = optimizer_rmsprop(),
+                  metrics = list(&quot;mean_absolute_error&quot;))</code></pre>
+<hr />
+</div>
+<div id="keras-run-model" class="section level3">
+<h3>Keras – run model</h3>
+<pre class="r"><code>hstory &lt;- model %&gt;% fit(train_data,train_labels,
+                        epochs = epochs,
+                        validation_split = 0.2,
+                        verbose = 0,
+                        callbacks = list(print_dot_callback))
+test_predictions &lt;- model %&gt;% predict(test_data)</code></pre>
+<hr />
 </div>
 
 		</div>
@@ -147,6 +207,7 @@ NN for image segmentation (stretch)</p>
 	<div class="widget__content">
 		<ul class="widget__list">
 			<li class="widget__item"><a class="widget__link" href="/STAT5526_Fall2020/categories/course-logistics">Course logistics</a></li>
+			<li class="widget__item"><a class="widget__link" href="/STAT5526_Fall2020/categories/homework">Homework</a></li>
 			<li class="widget__item"><a class="widget__link" href="/STAT5526_Fall2020/categories/lecture1">Lecture1</a></li>
 			<li class="widget__item"><a class="widget__link" href="/STAT5526_Fall2020/categories/lecture2">Lecture2</a></li>
 		</ul>

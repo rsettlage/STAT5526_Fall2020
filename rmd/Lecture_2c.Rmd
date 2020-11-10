@@ -20,24 +20,89 @@ output:
 header-includes: \setlength\parindent{24pt} \usepackage{MnSymbol} \usepackage{mathrsfs}
 ---
 
-## R and Keras coming soon ...
-
+Keras sits on top of TensorFlow (and others) and creates a highlevel abstraction of the underlying TensorFlow programming model.
 
 <!--more-->
 
-NN for linear regression
-NN for image classification
-- binary
-- categorical
-NN for image segmentation (stretch) 
+Keras sits on top of TensorFlow (and others) and creates a highlevel abstraction of the underlying TensorFlow programming model.
 
-```{r}
-plot(cars)
+There are a ton of really nice walk-throughs <https://keras.rstudio.com/>
+
+The basic elements we will need are:
+
++ data  
++ model  
++ learning process  
++ predictions
+----
+
+### Data
+
+We need 2-3 buckets of data:
+
+1. training data (used in training)  
+2. validation data (used during training, but not for training)  
+3. testing data (used after final model is created)
+----
+
+### Keras -- get data
+
+```{r echo=TRUE, eval=FALSE, include=TRUE}
+library(keras); library(tibble)
+boston_housing <- dataset_boston_housing()
+c(train_data, train_labels) %<-% boston_housing$train
+c(test_data, test_labels) %<-% boston_housing$test
+#check out caret (or caTools) package for splitting data
+column_names <- c(’CRIM’, ’ZN’, ’INDUS’, ’CHAS’, ’NOX’,’RM’, ’AGE’, ’DIS’, ’RAD’, ’TAX’, ’PTRATIO’, ’B’, ’LSTAT’)
+train_df <- as_tibble(train_data)colnames(train_df) <- column_names
+train_df
+````
+
+----
+### Keras -- data engineering
+
+In many learning tasks, data normalization, scaling etc can assist in overcoming bias towards a particular feature.  
+
+NOTE: always try to visualize your data ...
+
+```{r echo=TRUE, eval=FALSE, include=TRUE}
+#Normalize training data
+train_data <- scale(train_data)
+#center and scale
+col_means_train <- attr(train_data, "scaled:center")
+col_stddevs_train <- attr(train_data, "scaled:scale")
+test_data <- scale(test_data, center = col_means_train,scale = col_stddevs_train)
 ```
 
-Add a new chunk by clicking the *Insert Chunk* button on the toolbar or by pressing *Cmd+Option+I*.
+----
 
-When you save the notebook, an HTML file containing the code and output will be saved alongside it (click the *Preview* button or press *Cmd+Shift+K* to preview the HTML file). 
+### Keras -- build model
 
-The preview shows you a rendered HTML copy of the contents of the editor. Consequently, unlike *Knit*, *Preview* does not run any R code chunks. Instead, the output of the chunk when it was last run in the editor is displayed.
+Keras uses the concept of layers.  Here we have a single layer.  Fully connected or dense.  We also specify the loss function and optimizer.
+
+```{r, eval=FALSE, echo=TRUE, include=TRUE}
+mdel <- keras_model_sequential() %>%
+  layer_dense(units = 1, activation = "linear",
+              input_shape = dim(train_data)[2])
+model %>% compile(loss = "mse",
+                  optimizer = optimizer_rmsprop(),
+                  metrics = list("mean_absolute_error"))
+```
+
+----
+
+### Keras -- run model
+
+```{r, eval=FALSE, echo=TRUE, include=TRUE}
+
+hstory <- model %>% fit(train_data,train_labels,
+                        epochs = epochs,
+                        validation_split = 0.2,
+                        verbose = 0,
+                        callbacks = list(print_dot_callback))
+test_predictions <- model %>% predict(test_data)
+```
+
+----
+
 

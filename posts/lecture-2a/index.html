@@ -4,16 +4,16 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>Lecture 2A - Monte Carlo - Work in Process - STAT-5526 Fall 2020</title>
+	<title>Lecture 2A - Light introduction to Monte Carlo - STAT-5526 Fall 2020</title>
 	<script>(function(d,e){d[e]=d[e].replace("no-js","js");})(document.documentElement,"className");</script>
 	<meta name="description" content="">
-	<meta property="og:title" content="Lecture 2A - Monte Carlo - Work in Process" />
+	<meta property="og:title" content="Lecture 2A - Light introduction to Monte Carlo" />
 <meta property="og:description" content="
 
 
 
 
-Monte Carlo methods are ones that involve repeated random sampling to estimate unknown parameters.
+Note, this is a BIG and important topic. I am barely scratching the surface to show that HPC is an important component due to the computational power required to run some of these models. Monte Carlo methods are ones that involve repeated random sampling to estimate unknown parameters.
 " />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="http://rsettlage.github.io/STAT5526_Fall2020/posts/lecture-2a/" />
@@ -80,7 +80,7 @@ Monte Carlo methods are ones that involve repeated random sampling to estimate u
 <main class="main" role="main">
 	<article class="post">
 		<header class="post__header">
-			<h1 class="post__title">Lecture 2A - Monte Carlo - Work in Process</h1>
+			<h1 class="post__title">Lecture 2A - Light introduction to Monte Carlo</h1>
 			<div class="post__meta meta">
 <div class="meta__item-datetime meta__item">
 	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0C7 0 1 6 1 14s6 14 14 14 14-6 14-14S23 0 15 0zm0 25C9 25 4 20 4 14S9 3 15 3s11 5 11 11-5 11-11 11zm1-18h-2v8.4l6.8 4.4L22 18l-6-3.8V7z"/></svg>
@@ -135,7 +135,7 @@ plot(point_container[,1],point_container[,2],
      col=point_container[,3]+1,pch=20,
      main=paste(&quot;estimate of pi=&quot;,our_pi, &quot;vs&quot;,pi),
      xlab=&quot;x&quot;,ylab=&quot;y&quot;)</code></pre>
-<p><img src="/posts/Lecture_2a_files/figure-html/unnamed-chunk-1-1.png" width="672" /></p>
+<p><img src="/STAT5526_Fall2020/posts/Lecture_2a_files/figure-html/unnamed-chunk-1-1.png" width="672" /></p>
 <hr />
 </div>
 <div id="what-about-tossing-beer-cans" class="section level3">
@@ -163,7 +163,7 @@ plot(x=x.pos,y=y.pos,xlim=c(0,10),ylim=c(0,10))
 abline(v=seq(1,9,1))
 # draw the needles
 segments(x.min,y.min,x.max,y.max)</code></pre>
-<p><img src="/posts/Lecture_2a_files/figure-html/unnamed-chunk-2-1.png" width="672" /></p>
+<p><img src="/STAT5526_Fall2020/posts/Lecture_2a_files/figure-html/unnamed-chunk-2-1.png" width="672" /></p>
 <p>Check out <a href="http://www.clayford.net/statistics/buffons-needle-problem-or-how-to-use-probability-to-estimate-pi/" class="uri">http://www.clayford.net/statistics/buffons-needle-problem-or-how-to-use-probability-to-estimate-pi/</a> for the math and discussion.</p>
 <hr />
 </div>
@@ -209,7 +209,7 @@ par(mfrow=c(2,2), pty=&quot;s&quot;) # 2 x 2 array of square plots
 plot(x[1:50], y[1:50], type=&quot;l&quot;)
 plot(x1, y1, pch=&quot;.&quot;, main = &quot;x1, x2 returns, green = portfolio &gt; 0&quot;);points(x1[w&gt;0], y1[w&gt;0], pch=&quot;.&quot;, col=&quot;green4&quot;)
 plot(x[1:1000], type=&quot;l&quot;); acf(y)</code></pre>
-<p><img src="/posts/Lecture_2a_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
+<p><img src="/STAT5526_Fall2020/posts/Lecture_2a_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
 <p>The point to the above is not that you can do this simple model, but to show that MCMC can do useful things and the models can become arbitrarily complex and cumbersome to simulate … HPC.</p>
 </div>
 
@@ -241,9 +241,9 @@ plot(x[1:1000], type=&quot;l&quot;); acf(y)</code></pre>
 	<h4 class="widget__title">Recent Posts</h4>
 	<div class="widget__content">
 		<ul class="widget__list">
-			<li class="widget__item"><a class="widget__link" href="/STAT5526_Fall2020/notes/hpc/">1 - HPC notes</a></li>
-			<li class="widget__item"><a class="widget__link" href="/STAT5526_Fall2020/notes/r-startup/">2 - R startup</a></li>
-			<li class="widget__item"><a class="widget__link" href="/STAT5526_Fall2020/notes/good-programming/">3 - Good Programming</a></li>
+			<li class="widget__item"><a class="widget__link" href="/STAT5526_Fall2020/posts/lecture-1a/">Lecture 1A - HPC Cluster Organization</a></li>
+			<li class="widget__item"><a class="widget__link" href="/STAT5526_Fall2020/posts/lecture-1b/">Lecture 1B - Scheduler/Software/Storage</a></li>
+			<li class="widget__item"><a class="widget__link" href="/STAT5526_Fall2020/posts/lecture-1c/">Lecture 1C - Containers and R</a></li>
 		</ul>
 	</div>
 </div>
@@ -266,7 +266,9 @@ plot(x[1:1000], type=&quot;l&quot;); acf(y)</code></pre>
 		<a class="widget-taglist__link widget__link btn" href="/STAT5526_Fall2020/tags/gp" title="Gp">Gp</a>
 		<a class="widget-taglist__link widget__link btn" href="/STAT5526_Fall2020/tags/homework" title="Homework">Homework</a>
 		<a class="widget-taglist__link widget__link btn" href="/STAT5526_Fall2020/tags/hpc" title="Hpc">Hpc</a>
+		<a class="widget-taglist__link widget__link btn" href="/STAT5526_Fall2020/tags/keras" title="Keras">Keras</a>
 		<a class="widget-taglist__link widget__link btn" href="/STAT5526_Fall2020/tags/monte-carlo" title="Monte carlo">Monte carlo</a>
+		<a class="widget-taglist__link widget__link btn" href="/STAT5526_Fall2020/tags/neural-networks" title="Neural networks">Neural networks</a>
 		<a class="widget-taglist__link widget__link btn" href="/STAT5526_Fall2020/tags/parallelizing" title="Parallelizing">Parallelizing</a>
 		<a class="widget-taglist__link widget__link btn" href="/STAT5526_Fall2020/tags/r" title="R">R</a>
 		<a class="widget-taglist__link widget__link btn" href="/STAT5526_Fall2020/tags/r-setup" title="R setup">R setup</a>

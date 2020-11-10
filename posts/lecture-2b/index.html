@@ -4,13 +4,17 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>Lecture 2B - Neural Networks - Work in Process - STAT-5526 Fall 2020</title>
+	<title>Lecture 2B - Neural Networks - STAT-5526 Fall 2020</title>
 	<script>(function(d,e){d[e]=d[e].replace("no-js","js");})(document.documentElement,"className");</script>
 	<meta name="description" content="">
-	<meta property="og:title" content="Lecture 2B - Neural Networks - Work in Process" />
-<meta property="og:description" content="Neural networks coming soon … NN for linear regression NN for image classification - binary - categorical NN for image segmentation (stretch)
-plot(cars) Add a new chunk by clicking the Insert Chunk button on the toolbar or by pressing Cmd&#43;Option&#43;I.
-When you save the notebook, an HTML file containing the code and output will be saved alongside it (click the Preview button or press Cmd&#43;Shift&#43;K to preview the HTML file)." />
+	<meta property="og:title" content="Lecture 2B - Neural Networks" />
+<meta property="og:description" content="
+
+
+
+
+Neural networks are really a framework for building models. In recent years, these have gained major traction due in part to the popularity of machine learning.
+" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="http://rsettlage.github.io/STAT5526_Fall2020/posts/lecture-2b/" />
 <meta property="article:published_time" content="2020-11-05T00:00:00+00:00" />
@@ -32,7 +36,7 @@ When you save the notebook, an HTML file containing the code and output will be 
 		<div class="logo">
 			<a class="logo__link" href="/STAT5526_Fall2020/" title="STAT-5526 Fall 2020" rel="home">
 				<div class="logo__title">STAT-5526 Fall 2020</div>
-				<div class="logo__tagline">Official place to find course material.</div>
+				<div class="logo__tagline">Official place to find HPC course material.</div>
 			</a>
 		</div>
 		
@@ -51,7 +55,7 @@ When you save the notebook, an HTML file containing the code and output will be 
 			<a class="menu__link" href="/STAT5526_Fall2020/posts">posts</a>
 		</li>
 		<li class="menu__item">
-			<a class="menu__link" href="https://github.com/rsettlage/STAT5526_Fall2020/tree/master/homework">Homework</a>
+			<a class="menu__link" href="/STAT5526_Fall2020/homework">homework</a>
 		</li>
 		<li class="menu__item">
 			<a class="menu__link" href="https://github.com/rsettlage/STAT5526_Fall2020/tree/master/rmd">Rmd</a>
@@ -76,7 +80,7 @@ When you save the notebook, an HTML file containing the code and output will be 
 <main class="main" role="main">
 	<article class="post">
 		<header class="post__header">
-			<h1 class="post__title">Lecture 2B - Neural Networks - Work in Process</h1>
+			<h1 class="post__title">Lecture 2B - Neural Networks</h1>
 			<div class="post__meta meta">
 <div class="meta__item-datetime meta__item">
 	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0C7 0 1 6 1 14s6 14 14 14 14-6 14-14S23 0 15 0zm0 25C9 25 4 20 4 14S9 3 15 3s11 5 11 11-5 11-11 11zm1-18h-2v8.4l6.8 4.4L22 18l-6-3.8V7z"/></svg>
@@ -89,23 +93,45 @@ When you save the notebook, an HTML file containing the code and output will be 
 </div>
 </div>
 		</header><div class="content post__content clearfix">
-			
-<link href="/STAT5526_Fall2020/rmarkdown-libs/anchor-sections/anchor-sections.css" rel="stylesheet" />
-<script src="/STAT5526_Fall2020/rmarkdown-libs/anchor-sections/anchor-sections.js"></script>
-
-
-<div id="neural-networks-coming-soon" class="section level2">
-<h2>Neural networks coming soon …</h2>
-<p>NN for linear regression
-NN for image classification
-- binary
-- categorical
-NN for image segmentation (stretch)</p>
-<pre class="r"><code>plot(cars)</code></pre>
-<p><img src="/STAT5526_Fall2020/posts/Lecture_2b_files/figure-html/unnamed-chunk-1-1.png" width="672" /></p>
-<p>Add a new chunk by clicking the <em>Insert Chunk</em> button on the toolbar or by pressing <em>Cmd+Option+I</em>.</p>
-<p>When you save the notebook, an HTML file containing the code and output will be saved alongside it (click the <em>Preview</em> button or press <em>Cmd+Shift+K</em> to preview the HTML file).</p>
-<p>The preview shows you a rendered HTML copy of the contents of the editor. Consequently, unlike <em>Knit</em>, <em>Preview</em> does not run any R code chunks. Instead, the output of the chunk when it was last run in the editor is displayed.</p>
+			<p>Neural networks are really a framework for building models. In recent years, these have gained major traction due in part to the popularity of machine learning. However, at the end of the day, these are modeling frameworks.</p>
+<div id="neural-networks-for-linear-regression" class="section level2">
+<h2>Neural networks for linear regression</h2>
+<p>Neural networks can be used to setup linear regression problems. The one caveat is that the solution will be iterative, is gradient descent or some other optimization method.</p>
+</div>
+<div id="regression-algorithm" class="section level2">
+<h2><img src="../img/linear_model_algorithm.png" alt="regression algorithm" /></h2>
+</div>
+<div id="regression-as-nn" class="section level2">
+<h2><img src="../img/linear_model_NN.png" alt="regression as NN" /></h2>
+<div id="model-blending" class="section level3">
+<h3>Model blending</h3>
+</div>
+</div>
+<div id="linear-model-blending" class="section level2">
+<h2><img src="../img/linear_model_blending_NN.png" alt="linear model blending" /></h2>
+<div id="nn-for-image-classification" class="section level3">
+<h3>NN for image classification</h3>
+<p>One of the marquee acheivements of neural networks has been in image classification. Prior to approximately 2012, image classification tasks peaked at about 80% accuracy. In 2012, AlexNet won the image classification Kaggle Competition using neural networks.</p>
+<p>One of the key advanced introduced was convolutions. Convolutions are essentially matrix operations on the input image.</p>
+</div>
+</div>
+<div id="convolution" class="section level2">
+<h2><img src="../img/convolution_kernel.png" alt="convolution" /></h2>
+</div>
+<div id="convolution-1" class="section level2">
+<h2><img src="../img/convolutions_in_NN.png" alt="convolution" /></h2>
+<div class="figure">
+<img src="../img/convolution_output.png" alt="" />
+<p class="caption">convolution</p>
+</div>
+<hr />
+<div id="neural-network-output" class="section level3">
+<h3>Neural network output</h3>
+<ul>
+<li>binary</li>
+<li>classification</li>
+</ul>
+</div>
 </div>
 
 		</div>
@@ -147,6 +173,7 @@ NN for image segmentation (stretch)</p>
 	<div class="widget__content">
 		<ul class="widget__list">
 			<li class="widget__item"><a class="widget__link" href="/STAT5526_Fall2020/categories/course-logistics">Course logistics</a></li>
+			<li class="widget__item"><a class="widget__link" href="/STAT5526_Fall2020/categories/homework">Homework</a></li>
 			<li class="widget__item"><a class="widget__link" href="/STAT5526_Fall2020/categories/lecture1">Lecture1</a></li>
 			<li class="widget__item"><a class="widget__link" href="/STAT5526_Fall2020/categories/lecture2">Lecture2</a></li>
 		</ul>

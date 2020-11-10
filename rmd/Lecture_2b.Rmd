@@ -1,5 +1,5 @@
 ---
-title: "Lecture 2B - Neural Networks - Work in Process"
+title: "Lecture 2B - Neural Networks"
 author: "Robert Settlage"
 authorbox: false
 slug: "Lecture 2B"
@@ -20,23 +20,45 @@ output:
 header-includes: \setlength\parindent{24pt} \usepackage{MnSymbol} \usepackage{mathrsfs}
 ---
 
-## Neural networks coming soon ...
+Neural networks are really a framework for building models.  In recent years, these have gained major traction due in part to the popularity of machine learning.  
 
 <!--more-->
 
-NN for linear regression
-NN for image classification
+Neural networks are really a framework for building models.  In recent years, these have gained major traction due in part to the popularity of machine learning.  However, at the end of the day, these are modeling frameworks.
+
+## Neural networks for linear regression
+
+Neural networks can be used to setup linear regression problems.  The one caveat is that the solution will be iterative, is gradient descent or some other optimization method.  
+
+![regression algorithm](../img/linear_model_algorithm.png)
+----
+
+![regression as NN](../img/linear_model_NN.png)
+----
+
+### Model blending
+
+![linear model blending](../img/linear_model_blending_NN.png)
+----
+
+### NN for image classification
+
+One of the marquee acheivements of neural networks has been in image classification.  Prior to approximately 2012, image classification tasks peaked at about 80% accuracy.  In 2012, AlexNet won the image classification Kaggle Competition using neural networks.
+
+One of the key advanced introduced was convolutions.  Convolutions are essentially matrix operations on the input image.
+
+![convolution](../img/convolution_kernel.png)
+----
+
+![convolution](../img/convolutions_in_NN.png)
+----
+![convolution](../img/convolution_output.png)
+
+----
+
+### Neural network output
+
 - binary
-- categorical
-NN for image segmentation (stretch) 
+- classification
 
-```{r}
-plot(cars)
-```
-
-Add a new chunk by clicking the *Insert Chunk* button on the toolbar or by pressing *Cmd+Option+I*.
-
-When you save the notebook, an HTML file containing the code and output will be saved alongside it (click the *Preview* button or press *Cmd+Shift+K* to preview the HTML file). 
-
-The preview shows you a rendered HTML copy of the contents of the editor. Consequently, unlike *Knit*, *Preview* does not run any R code chunks. Instead, the output of the chunk when it was last run in the editor is displayed.
 

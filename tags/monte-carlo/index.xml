@@ -12,17 +12,17 @@
     
     
     <item>
-      <title>Lecture 2A - Monte Carlo - Work in Process</title>
+      <title>Lecture 2A - Light introduction to Monte Carlo</title>
       <link>http://rsettlage.github.io/STAT5526_Fall2020/posts/lecture-2a/</link>
       <pubDate>Thu, 05 Nov 2020 00:00:00 +0000</pubDate>
       
       <guid>http://rsettlage.github.io/STAT5526_Fall2020/posts/lecture-2a/</guid>
       <description>
-&lt;link href=&#34;http://rsettlage.github.io/STAT5526_Fall2020/rmarkdown-libs/anchor-sections/anchor-sections.css&#34; rel=&#34;stylesheet&#34; /&gt;
-&lt;script src=&#34;http://rsettlage.github.io/STAT5526_Fall2020/rmarkdown-libs/anchor-sections/anchor-sections.js&#34;&gt;&lt;/script&gt;
+&lt;link href=&#34;http://rsettlage.github.io/STAT5526_Fall2020/STAT5526_Fall2020/rmarkdown-libs/anchor-sections/anchor-sections.css&#34; rel=&#34;stylesheet&#34; /&gt;
+&lt;script src=&#34;http://rsettlage.github.io/STAT5526_Fall2020/STAT5526_Fall2020/rmarkdown-libs/anchor-sections/anchor-sections.js&#34;&gt;&lt;/script&gt;
 
 
-&lt;p&gt;Monte Carlo methods are ones that involve repeated random sampling to estimate unknown parameters.&lt;/p&gt;
+&lt;p&gt;Note, this is a BIG and important topic. I am barely scratching the surface to show that HPC is an important component due to the computational power required to run some of these models. Monte Carlo methods are ones that involve repeated random sampling to estimate unknown parameters.&lt;/p&gt;
 </description>
     </item>
     
