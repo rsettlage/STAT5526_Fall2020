@@ -4,10 +4,10 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>Lecture 1D - Going Parallel - Work In Process - STAT-5526 Fall 2020</title>
+	<title>Lecture 1D - Going Parallel - STAT-5526 Fall 2020</title>
 	<script>(function(d,e){d[e]=d[e].replace("no-js","js");})(document.documentElement,"className");</script>
 	<meta name="description" content="">
-	<meta property="og:title" content="Lecture 1D - Going Parallel - Work In Process" />
+	<meta property="og:title" content="Lecture 1D - Going Parallel" />
 <meta property="og:description" content="
 
 
@@ -80,7 +80,7 @@ Ok, the point to today’s discussion. Your project has exceeded what you can do
 <main class="main" role="main">
 	<article class="post">
 		<header class="post__header">
-			<h1 class="post__title">Lecture 1D - Going Parallel - Work In Process</h1>
+			<h1 class="post__title">Lecture 1D - Going Parallel</h1>
 			<div class="post__meta meta">
 <div class="meta__item-datetime meta__item">
 	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0C7 0 1 6 1 14s6 14 14 14 14-6 14-14S23 0 15 0zm0 25C9 25 4 20 4 14S9 3 15 3s11 5 11 11-5 11-11 11zm1-18h-2v8.4l6.8 4.4L22 18l-6-3.8V7z"/></svg>
@@ -154,14 +154,7 @@ Ok, the point to today’s discussion. Your project has exceeded what you can do
 <li>independent models using linear regression</li>
 </ul>
 <p>And really any combination of the above. We will start first by talking through (3) and (5) together.</p>
-</div>
-<div id="example-problem---darts-for-pie" class="section level3">
-<h3>Example problem - Darts for pi(e)</h3>
-<p>Monte Carlo methods are ones that involve repeated random sampling to estimate unknown parameters. As an example, we can use repeated random sampling from uniform distributions to estimate pi. Consider playing darts where we have inscribed a circle within the area given by a dart board. If the circle and square are centered at c(0,0) where the circle has radius r=1 while the square has sides of length d=2, we can calculate the probablity of hitting the circle vs the square as the ratio of areas given by:</p>
-<p><span class="math display">\[\begin{eqnarray}
-\frac{C}{S} &amp;=&amp; \frac{\pi \ast r^2}{4 \ast r^2} \\
-    &amp;=&amp; \frac{\pi}{4}
-\end{eqnarray}\]</span></p>
+<hr />
 </div>
 <div id="pleasingly-parallel-applications" class="section level3">
 <h3>Pleasingly parallel applications</h3>
@@ -170,20 +163,38 @@ Ok, the point to today’s discussion. Your project has exceeded what you can do
 <li><p>Suppose for instance, you have a slew of data sets, all independent, and want to create models for each. You could, given a lab with several workstations, start computing a model on each workstation independent of the others. On an HPC system, you would submit each data set + desired compute as a script to a scheduler. In our case Slurm. As compute nodes are available, the various data plus scripted model will be computed and results returned.</p></li>
 <li><p>In a separate case, suppose you have a data set and have some sort of non-tunable parameter you want to test to create a model, for instance, perhaps a transformation of the response. Similar to the last, you could submit the data plus appropriate script for each desired transformation to Slurm. Slurm will, as before, assign compute resources as they are available and return results when those are available.</p></li>
 </ul>
-<p>Parallelization
-+ MKL/OpenBLAS vectorization
-+ OpenMP
-<a href="https://github.com/Rdatatable/data.table/wiki/Installation" class="uri">https://github.com/Rdatatable/data.table/wiki/Installation</a>
-+ MPI</p>
-<pre class="r"><code>plot(cars)</code></pre>
-<p><img src="/posts/Lecture_1d_files/figure-html/unnamed-chunk-1-1.png" width="672" /></p>
-<p>Add a new chunk by clicking the <em>Insert Chunk</em> button on the toolbar or by pressing <em>Cmd+Option+I</em>.</p>
-<p>When you save the notebook, an HTML file containing the code and output will be saved alongside it (click the <em>Preview</em> button or press <em>Cmd+Shift+K</em> to preview the HTML file).</p>
-<p>The preview shows you a rendered HTML copy of the contents of the editor. Consequently, unlike <em>Knit</em>, <em>Preview</em> does not run any R code chunks. Instead, the output of the chunk when it was last run in the editor is displayed.</p>
+<p>As it turns out, the matrix mult code I sent you can be thought of this way. We were creating a data set of varying size and varying threads, repeated a few times, and timing both a crossprod and solve. With a slight refactor of the code, we could start a bunch of independent jobs and test the various parameters of interest.</p>
+<p>Consider the code in solve_time.R. What if we were to run it like:</p>
+<pre class="bash"><code>for i in {7..13}; do echo Rscript solve_time.R $i; done</code></pre>
 <hr />
 </div>
-<div id="topics-2" class="section level1">
-<h1>Topics 2</h1>
+<div id="now-scale-out" class="section level3">
+<h3>Now, scale out</h3>
+<p>To span multiple nodes, use the scheduler!</p>
+<pre class="bash"><code>
+# run 50 replicates using 64 cores, matrix size = (2^13)^2
+for i in {50}; do sbatch -c64 --export=NCOLS=13 SLRUM_solve_time.sh ; done
+
+# what if we want to vary the parameters in a grid search
+for cores in {4,8,12,16,32,64}; do 
+    for ncols in {7..14}; do 
+        for reps in {1..7}; do 
+            sbatch -c$cores --export=NCOLS=$ncols SLRUM_solve_time.sh;
+        done;
+    done;
+done
+</code></pre>
+<hr />
+</div>
+<div id="more-opportunities-for-parallelization" class="section level3">
+<h3>More opportunities for parallelization</h3>
+<p>We have really been exploring MKL/OpenBLAS and OpenMP in the code so far. Within a node, MKL/OpenBLAS accelerate matrix math routines such as matrix multiplication, inverting, transposing, etc. The algorithms are way beyond what we need to know here. Where we will end is that many of these algorithms use threading to divide and conquer. The threading is often controlled by OpenMP. This is where we jump in.</p>
+<hr />
+</div>
+<div id="openmp" class="section level3">
+<h3>OpenMP</h3>
+<p>OpenMP is basically a fork and join model of task launching within an application for shared memory systems (more on that below). What we did in the pleasingly parallel section can be thought of as a disjointed version of OpenMP. We started with a set of data and a script, we launched a bunch of tasks that completed independently, and now we would aggregate the results.</p>
+<p>OpenMP does this within an application. A typical use of OpenMP is parallelizing for loops. Think linear algebra! Unfortunately for us, OpenMP is for COMPILED languages. Are we out of luck? NO, but we have to use Rcpp or the like to use it, ie unless we have a package that wrote it in C/C++/Fortran or we do something in Rcpp, we won’t see it outside of the linear algebra routines.</p>
 </div>
 
 		</div>

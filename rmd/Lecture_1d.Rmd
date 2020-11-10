@@ -94,7 +94,7 @@ for i in {7..13}; do echo Rscript solve_time.R $i; done
 
 To span multiple nodes, use the scheduler!
 
-```{bash eval=FLASE, echo=TRUE}
+```{bash eval=FALSE, echo=TRUE}
 
 # run 50 replicates using 64 cores, matrix size = (2^13)^2
 for i in {50}; do sbatch -c64 --export=NCOLS=13 SLRUM_solve_time.sh ; done

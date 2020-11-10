@@ -17,9 +17,14 @@
       <pubDate>Thu, 05 Nov 2020 00:00:00 +0000</pubDate>
       
       <guid>http://rsettlage.github.io/STAT5526_Fall2020/posts/lecture-2a/</guid>
-      <description>Monte Carlo coming soon … plot(cars)  Add a new chunk by clicking the Insert Chunk button on the toolbar or by pressing Cmd+Option+I.
-When you save the notebook, an HTML file containing the code and output will be saved alongside it (click the Preview button or press Cmd+Shift+K to preview the HTML file).
-The preview shows you a rendered HTML copy of the contents of the editor. Consequently, unlike Knit, Preview does not run any R code chunks.</description>
+      <description>
+&lt;link href=&#34;http://rsettlage.github.io/STAT5526_Fall2020/STAT5526_Fall2020/rmarkdown-libs/anchor-sections/anchor-sections.css&#34; rel=&#34;stylesheet&#34; /&gt;
+&lt;script src=&#34;http://rsettlage.github.io/STAT5526_Fall2020/STAT5526_Fall2020/rmarkdown-libs/anchor-sections/anchor-sections.js&#34;&gt;&lt;/script&gt;
+
+
+&lt;div id=&#34;monte-carlo-coming-soon&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Monte Carlo coming soon …&lt;/h2&gt;
+</description>
     </item>
     
   </channel>

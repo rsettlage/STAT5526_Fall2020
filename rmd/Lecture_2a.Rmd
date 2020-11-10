@@ -39,7 +39,7 @@ Monte Carlo methods are ones that involve repeated random sampling to estimate u
 
 For starters, we will do this using loops and not worry about optimizing via apply functions, memory management or other tricks.
 
-```{r}
+```{r eval=FALSE}
 options(digits=15)
 cat("pi=",pi,"\n",sep="")
 set.seed(123456)

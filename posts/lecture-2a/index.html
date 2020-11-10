@@ -8,9 +8,14 @@
 	<script>(function(d,e){d[e]=d[e].replace("no-js","js");})(document.documentElement,"className");</script>
 	<meta name="description" content="">
 	<meta property="og:title" content="Lecture 2A - Monte Carlo - Work in Process" />
-<meta property="og:description" content="Monte Carlo coming soon … plot(cars)  Add a new chunk by clicking the Insert Chunk button on the toolbar or by pressing Cmd&#43;Option&#43;I.
-When you save the notebook, an HTML file containing the code and output will be saved alongside it (click the Preview button or press Cmd&#43;Shift&#43;K to preview the HTML file).
-The preview shows you a rendered HTML copy of the contents of the editor. Consequently, unlike Knit, Preview does not run any R code chunks." />
+<meta property="og:description" content="
+
+
+
+
+
+Monte Carlo coming soon …
+" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="http://rsettlage.github.io/STAT5526_Fall2020/posts/lecture-2a/" />
 <meta property="article:published_time" content="2020-11-05T00:00:00+00:00" />
@@ -89,18 +94,21 @@ The preview shows you a rendered HTML copy of the contents of the editor. Conseq
 </div>
 </div>
 		</header><div class="content post__content clearfix">
-			
-<link href="/STAT5526_Fall2020/rmarkdown-libs/anchor-sections/anchor-sections.css" rel="stylesheet" />
-<script src="/STAT5526_Fall2020/rmarkdown-libs/anchor-sections/anchor-sections.js"></script>
-
-
-<div id="monte-carlo-coming-soon" class="section level2">
-<h2>Monte Carlo coming soon …</h2>
-<pre class="r"><code>plot(cars) </code></pre>
+			<pre class="r"><code>plot(cars) </code></pre>
 <p><img src="/STAT5526_Fall2020/posts/Lecture_2a_files/figure-html/unnamed-chunk-1-1.png" width="672" /></p>
-<p>Add a new chunk by clicking the <em>Insert Chunk</em> button on the toolbar or by pressing <em>Cmd+Option+I</em>.</p>
-<p>When you save the notebook, an HTML file containing the code and output will be saved alongside it (click the <em>Preview</em> button or press <em>Cmd+Shift+K</em> to preview the HTML file).</p>
-<p>The preview shows you a rendered HTML copy of the contents of the editor. Consequently, unlike <em>Knit</em>, <em>Preview</em> does not run any R code chunks. Instead, the output of the chunk when it was last run in the editor is displayed.</p>
+<div id="example-problem---darts-for-pie" class="section level3">
+<h3>Example problem - Darts for pi(e)</h3>
+<p>Monte Carlo methods are ones that involve repeated random sampling to estimate unknown parameters. As an example, we can use repeated random sampling from uniform distributions to estimate pi. Consider playing darts where we have inscribed a circle within the area given by a dart board. If the circle and square are centered at c(0,0) where the circle has radius r=1 while the square has sides of length d=2, we can calculate the probablity of hitting the circle vs the square as the ratio of areas given by:</p>
+<p><span class="math display">\[\begin{eqnarray}
+\frac{C}{S} &amp;=&amp; \frac{\pi \ast r^2}{(2 \ast r)^2} \\
+    &amp;=&amp; \frac{\pi}{4}
+\end{eqnarray}\]</span></p>
+<p>For starters, we will do this using loops and not worry about optimizing via apply functions, memory management or other tricks.</p>
+<pre class="r"><code>options(digits=15)
+cat(&quot;pi=&quot;,pi,&quot;\n&quot;,sep=&quot;&quot;)
+set.seed(123456)
+while()</code></pre>
+</div>
 </div>
 
 		</div>
