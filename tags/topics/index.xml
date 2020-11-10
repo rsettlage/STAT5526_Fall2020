@@ -2,24 +2,24 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Topics on STAT-5526 Fall 2020</title>
-    <link>/tags/topics/</link>
+    <link>http://rsettlage.github.io/STAT5526_Fall2020/tags/topics/</link>
     <description>Recent content in Topics on STAT-5526 Fall 2020</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Wed, 04 Nov 2020 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="/tags/topics/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="http://rsettlage.github.io/STAT5526_Fall2020/tags/topics/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Stat 5526 Fall 2020 HPC/R Topics</title>
-      <link>/topics/</link>
+      <link>http://rsettlage.github.io/STAT5526_Fall2020/topics/</link>
       <pubDate>Wed, 04 Nov 2020 00:00:00 +0000</pubDate>
       
-      <guid>/topics/</guid>
+      <guid>http://rsettlage.github.io/STAT5526_Fall2020/topics/</guid>
       <description>
-&lt;link href=&#34;/STAT5526_Fall2020/rmarkdown-libs/anchor-sections/anchor-sections.css&#34; rel=&#34;stylesheet&#34; /&gt;
-&lt;script src=&#34;/STAT5526_Fall2020/rmarkdown-libs/anchor-sections/anchor-sections.js&#34;&gt;&lt;/script&gt;
+&lt;link href=&#34;http://rsettlage.github.io/STAT5526_Fall2020/STAT5526_Fall2020/rmarkdown-libs/anchor-sections/anchor-sections.css&#34; rel=&#34;stylesheet&#34; /&gt;
+&lt;script src=&#34;http://rsettlage.github.io/STAT5526_Fall2020/STAT5526_Fall2020/rmarkdown-libs/anchor-sections/anchor-sections.js&#34;&gt;&lt;/script&gt;
 
 
 &lt;p&gt;Topics for STAT 5526 HPC/R section, Fall 2020.

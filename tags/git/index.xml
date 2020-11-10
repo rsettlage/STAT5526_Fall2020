@@ -2,24 +2,24 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>git on STAT-5526 Fall 2020</title>
-    <link>/tags/git/</link>
+    <link>http://rsettlage.github.io/STAT5526_Fall2020/tags/git/</link>
     <description>Recent content in git on STAT-5526 Fall 2020</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Wed, 04 Nov 2020 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="/tags/git/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="http://rsettlage.github.io/STAT5526_Fall2020/tags/git/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>5 - Git Conf</title>
-      <link>/notes/git-config/</link>
+      <link>http://rsettlage.github.io/STAT5526_Fall2020/notes/git-config/</link>
       <pubDate>Wed, 04 Nov 2020 00:00:00 +0000</pubDate>
       
-      <guid>/notes/git-config/</guid>
+      <guid>http://rsettlage.github.io/STAT5526_Fall2020/notes/git-config/</guid>
       <description>
-&lt;link href=&#34;/STAT5526_Fall2020/rmarkdown-libs/anchor-sections/anchor-sections.css&#34; rel=&#34;stylesheet&#34; /&gt;
-&lt;script src=&#34;/STAT5526_Fall2020/rmarkdown-libs/anchor-sections/anchor-sections.js&#34;&gt;&lt;/script&gt;
+&lt;link href=&#34;http://rsettlage.github.io/STAT5526_Fall2020/STAT5526_Fall2020/rmarkdown-libs/anchor-sections/anchor-sections.css&#34; rel=&#34;stylesheet&#34; /&gt;
+&lt;script src=&#34;http://rsettlage.github.io/STAT5526_Fall2020/STAT5526_Fall2020/rmarkdown-libs/anchor-sections/anchor-sections.js&#34;&gt;&lt;/script&gt;
 
 
 &lt;p&gt;Note, this is here from my STAT 5014 class. I have brought it over for those interested. Basically, we need to have:

@@ -2,24 +2,24 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Course Logistics on STAT-5526 Fall 2020</title>
-    <link>/categories/course-logistics/</link>
+    <link>http://rsettlage.github.io/STAT5526_Fall2020/categories/course-logistics/</link>
     <description>Recent content in Course Logistics on STAT-5526 Fall 2020</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Thu, 05 Nov 2020 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="/categories/course-logistics/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="http://rsettlage.github.io/STAT5526_Fall2020/categories/course-logistics/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>1 - HPC notes</title>
-      <link>/notes/hpc/</link>
+      <link>http://rsettlage.github.io/STAT5526_Fall2020/notes/hpc/</link>
       <pubDate>Thu, 05 Nov 2020 00:00:00 +0000</pubDate>
       
-      <guid>/notes/hpc/</guid>
+      <guid>http://rsettlage.github.io/STAT5526_Fall2020/notes/hpc/</guid>
       <description>
-&lt;link href=&#34;/STAT5526_Fall2020/rmarkdown-libs/anchor-sections/anchor-sections.css&#34; rel=&#34;stylesheet&#34; /&gt;
-&lt;script src=&#34;/STAT5526_Fall2020/rmarkdown-libs/anchor-sections/anchor-sections.js&#34;&gt;&lt;/script&gt;
+&lt;link href=&#34;http://rsettlage.github.io/STAT5526_Fall2020/STAT5526_Fall2020/rmarkdown-libs/anchor-sections/anchor-sections.css&#34; rel=&#34;stylesheet&#34; /&gt;
+&lt;script src=&#34;http://rsettlage.github.io/STAT5526_Fall2020/STAT5526_Fall2020/rmarkdown-libs/anchor-sections/anchor-sections.js&#34;&gt;&lt;/script&gt;
 
 
 &lt;p&gt;High performance computing clusters are characterized by login nodes fronting a pool of compute resources. Access to the compute resources is controlled via a resource scheduler.&lt;/p&gt;
@@ -28,13 +28,13 @@
     
     <item>
       <title>2 - R startup</title>
-      <link>/notes/r-startup/</link>
+      <link>http://rsettlage.github.io/STAT5526_Fall2020/notes/r-startup/</link>
       <pubDate>Thu, 05 Nov 2020 00:00:00 +0000</pubDate>
       
-      <guid>/notes/r-startup/</guid>
+      <guid>http://rsettlage.github.io/STAT5526_Fall2020/notes/r-startup/</guid>
       <description>
-&lt;link href=&#34;/rmarkdown-libs/anchor-sections/anchor-sections.css&#34; rel=&#34;stylesheet&#34; /&gt;
-&lt;script src=&#34;/rmarkdown-libs/anchor-sections/anchor-sections.js&#34;&gt;&lt;/script&gt;
+&lt;link href=&#34;http://rsettlage.github.io/STAT5526_Fall2020/rmarkdown-libs/anchor-sections/anchor-sections.css&#34; rel=&#34;stylesheet&#34; /&gt;
+&lt;script src=&#34;http://rsettlage.github.io/STAT5526_Fall2020/rmarkdown-libs/anchor-sections/anchor-sections.js&#34;&gt;&lt;/script&gt;
 
 
 &lt;p&gt;R, not unlike Linux, has the ability to customize and automate many tasks/functions. Understanding R’s startup is essential in becoming a power R user. </description>
@@ -42,13 +42,13 @@
     
     <item>
       <title>3 - Good Programming</title>
-      <link>/notes/good-programming/</link>
+      <link>http://rsettlage.github.io/STAT5526_Fall2020/notes/good-programming/</link>
       <pubDate>Thu, 05 Nov 2020 00:00:00 +0000</pubDate>
       
-      <guid>/notes/good-programming/</guid>
+      <guid>http://rsettlage.github.io/STAT5526_Fall2020/notes/good-programming/</guid>
       <description>
-&lt;link href=&#34;/STAT5526_Fall2020/rmarkdown-libs/anchor-sections/anchor-sections.css&#34; rel=&#34;stylesheet&#34; /&gt;
-&lt;script src=&#34;/STAT5526_Fall2020/rmarkdown-libs/anchor-sections/anchor-sections.js&#34;&gt;&lt;/script&gt;
+&lt;link href=&#34;http://rsettlage.github.io/STAT5526_Fall2020/STAT5526_Fall2020/rmarkdown-libs/anchor-sections/anchor-sections.css&#34; rel=&#34;stylesheet&#34; /&gt;
+&lt;script src=&#34;http://rsettlage.github.io/STAT5526_Fall2020/STAT5526_Fall2020/rmarkdown-libs/anchor-sections/anchor-sections.js&#34;&gt;&lt;/script&gt;
 
 
 &lt;p&gt;Good Programming Practices and Reproducible Research are worth &lt;strong&gt;&lt;em&gt;YOUR&lt;/em&gt;&lt;/strong&gt; time. They will save &lt;strong&gt;&lt;em&gt;YOUR&lt;/em&gt;&lt;/strong&gt; bacan. This is worth the read!!&lt;/p&gt;
@@ -57,13 +57,13 @@
     
     <item>
       <title>Submitting homework</title>
-      <link>/homework-submit/</link>
+      <link>http://rsettlage.github.io/STAT5526_Fall2020/homework-submit/</link>
       <pubDate>Thu, 05 Nov 2020 00:00:00 +0000</pubDate>
       
-      <guid>/homework-submit/</guid>
+      <guid>http://rsettlage.github.io/STAT5526_Fall2020/homework-submit/</guid>
       <description>
-&lt;link href=&#34;/STAT5526_Fall2020/rmarkdown-libs/anchor-sections/anchor-sections.css&#34; rel=&#34;stylesheet&#34; /&gt;
-&lt;script src=&#34;/STAT5526_Fall2020/rmarkdown-libs/anchor-sections/anchor-sections.js&#34;&gt;&lt;/script&gt;
+&lt;link href=&#34;http://rsettlage.github.io/STAT5526_Fall2020/STAT5526_Fall2020/rmarkdown-libs/anchor-sections/anchor-sections.css&#34; rel=&#34;stylesheet&#34; /&gt;
+&lt;script src=&#34;http://rsettlage.github.io/STAT5526_Fall2020/STAT5526_Fall2020/rmarkdown-libs/anchor-sections/anchor-sections.js&#34;&gt;&lt;/script&gt;
 
 
 &lt;p&gt;Homework submissions will be accomplished through Canvas and GitHub. In Canvas, I would like the final code, instructions to run the code and a final report.&lt;br /&gt;
@@ -72,13 +72,13 @@
     
     <item>
       <title>4 - Configuring Docker</title>
-      <link>/notes/containers/</link>
+      <link>http://rsettlage.github.io/STAT5526_Fall2020/notes/containers/</link>
       <pubDate>Wed, 04 Nov 2020 00:00:00 +0000</pubDate>
       
-      <guid>/notes/containers/</guid>
+      <guid>http://rsettlage.github.io/STAT5526_Fall2020/notes/containers/</guid>
       <description>
-&lt;link href=&#34;/STAT5526_Fall2020/rmarkdown-libs/anchor-sections/anchor-sections.css&#34; rel=&#34;stylesheet&#34; /&gt;
-&lt;script src=&#34;/STAT5526_Fall2020/rmarkdown-libs/anchor-sections/anchor-sections.js&#34;&gt;&lt;/script&gt;
+&lt;link href=&#34;http://rsettlage.github.io/STAT5526_Fall2020/STAT5526_Fall2020/rmarkdown-libs/anchor-sections/anchor-sections.css&#34; rel=&#34;stylesheet&#34; /&gt;
+&lt;script src=&#34;http://rsettlage.github.io/STAT5526_Fall2020/STAT5526_Fall2020/rmarkdown-libs/anchor-sections/anchor-sections.js&#34;&gt;&lt;/script&gt;
 
 
 &lt;p&gt;Docker/GitHub/Singularity workflow for STAT 5526 HPC/R section, Fall 2020.
@@ -87,13 +87,13 @@
     
     <item>
       <title>5 - Git Conf</title>
-      <link>/notes/git-config/</link>
+      <link>http://rsettlage.github.io/STAT5526_Fall2020/notes/git-config/</link>
       <pubDate>Wed, 04 Nov 2020 00:00:00 +0000</pubDate>
       
-      <guid>/notes/git-config/</guid>
+      <guid>http://rsettlage.github.io/STAT5526_Fall2020/notes/git-config/</guid>
       <description>
-&lt;link href=&#34;/STAT5526_Fall2020/rmarkdown-libs/anchor-sections/anchor-sections.css&#34; rel=&#34;stylesheet&#34; /&gt;
-&lt;script src=&#34;/STAT5526_Fall2020/rmarkdown-libs/anchor-sections/anchor-sections.js&#34;&gt;&lt;/script&gt;
+&lt;link href=&#34;http://rsettlage.github.io/STAT5526_Fall2020/STAT5526_Fall2020/rmarkdown-libs/anchor-sections/anchor-sections.css&#34; rel=&#34;stylesheet&#34; /&gt;
+&lt;script src=&#34;http://rsettlage.github.io/STAT5526_Fall2020/STAT5526_Fall2020/rmarkdown-libs/anchor-sections/anchor-sections.js&#34;&gt;&lt;/script&gt;
 
 
 &lt;p&gt;Note, this is here from my STAT 5014 class. I have brought it over for those interested. Basically, we need to have:
@@ -102,13 +102,13 @@
     
     <item>
       <title>Stat 5526 Fall 2020 HPC/R Topics</title>
-      <link>/topics/</link>
+      <link>http://rsettlage.github.io/STAT5526_Fall2020/topics/</link>
       <pubDate>Wed, 04 Nov 2020 00:00:00 +0000</pubDate>
       
-      <guid>/topics/</guid>
+      <guid>http://rsettlage.github.io/STAT5526_Fall2020/topics/</guid>
       <description>
-&lt;link href=&#34;/STAT5526_Fall2020/rmarkdown-libs/anchor-sections/anchor-sections.css&#34; rel=&#34;stylesheet&#34; /&gt;
-&lt;script src=&#34;/STAT5526_Fall2020/rmarkdown-libs/anchor-sections/anchor-sections.js&#34;&gt;&lt;/script&gt;
+&lt;link href=&#34;http://rsettlage.github.io/STAT5526_Fall2020/STAT5526_Fall2020/rmarkdown-libs/anchor-sections/anchor-sections.css&#34; rel=&#34;stylesheet&#34; /&gt;
+&lt;script src=&#34;http://rsettlage.github.io/STAT5526_Fall2020/STAT5526_Fall2020/rmarkdown-libs/anchor-sections/anchor-sections.js&#34;&gt;&lt;/script&gt;
 
 
 &lt;p&gt;Topics for STAT 5526 HPC/R section, Fall 2020.

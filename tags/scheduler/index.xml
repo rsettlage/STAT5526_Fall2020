@@ -2,24 +2,24 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Scheduler on STAT-5526 Fall 2020</title>
-    <link>/tags/scheduler/</link>
+    <link>http://rsettlage.github.io/STAT5526_Fall2020/tags/scheduler/</link>
     <description>Recent content in Scheduler on STAT-5526 Fall 2020</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Thu, 05 Nov 2020 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="/tags/scheduler/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="http://rsettlage.github.io/STAT5526_Fall2020/tags/scheduler/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Lecture 1B - Scheduler/Software/Storage</title>
-      <link>/posts/lecture-1b/</link>
+      <link>http://rsettlage.github.io/STAT5526_Fall2020/posts/lecture-1b/</link>
       <pubDate>Thu, 05 Nov 2020 00:00:00 +0000</pubDate>
       
-      <guid>/posts/lecture-1b/</guid>
+      <guid>http://rsettlage.github.io/STAT5526_Fall2020/posts/lecture-1b/</guid>
       <description>
-&lt;link href=&#34;/rmarkdown-libs/anchor-sections/anchor-sections.css&#34; rel=&#34;stylesheet&#34; /&gt;
-&lt;script src=&#34;/rmarkdown-libs/anchor-sections/anchor-sections.js&#34;&gt;&lt;/script&gt;
+&lt;link href=&#34;http://rsettlage.github.io/STAT5526_Fall2020/rmarkdown-libs/anchor-sections/anchor-sections.css&#34; rel=&#34;stylesheet&#34; /&gt;
+&lt;script src=&#34;http://rsettlage.github.io/STAT5526_Fall2020/rmarkdown-libs/anchor-sections/anchor-sections.js&#34;&gt;&lt;/script&gt;
 
 
 &lt;div id=&#34;interacting-with-a-scheduler&#34; class=&#34;section level3&#34;&gt;

@@ -2,129 +2,129 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tags on STAT-5526 Fall 2020</title>
-    <link>/tags/</link>
+    <link>http://rsettlage.github.io/STAT5526_Fall2020/tags/</link>
     <description>Recent content in Tags on STAT-5526 Fall 2020</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Thu, 05 Nov 2020 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="http://rsettlage.github.io/STAT5526_Fall2020/tags/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Containers</title>
-      <link>/tags/containers/</link>
+      <link>http://rsettlage.github.io/STAT5526_Fall2020/tags/containers/</link>
       <pubDate>Thu, 05 Nov 2020 00:00:00 +0000</pubDate>
       
-      <guid>/tags/containers/</guid>
+      <guid>http://rsettlage.github.io/STAT5526_Fall2020/tags/containers/</guid>
       <description></description>
     </item>
     
     <item>
       <title>GP</title>
-      <link>/tags/gp/</link>
+      <link>http://rsettlage.github.io/STAT5526_Fall2020/tags/gp/</link>
       <pubDate>Thu, 05 Nov 2020 00:00:00 +0000</pubDate>
       
-      <guid>/tags/gp/</guid>
+      <guid>http://rsettlage.github.io/STAT5526_Fall2020/tags/gp/</guid>
       <description></description>
     </item>
     
     <item>
       <title>homework</title>
-      <link>/tags/homework/</link>
+      <link>http://rsettlage.github.io/STAT5526_Fall2020/tags/homework/</link>
       <pubDate>Thu, 05 Nov 2020 00:00:00 +0000</pubDate>
       
-      <guid>/tags/homework/</guid>
+      <guid>http://rsettlage.github.io/STAT5526_Fall2020/tags/homework/</guid>
       <description></description>
     </item>
     
     <item>
       <title>HPC</title>
-      <link>/tags/hpc/</link>
+      <link>http://rsettlage.github.io/STAT5526_Fall2020/tags/hpc/</link>
       <pubDate>Thu, 05 Nov 2020 00:00:00 +0000</pubDate>
       
-      <guid>/tags/hpc/</guid>
+      <guid>http://rsettlage.github.io/STAT5526_Fall2020/tags/hpc/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Keras</title>
-      <link>/tags/keras/</link>
+      <link>http://rsettlage.github.io/STAT5526_Fall2020/tags/keras/</link>
       <pubDate>Thu, 05 Nov 2020 00:00:00 +0000</pubDate>
       
-      <guid>/tags/keras/</guid>
+      <guid>http://rsettlage.github.io/STAT5526_Fall2020/tags/keras/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Monte Carlo</title>
-      <link>/tags/monte-carlo/</link>
+      <link>http://rsettlage.github.io/STAT5526_Fall2020/tags/monte-carlo/</link>
       <pubDate>Thu, 05 Nov 2020 00:00:00 +0000</pubDate>
       
-      <guid>/tags/monte-carlo/</guid>
+      <guid>http://rsettlage.github.io/STAT5526_Fall2020/tags/monte-carlo/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Neural Networks</title>
-      <link>/tags/neural-networks/</link>
+      <link>http://rsettlage.github.io/STAT5526_Fall2020/tags/neural-networks/</link>
       <pubDate>Thu, 05 Nov 2020 00:00:00 +0000</pubDate>
       
-      <guid>/tags/neural-networks/</guid>
+      <guid>http://rsettlage.github.io/STAT5526_Fall2020/tags/neural-networks/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Parallelizing</title>
-      <link>/tags/parallelizing/</link>
+      <link>http://rsettlage.github.io/STAT5526_Fall2020/tags/parallelizing/</link>
       <pubDate>Thu, 05 Nov 2020 00:00:00 +0000</pubDate>
       
-      <guid>/tags/parallelizing/</guid>
+      <guid>http://rsettlage.github.io/STAT5526_Fall2020/tags/parallelizing/</guid>
       <description></description>
     </item>
     
     <item>
       <title>R</title>
-      <link>/tags/r/</link>
+      <link>http://rsettlage.github.io/STAT5526_Fall2020/tags/r/</link>
       <pubDate>Thu, 05 Nov 2020 00:00:00 +0000</pubDate>
       
-      <guid>/tags/r/</guid>
+      <guid>http://rsettlage.github.io/STAT5526_Fall2020/tags/r/</guid>
       <description></description>
     </item>
     
     <item>
       <title>R setup</title>
-      <link>/tags/r-setup/</link>
+      <link>http://rsettlage.github.io/STAT5526_Fall2020/tags/r-setup/</link>
       <pubDate>Thu, 05 Nov 2020 00:00:00 +0000</pubDate>
       
-      <guid>/tags/r-setup/</guid>
+      <guid>http://rsettlage.github.io/STAT5526_Fall2020/tags/r-setup/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Scheduler</title>
-      <link>/tags/scheduler/</link>
+      <link>http://rsettlage.github.io/STAT5526_Fall2020/tags/scheduler/</link>
       <pubDate>Thu, 05 Nov 2020 00:00:00 +0000</pubDate>
       
-      <guid>/tags/scheduler/</guid>
+      <guid>http://rsettlage.github.io/STAT5526_Fall2020/tags/scheduler/</guid>
       <description></description>
     </item>
     
     <item>
       <title>git</title>
-      <link>/tags/git/</link>
+      <link>http://rsettlage.github.io/STAT5526_Fall2020/tags/git/</link>
       <pubDate>Wed, 04 Nov 2020 00:00:00 +0000</pubDate>
       
-      <guid>/tags/git/</guid>
+      <guid>http://rsettlage.github.io/STAT5526_Fall2020/tags/git/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Topics</title>
-      <link>/tags/topics/</link>
+      <link>http://rsettlage.github.io/STAT5526_Fall2020/tags/topics/</link>
       <pubDate>Wed, 04 Nov 2020 00:00:00 +0000</pubDate>
       
-      <guid>/tags/topics/</guid>
+      <guid>http://rsettlage.github.io/STAT5526_Fall2020/tags/topics/</guid>
       <description></description>
     </item>
     
