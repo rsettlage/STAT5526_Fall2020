@@ -64,12 +64,14 @@ for(i in 1:threads){
   blas_set_num_threads(i)
   omp_set_num_threads(i)
   Sys.setenv(VECLIB_MAXIMUM_THREADS=i)
+  Sys.setenv(OMP_NUM_THREADS=i)
+  Sys.setenv(MKL_NUM_THREADS=i)
   for(j in 7:max_rows){ 
     for(k in 1:reps){ ### just repeating it a few times to get some idea of variability
       iter <- iter + 1
       max_results[iter,] <- c(cpus,threads,i,matrix_fun(size=j))
       if(k==1){
-        cat("for matrix of size",(2^j)^2,"elements using",i,"threads, takes",
+        cat("for matrix of size",j^2,"or ",(2^j)^2,"elements using",i,"threads, takes",
             max_results[iter,5],"secs","\n",sep=" ")
       }
       if(max_results[iter,5]>200){
