@@ -95,17 +95,19 @@ Note, this is a BIG and important topic. I am barely scratching the surface to s
 		</header><div class="content post__content clearfix">
 			<div id="monte-carlo-integration" class="section level3">
 <h3>Monte Carlo Integration</h3>
-<p>Monte Carlo integration is a numerical technique based on distributions and randon numbers. Unlike Riemann Sums, Monte Carlo integration choose points randomly within the bound of interest and assumes the point frequency corresponds to the “height” at that point in the interval.</p>
+<p>Monte Carlo integration is a numerical technique based on distributions and random numbers. Unlike Riemann Sums, Monte Carlo integration chooses points randomly within the bound of interest and assumes the point frequency corresponds to the “height” at that point in the interval.</p>
 <p>As an example, consider the function and integral:</p>
 <p><span class="math display">\[\begin{equation}
-H(x,y) = 1 if x^2+y^2 \le 1, 0\text{ otherwise}
+H(x,y) = \begin{cases} 1\text{ if} x^2+y^2 \le 1, \\
+                0\text{ otherwise} \\
+           \end{cases}
 \end{equation}\]</span></p>
 <p><span class="math display">\[\begin{equation}
 I = \int_{x,y \in [-1,1]} H(x,y)dx dy
 \end{equation}\]</span></p>
 <p>which we know integrates to pi. We could evaluate that integral by:</p>
 <p><span class="math display">\[\begin{equation}
-\pi = 4*\frac{1}{N}\Sigma_{i=1}^N H(x_i,y_i)
+\pi = 4*\frac{1}{N}\sum_{i=1}^N H(x_i,y_i)
 \end{equation}\]</span>
 where (<span class="math inline">\(x_i\)</span>,<span class="math inline">\(y_i\)</span>) are drawn from unif[0,1].</p>
 <hr />
@@ -135,7 +137,7 @@ plot(point_container[,1],point_container[,2],
      col=point_container[,3]+1,pch=20,
      main=paste(&quot;estimate of pi=&quot;,our_pi, &quot;vs&quot;,pi),
      xlab=&quot;x&quot;,ylab=&quot;y&quot;)</code></pre>
-<p><img src="/STAT5526_Fall2020/posts/Lecture_2a_files/figure-html/unnamed-chunk-1-1.png" width="672" /></p>
+<p><img src="/posts/Lecture_2a_files/figure-html/unnamed-chunk-1-1.png" width="672" /></p>
 <hr />
 </div>
 <div id="what-about-tossing-beer-cans" class="section level3">
@@ -146,7 +148,7 @@ plot(point_container[,1],point_container[,2],
 \pi = \frac{2 \ast n}{k}
 \end{equation}\]</span>
 where n = number of empties and k = cans crossing lines.</p>
-<pre class="r"><code>n &lt;- 100
+<pre class="r"><code>n &lt;- 100000  ## ok, no comments, but my wife likes IPAs ...
 # choose positions of center of needle . Note the &quot; board &quot; is 10X10 , vertical lines x. pos &lt;- runif (n ,0 ,10)
 x.pos &lt;- runif(n,0,10)
 y.pos &lt;- runif(n,0,10)
@@ -156,14 +158,17 @@ x.max &lt;- x.pos + 0.5* cos(rotation)
 x.min &lt;- x.pos - 0.5* cos(rotation)
 y.max &lt;- y.pos + 0.5* sin(rotation)
 y.min &lt;- y.pos - 0.5* sin(rotation)
+crosses &lt;- ifelse(ceiling(x.min)==floor(x.max),1,0)
 # draw the board
 
-plot(x=x.pos,y=y.pos,xlim=c(0,10),ylim=c(0,10))
+pi_est &lt;- 2*n/sum(crosses)
+plot(x=x.pos,y=y.pos,xlim=c(0,10),ylim=c(0,10),
+     main=paste(&quot;estimate of pi=&quot;,pi_est, &quot;vs&quot;,pi),pch=20,col=crosses+1)
 # draw the lines
 abline(v=seq(1,9,1))
 # draw the needles
-segments(x.min,y.min,x.max,y.max)</code></pre>
-<p><img src="/STAT5526_Fall2020/posts/Lecture_2a_files/figure-html/unnamed-chunk-2-1.png" width="672" /></p>
+segments(x.min,y.min,x.max,y.max,col = crosses+1)</code></pre>
+<p><img src="/posts/Lecture_2a_files/figure-html/unnamed-chunk-2-1.png" width="672" /></p>
 <p>Check out <a href="http://www.clayford.net/statistics/buffons-needle-problem-or-how-to-use-probability-to-estimate-pi/" class="uri">http://www.clayford.net/statistics/buffons-needle-problem-or-how-to-use-probability-to-estimate-pi/</a> for the math and discussion.</p>
 <hr />
 </div>
@@ -209,7 +214,7 @@ par(mfrow=c(2,2), pty=&quot;s&quot;) # 2 x 2 array of square plots
 plot(x[1:50], y[1:50], type=&quot;l&quot;)
 plot(x1, y1, pch=&quot;.&quot;, main = &quot;x1, x2 returns, green = portfolio &gt; 0&quot;);points(x1[w&gt;0], y1[w&gt;0], pch=&quot;.&quot;, col=&quot;green4&quot;)
 plot(x[1:1000], type=&quot;l&quot;); acf(y)</code></pre>
-<p><img src="/STAT5526_Fall2020/posts/Lecture_2a_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
+<p><img src="/posts/Lecture_2a_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
 <p>The point to the above is not that you can do this simple model, but to show that MCMC can do useful things and the models can become arbitrarily complex and cumbersome to simulate … HPC.</p>
 </div>
 

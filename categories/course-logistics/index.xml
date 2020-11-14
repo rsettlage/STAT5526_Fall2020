@@ -12,17 +12,17 @@
     
     
     <item>
-      <title>1 - HPC notes</title>
-      <link>http://rsettlage.github.io/STAT5526_Fall2020/notes/hpc/</link>
+      <title>1 - HPC getting started</title>
+      <link>http://rsettlage.github.io/STAT5526_Fall2020/notes/hpc-getting-started/</link>
       <pubDate>Thu, 05 Nov 2020 00:00:00 +0000</pubDate>
       
-      <guid>http://rsettlage.github.io/STAT5526_Fall2020/notes/hpc/</guid>
+      <guid>http://rsettlage.github.io/STAT5526_Fall2020/notes/hpc-getting-started/</guid>
       <description>
-&lt;link href=&#34;http://rsettlage.github.io/STAT5526_Fall2020/STAT5526_Fall2020/rmarkdown-libs/anchor-sections/anchor-sections.css&#34; rel=&#34;stylesheet&#34; /&gt;
-&lt;script src=&#34;http://rsettlage.github.io/STAT5526_Fall2020/STAT5526_Fall2020/rmarkdown-libs/anchor-sections/anchor-sections.js&#34;&gt;&lt;/script&gt;
+&lt;link href=&#34;http://rsettlage.github.io/STAT5526_Fall2020/rmarkdown-libs/anchor-sections/anchor-sections.css&#34; rel=&#34;stylesheet&#34; /&gt;
+&lt;script src=&#34;http://rsettlage.github.io/STAT5526_Fall2020/rmarkdown-libs/anchor-sections/anchor-sections.js&#34;&gt;&lt;/script&gt;
 
 
-&lt;p&gt;High performance computing clusters are characterized by login nodes fronting a pool of compute resources. Access to the compute resources is controlled via a resource scheduler.&lt;/p&gt;
+&lt;p&gt;Here are some minimal steps to get on ARC clusters and validate your account is setup properly.&lt;/p&gt;
 </description>
     </item>
     
@@ -41,7 +41,7 @@
     </item>
     
     <item>
-      <title>3 - Good Programming</title>
+      <title>5 - Good Programming</title>
       <link>http://rsettlage.github.io/STAT5526_Fall2020/notes/good-programming/</link>
       <pubDate>Thu, 05 Nov 2020 00:00:00 +0000</pubDate>
       
@@ -52,6 +52,21 @@
 
 
 &lt;p&gt;Good Programming Practices and Reproducible Research are worth &lt;strong&gt;&lt;em&gt;YOUR&lt;/em&gt;&lt;/strong&gt; time. They will save &lt;strong&gt;&lt;em&gt;YOUR&lt;/em&gt;&lt;/strong&gt; bacan. This is worth the read!!&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>6 - HPC notes</title>
+      <link>http://rsettlage.github.io/STAT5526_Fall2020/notes/hpc/</link>
+      <pubDate>Thu, 05 Nov 2020 00:00:00 +0000</pubDate>
+      
+      <guid>http://rsettlage.github.io/STAT5526_Fall2020/notes/hpc/</guid>
+      <description>
+&lt;link href=&#34;http://rsettlage.github.io/STAT5526_Fall2020/rmarkdown-libs/anchor-sections/anchor-sections.css&#34; rel=&#34;stylesheet&#34; /&gt;
+&lt;script src=&#34;http://rsettlage.github.io/STAT5526_Fall2020/rmarkdown-libs/anchor-sections/anchor-sections.js&#34;&gt;&lt;/script&gt;
+
+
+&lt;p&gt;High performance computing clusters are characterized by login nodes fronting a pool of compute resources. Access to the compute resources is controlled via a resource scheduler.&lt;/p&gt;
 </description>
     </item>
     
@@ -71,14 +86,14 @@
     </item>
     
     <item>
-      <title>4 - Configuring Docker</title>
+      <title>3 - Configuring Docker</title>
       <link>http://rsettlage.github.io/STAT5526_Fall2020/notes/containers/</link>
       <pubDate>Wed, 04 Nov 2020 00:00:00 +0000</pubDate>
       
       <guid>http://rsettlage.github.io/STAT5526_Fall2020/notes/containers/</guid>
       <description>
-&lt;link href=&#34;http://rsettlage.github.io/STAT5526_Fall2020/STAT5526_Fall2020/rmarkdown-libs/anchor-sections/anchor-sections.css&#34; rel=&#34;stylesheet&#34; /&gt;
-&lt;script src=&#34;http://rsettlage.github.io/STAT5526_Fall2020/STAT5526_Fall2020/rmarkdown-libs/anchor-sections/anchor-sections.js&#34;&gt;&lt;/script&gt;
+&lt;link href=&#34;http://rsettlage.github.io/STAT5526_Fall2020/rmarkdown-libs/anchor-sections/anchor-sections.css&#34; rel=&#34;stylesheet&#34; /&gt;
+&lt;script src=&#34;http://rsettlage.github.io/STAT5526_Fall2020/rmarkdown-libs/anchor-sections/anchor-sections.js&#34;&gt;&lt;/script&gt;
 
 
 &lt;p&gt;Docker/GitHub/Singularity workflow for STAT 5526 HPC/R section, Fall 2020.
@@ -86,14 +101,14 @@
     </item>
     
     <item>
-      <title>5 - Git Conf</title>
+      <title>4 - Git Conf</title>
       <link>http://rsettlage.github.io/STAT5526_Fall2020/notes/git-config/</link>
       <pubDate>Wed, 04 Nov 2020 00:00:00 +0000</pubDate>
       
       <guid>http://rsettlage.github.io/STAT5526_Fall2020/notes/git-config/</guid>
       <description>
-&lt;link href=&#34;http://rsettlage.github.io/STAT5526_Fall2020/STAT5526_Fall2020/rmarkdown-libs/anchor-sections/anchor-sections.css&#34; rel=&#34;stylesheet&#34; /&gt;
-&lt;script src=&#34;http://rsettlage.github.io/STAT5526_Fall2020/STAT5526_Fall2020/rmarkdown-libs/anchor-sections/anchor-sections.js&#34;&gt;&lt;/script&gt;
+&lt;link href=&#34;http://rsettlage.github.io/STAT5526_Fall2020/rmarkdown-libs/anchor-sections/anchor-sections.css&#34; rel=&#34;stylesheet&#34; /&gt;
+&lt;script src=&#34;http://rsettlage.github.io/STAT5526_Fall2020/rmarkdown-libs/anchor-sections/anchor-sections.js&#34;&gt;&lt;/script&gt;
 
 
 &lt;p&gt;Note, this is here from my STAT 5014 class. I have brought it over for those interested. Basically, we need to have:

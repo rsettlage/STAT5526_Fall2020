@@ -3,7 +3,7 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>http://rsettlage.github.io/STAT5526_Fall2020/notes/hpc/</loc>
+    <loc>http://rsettlage.github.io/STAT5526_Fall2020/notes/hpc-getting-started/</loc>
     <lastmod>2020-11-05T00:00:00+00:00</lastmod>
   </url>
   
@@ -14,6 +14,11 @@
   
   <url>
     <loc>http://rsettlage.github.io/STAT5526_Fall2020/notes/good-programming/</loc>
+    <lastmod>2020-11-05T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://rsettlage.github.io/STAT5526_Fall2020/notes/hpc/</loc>
     <lastmod>2020-11-05T00:00:00+00:00</lastmod>
   </url>
   

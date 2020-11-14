@@ -25,12 +25,14 @@ Note, this is a BIG and important topic.  I am barely scratching the surface to 
 
 ### Monte Carlo Integration
 
-Monte Carlo integration is a numerical technique based on distributions and randon numbers.  Unlike Riemann Sums, Monte Carlo integration choose points randomly within the bound of interest and assumes the point frequency corresponds to the "height" at that point in the interval.
+Monte Carlo integration is a numerical technique based on distributions and random numbers.  Unlike Riemann Sums, Monte Carlo integration chooses points randomly within the bound of interest and assumes the point frequency corresponds to the "height" at that point in the interval.
 
 As an example, consider the function and integral:
 
 \begin{equation}
-H(x,y) = 1 if x^2+y^2 \le 1, 0\text{ otherwise}
+H(x,y) = \begin{cases} 1\text{ if} x^2+y^2 \le 1, \\
+                0\text{ otherwise} \\
+           \end{cases}
 \end{equation}
 
 \begin{equation}
@@ -40,7 +42,7 @@ I = \int_{x,y \in [-1,1]} H(x,y)dx dy
 which we know integrates to pi.  We could evaluate that integral by:
 
 \begin{equation}
-\pi = 4*\frac{1}{N}\Sigma_{i=1}^N H(x_i,y_i)
+\pi = 4*\frac{1}{N}\sum_{i=1}^N H(x_i,y_i)
 \end{equation}
 where ($x_i$,$y_i$) are drawn from unif[0,1].
 
@@ -92,7 +94,7 @@ where n = number of empties and k = cans crossing lines.
 
 ```{r, eval=TRUE, echo=TRUE, include=TRUE}
 
-n <- 100
+n <- 100000  ## ok, no comments, but my wife likes IPAs ...
 # choose positions of center of needle . Note the " board " is 10X10 , vertical lines x. pos <- runif (n ,0 ,10)
 x.pos <- runif(n,0,10)
 y.pos <- runif(n,0,10)
@@ -102,13 +104,16 @@ x.max <- x.pos + 0.5* cos(rotation)
 x.min <- x.pos - 0.5* cos(rotation)
 y.max <- y.pos + 0.5* sin(rotation)
 y.min <- y.pos - 0.5* sin(rotation)
+crosses <- ifelse(ceiling(x.min)==floor(x.max),1,0)
 # draw the board
 
-plot(x=x.pos,y=y.pos,xlim=c(0,10),ylim=c(0,10))
+pi_est <- 2*n/sum(crosses)
+plot(x=x.pos,y=y.pos,xlim=c(0,10),ylim=c(0,10),
+     main=paste("estimate of pi=",pi_est, "vs",pi),pch=20,col=crosses+1)
 # draw the lines
 abline(v=seq(1,9,1))
-# draw the needles
-segments(x.min,y.min,x.max,y.max)
+# draw the empties
+segments(x.min,y.min,x.max,y.max,col = crosses+1)
 
 ```
 
