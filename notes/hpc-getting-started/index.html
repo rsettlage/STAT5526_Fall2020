@@ -161,7 +161,7 @@ echo $today
 #####################################
 
 module load containers/singularity
-singularity exec --bind $TMPFS:/tmp,/sys/fs/cgroup/cpuset/slurm/uid_$(id -u):/job_sets \
+singularity exec --bind $TMPFS:/tmp \
             /projects/arcsingularity/ood-rstudio-basic_4.0.0.sif Rscript -e &quot;5+3&quot;
 </code></pre>
 </div>
