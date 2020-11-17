@@ -23,14 +23,81 @@ Note, this is a BIG and important topic.  I am barely scratching the surface to 
 
 <!--more-->
 
+### Integration
+
+Numerical integration is also a big and important topic.  We are going to rewind in history a bit and think about Reimann sums.  The basic idea is if you slice the integral region up (see below from Wikipedia) and evaluate the function you are desiring to integrate at the end points of smaller and smaller slices, you can add up the areas under the curve to get the total integral result.  The smaller the slices, the closer to truth the approximation.
+
+```{r out.height="10%",echo=F,include=T}
+knitr::include_graphics("https://upload.wikimedia.org/wikipedia/commons/thumb/d/d1/Integration_num_trapezes_notation.svg/1382px-Integration_num_trapezes_notation.svg.png")
+```
+
+As an example, suppose we would like to find the area of the unit circle:
+
+```{r out.height="10%",echo=F,include=T}
+knitr::include_graphics("https://www.purplemath.com/modules/trig/unitci04.gif")
+```
+
+
+\begin{equation}
+x^2 + y^2 \le 1
+\end{equation}
+
+If we focus on the first quadrant, we can write this in terms of a simple integral:
+
+\begin{equation}
+I = \int_{0}^1 \sqrt{1-x^2} dx
+\end{equation}
+
+Which we know evaluates to $\frac{\pi}{4}$ as it is $\frac{1}{4}$ of the unit circle.
+
+Following through with the Reimann sums idea, instead of going through the change of variable etc necessary to analytically determine the result, we could instead, change this to a sum of many many small intervals where we calculate the area of rectangles, or trapezoids etc to find the area under the curve, muliplying by 4, we would arrive at our estimate of pi.
+
+```{r, eval=TRUE, echo=TRUE, include=TRUE}
+slices <- 1000
+rights <- seq(from=0,to=1,length.out = slices)
+widths <- rights[2]
+reimanns_pi_right <- sum(sqrt(1-rights[-1]^2))*widths*4
+reimanns_pi_left <- sum(sqrt(1-rights[-slices]^2))*widths*4
+reimanns_pi <- mean(reimanns_pi_right,reimanns_pi_left)
+reimanns_pi
+```
+
 ### Monte Carlo Integration
 
-Monte Carlo integration is a numerical technique based on distributions and random numbers.  Unlike Riemann Sums, Monte Carlo integration chooses points randomly within the bound of interest and assumes the point frequency corresponds to the "height" at that point in the interval.
+Monte Carlo integration is a numerical technique based on distributions and random numbers.  Unlike Riemann Sums, Monte Carlo integration chooses points randomly within the bound of interest according to some known probability distribution.  The function is evaluated at the chosen points, we sum the results and divide by the number of points chosen.  How do we choose the probability distribution to use?  We look at the function to be evaluated, the bounds of the integral, etc for the presence of the kernel to a probability distribution we know.  Essentially, we are looking to find something that looks like this:
+
+\begin{equation}
+I = \int_{a}^b g(x)f(x) dx
+\end{equation}
+
+where g(x) is an arbitrary function, f(x) is a probability distribution such as:
+
+\begin{equation}
+I = \int_{0}^{\infty} x^2 \lambda e^{-\lambda x} dx
+\end{equation}
+
+where we recognize $g(x)=x^2$ and f(x) is the pdf of the exponential.
+
+Returning to our unit circle, we can rewrite it as:
+
+\begin{equation}
+I = \int_{0}^1 \sqrt{1-x^2} (1) dx
+\end{equation}
+
+So, we are evaluating the constant 1 with bounds [0,1], perhaps we can choose $x\sim unif(0,1)$.  So, if we choose the x's accordingly, we can use the following to approximate the interval:
+
+\begin{equation}
+I \approx \frac{1}{N}\sum_{x\sim unif(0,1)} \sqrt{1-x^2}
+\end{equation}
+
+----
+
+What if we are interested in a function that is not easily written as an integral, but we know how to relate it to something we do know.
 
 As an example, consider the function and integral:
 
 \begin{equation}
-H(x,y) = \begin{cases} 1\text{ if} x^2+y^2 \le 1, \\
+H(x,y) = \begin{cases} 1\text{ if } x^2+y^2 \le 1, \\
                 0\text{ otherwise} \\
            \end{cases}
 \end{equation}
@@ -39,18 +106,18 @@ H(x,y) = \begin{cases} 1\text{ if} x^2+y^2 \le 1, \\
 I = \int_{x,y \in [-1,1]} H(x,y)dx dy
 \end{equation}
 
-which we know integrates to pi.  We could evaluate that integral by:
+which we know as the area of the circle which integrates to pi.  We could evaluate that integral by:
 
 \begin{equation}
-\pi = 4*\frac{1}{N}\sum_{i=1}^N H(x_i,y_i)
+\pi = 4*\frac{1}{N}\sum_{x_i,y_i \sim unif[0,1]}^N H(x_i,y_i)
 \end{equation}
-where ($x_i$,$y_i$) are drawn from unif[0,1].
+.
 
 ----
 
 ### Estimate $\pi$ using darts
 
-We will come back to the above, for now, we will simply and say Monte Carlo methods are ones that involve repeated random sampling to estimate unknown parameters or distributions.  As an example, we can use repeated random sampling from uniform distributions to estimate pi.  Consider playing darts where we have inscribed a circle within the area given by a dart board.  If the circle and square are centered at c(0,0) where the circle has radius r=1 while the square has sides of length d=2*r, we can calculate the probablity of hitting the circle vs the square as the ratio of areas given by:
+We can visualize the repeated random sampling from uniform distributions to estimate pi as a dart game.  Consider playing darts where we have inscribed a circle within the area given by a dart board wall.  If the circle and square are centered at c(0,0) where the circle has radius r=1 while the square has sides of length d=2*r, we can calculate the probablity of hitting the circle vs the square as the ratio of areas given by:
 
 \begin{eqnarray}
 \frac{C}{S} &=& \frac{\pi \ast r^2}{(2 \ast r)^2} \\
@@ -94,7 +161,7 @@ where n = number of empties and k = cans crossing lines.
 
 ```{r, eval=TRUE, echo=TRUE, include=TRUE}
 
-n <- 100000  ## ok, no comments, but my wife likes IPAs ...
+n <- 200  ## ok, no comments, but my wife likes IPAs ...
 # choose positions of center of needle . Note the " board " is 10X10 , vertical lines x. pos <- runif (n ,0 ,10)
 x.pos <- runif(n,0,10)
 y.pos <- runif(n,0,10)
@@ -108,10 +175,10 @@ crosses <- ifelse(ceiling(x.min)==floor(x.max),1,0)
 # draw the board
 
 pi_est <- 2*n/sum(crosses)
-plot(x=x.pos,y=y.pos,xlim=c(0,10),ylim=c(0,10),
+plot(x=x.pos,y=y.pos,xlim=c(-0.2,10.2),ylim=c(-0.2,10.2),
      main=paste("estimate of pi=",pi_est, "vs",pi),pch=20,col=crosses+1)
 # draw the lines
-abline(v=seq(1,9,1))
+abline(v=seq(0,10,1))
 # draw the empties
 segments(x.min,y.min,x.max,y.max,col = crosses+1)
 
@@ -144,7 +211,7 @@ Y & \sim & Norm(\rho X, \sigma) \text{ where} \\
 \sigma & = & \sqrt{1-\rho^2}
 \end{eqnarray}
 
-We are also going to model $X_1 \sim Norm(\alpha_1,\beta_1^2$ as a linear transformation using $X_1 = \alpha_1 X + \beta_1$.
+We are also going to model $X_1 \sim Norm(\alpha_1,\beta_1^2)$ as a linear transformation using $X_1 = \alpha_1 X + \beta_1$.
 
 ----
 

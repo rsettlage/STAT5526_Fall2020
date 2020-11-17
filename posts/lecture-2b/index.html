@@ -94,17 +94,54 @@ Neural networks are really a framework for building models. In recent years, the
 </div>
 		</header><div class="content post__content clearfix">
 			<p>Neural networks are really a framework for building models. In recent years, these have gained major traction due in part to the popularity of machine learning. However, at the end of the day, these are modeling frameworks.</p>
+<p>Neural networks are biologically inspired. They originally sought to model how a nerve cell receives input and translates that into an output. Wikipedia has a pretty good discussion. <a href="https://en.wikipedia.org/wiki/Perceptron" class="uri">https://en.wikipedia.org/wiki/Perceptron</a></p>
+<p><span class="math display">\[\begin{equation}
+f(x) = \begin{cases} 1\text{ if } \mathbf{wx} \le 0, \\
+                0\text{ otherwise} \\
+           \end{cases}
+\end{equation}\]</span></p>
+<p><img src="https://www.researchgate.net/profile/Erguen_Akguen/publication/326417061/figure/fig2/AS:648990437679105@1531742786278/Similarity-between-biological-and-artificial-neural-networks-Arbib-2003a-Haykin.png" height="10%" /></p>
+<hr />
+<p>Key features:</p>
+<ul>
+<li>inputs<br />
+</li>
+<li>bias<br />
+</li>
+<li>functional addition<br />
+</li>
+<li>activation</li>
+</ul>
+<p><img src="https://hackernoon.com/hn-images/1*zjzWdMucBfRbkqMzgm2xKg.png" height="10%" /></p>
+<hr />
+<p>The machine learning crowd tends to talk about layers: input layer, hidden layers, output layer.</p>
+<p><img src="https://cdn-images-1.medium.com/max/1000/1*eJ36Jpf-DE9q5nKk67xT0Q.jpeg" height="10%" /></p>
+<hr />
+<p>These networks can be arbitrarily complex.</p>
+<p><img src="https://i2.wp.com/www.asimovinstitute.org/wp-content/uploads/2016/09/neuralnetworks.png" height="10%" /></p>
+<hr />
+<p>Some semblence to memory or longer more distant interactions can be encoded:</p>
+<p><img src="https://qjjnh3a9hpo1nukrg1fwoh71-wpengine.netdna-ssl.com/wp-content/uploads/2019/04/ELMo-biLSTM_web.jpg" height="10%" /></p>
 <div id="neural-networks-for-linear-regression" class="section level2">
 <h2>Neural networks for linear regression</h2>
-<p>Neural networks can be used to setup linear regression problems. The one caveat is that the solution will be iterative, is gradient descent or some other optimization method.</p>
-</div>
-<div id="regression-algorithm" class="section level2">
-<h2><img src="../img/linear_model_algorithm.png" alt="regression algorithm" /></h2>
+<p>Let’s dial this back a notch and apply it to something more familiar. Believe it or not, eural networks can be used to setup linear regression problems. The one caveat is that the solution will be iterative, ie gradient descent or some other optimization method. Linear models using iterate algorithms and solvers can be diagrammed like so:</p>
+<p><img src="../img/linear_model_algorithm.png" alt="regression algorithm" />
+Note, we have:</p>
+<ol style="list-style-type: decimal">
+<li>a model<br />
+</li>
+<li>a way to score our model<br />
+</li>
+<li>some way to improve</li>
+</ol>
+<hr />
+<p>Let’s focus on the structure of the model. Note, in machine learning communities, the intercept is generally considered a bias rather than an input, but the effect is the same. In this case, the activation function is g(z) = z.</p>
 </div>
 <div id="regression-as-nn" class="section level2">
 <h2><img src="../img/linear_model_NN.png" alt="regression as NN" /></h2>
 <div id="model-blending" class="section level3">
 <h3>Model blending</h3>
+<p>Here to, we can add a hidden layer. What does that get us? Model blending.</p>
 </div>
 </div>
 <div id="linear-model-blending" class="section level2">
@@ -117,20 +154,27 @@ Neural networks are really a framework for building models. In recent years, the
 </div>
 <div id="convolution" class="section level2">
 <h2><img src="../img/convolution_kernel.png" alt="convolution" /></h2>
-</div>
-<div id="convolution-1" class="section level2">
-<h2><img src="../img/convolutions_in_NN.png" alt="convolution" /></h2>
 <div class="figure">
 <img src="../img/convolution_output.png" alt="" />
 <p class="caption">convolution</p>
 </div>
 <hr />
+<p><img src="../img/convolutions_in_NN.png" alt="convolution" />
+<img src="https://miro.medium.com/max/3288/1*uAeANQIOQPqWZnnuH-VEyw.jpeg" height="10%" /></p>
+<hr />
 <div id="neural-network-output" class="section level3">
 <h3>Neural network output</h3>
+<p>In our discussion of linear models, our output was a simple mapping. What about something like image recognition or image classification? Basically, this boils down to this:</p>
+<p><span class="math display">\[Y  = activation(\sum(wight*input)+bias)\]</span>
+In linear models, we use an activation g(z)=z.</p>
+<p>For classification tasks (binary or categorical), we need something more akin to logistic regression transformations, ie probability of class. In machine learning, we tend to talk about:</p>
 <ul>
-<li>binary</li>
-<li>classification</li>
+<li>sigmoid for binary</li>
+<li>softmax for classification</li>
 </ul>
+<p><a href="https://en.wikipedia.org/wiki/Activation_function" class="uri">https://en.wikipedia.org/wiki/Activation_function</a>
+<a href="https://www.analyticssteps.com/blogs/7-types-activation-functions-neural-network" class="uri">https://www.analyticssteps.com/blogs/7-types-activation-functions-neural-network</a></p>
+<p>Note, as your model includes hidden layers, each hidden layer should also include an activation function. This changes the neural network from a linear model to something able to learn more complex datasets.</p>
 </div>
 </div>
 

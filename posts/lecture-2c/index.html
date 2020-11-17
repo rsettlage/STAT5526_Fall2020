@@ -4,16 +4,16 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>Lecture 2C - R and Keras - Work in Process - STAT-5526 Fall 2020</title>
+	<title>Lecture 2C - R and Keras - STAT-5526 Fall 2020</title>
 	<script>(function(d,e){d[e]=d[e].replace("no-js","js");})(document.documentElement,"className");</script>
 	<meta name="description" content="">
-	<meta property="og:title" content="Lecture 2C - R and Keras - Work in Process" />
+	<meta property="og:title" content="Lecture 2C - R and Keras" />
 <meta property="og:description" content="
 
 
 
 
-Keras sits on top of TensorFlow (and others) and creates a highlevel abstraction of the underlying TensorFlow programming model.
+Keras sits on top of TensorFlow (and others) and creates a high level abstraction of the underlying TensorFlow programming model.
 " />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="http://rsettlage.github.io/STAT5526_Fall2020/posts/lecture-2c/" />
@@ -80,7 +80,7 @@ Keras sits on top of TensorFlow (and others) and creates a highlevel abstraction
 <main class="main" role="main">
 	<article class="post">
 		<header class="post__header">
-			<h1 class="post__title">Lecture 2C - R and Keras - Work in Process</h1>
+			<h1 class="post__title">Lecture 2C - R and Keras</h1>
 			<div class="post__meta meta">
 <div class="meta__item-datetime meta__item">
 	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0C7 0 1 6 1 14s6 14 14 14 14-6 14-14S23 0 15 0zm0 25C9 25 4 20 4 14S9 3 15 3s11 5 11 11-5 11-11 11zm1-18h-2v8.4l6.8 4.4L22 18l-6-3.8V7z"/></svg>
@@ -93,69 +93,104 @@ Keras sits on top of TensorFlow (and others) and creates a highlevel abstraction
 </div>
 </div>
 		</header><div class="content post__content clearfix">
-			<p>Keras sits on top of TensorFlow (and others) and creates a highlevel abstraction of the underlying TensorFlow programming model.</p>
+			<p>Keras sits on top of TensorFlow (and others) and creates a high level abstraction of the underlying TensorFlow programming model.</p>
 <p>There are a ton of really nice walk-throughs <a href="https://keras.rstudio.com/" class="uri">https://keras.rstudio.com/</a></p>
 <p>The basic elements we will need are:</p>
 <ul>
 <li>data<br />
 </li>
-<li>model<br />
+<li>model structure<br />
 </li>
 <li>learning process<br />
 </li>
-<li><h2 id="predictions">predictions</h2></li>
+<li>predictions</li>
 </ul>
-<div id="data" class="section level3">
-<h3>Data</h3>
+<hr />
+<p>We are going to walk though 3 analysis:</p>
+<ol style="list-style-type: decimal">
+<li>simple linear regression<br />
+</li>
+<li>multiple linear regression<br />
+</li>
+<li>image recognition</li>
+</ol>
+<hr />
+<div id="data-this-is-common-between-project-types" class="section level3">
+<h3>Data – this is common between project types</h3>
 <p>We need 2-3 buckets of data:</p>
 <ol style="list-style-type: decimal">
-<li>training data (used in training)<br />
+<li>training data
+<ul>
+<li>used in training<br />
 </li>
-<li>validation data (used during training, but not for training)<br />
+</ul></li>
+<li>validation data
+<ul>
+<li>used during training to assess training progress<br />
 </li>
-<li><h2 id="testing-data-used-after-final-model-is-created">testing data (used after final model is created)</h2></li>
+<li>this is often a X-fold cross validation type of process<br />
+</li>
+</ul></li>
+<li>testing data
+<ul>
+<li>used after final model is created, OOS estimate of model accuracy</li>
+</ul></li>
 </ol>
+<hr />
 </div>
-<div id="keras-get-data" class="section level3">
-<h3>Keras – get data</h3>
-<pre class="r"><code>library(keras); library(tibble)
-boston_housing &lt;- dataset_boston_housing()
-c(train_data, train_labels) %&lt;-% boston_housing$train
-c(test_data, test_labels) %&lt;-% boston_housing$test
-#check out caret (or caTools) package for splitting data
-column_names &lt;- c(’CRIM’, ’ZN’, ’INDUS’, ’CHAS’, ’NOX’,’RM’, ’AGE’, ’DIS’, ’RAD’, ’TAX’, ’PTRATIO’, ’B’, ’LSTAT’)
-train_df &lt;- as_tibble(train_data)colnames(train_df) &lt;- column_names
-train_df</code></pre>
-<table style="width:7%;">
-<colgroup>
-<col width="6%" />
-</colgroup>
-<tbody>
-<tr class="odd">
-<td>### Keras – data engineering</td>
-</tr>
-<tr class="even">
-<td>In many learning tasks, data normalization, scaling etc can assist in overcoming bias towards a particular feature.</td>
-</tr>
-<tr class="odd">
-<td>NOTE: always try to visualize your data …</td>
-</tr>
-<tr class="even">
-<td><code>r #Normalize training data train_data &lt;- scale(train_data) #center and scale col_means_train &lt;- attr(train_data, "scaled:center") col_stddevs_train &lt;- attr(train_data, "scaled:scale") test_data &lt;- scale(test_data, center = col_means_train,scale = col_stddevs_train)</code></td>
-</tr>
-</tbody>
-</table>
+<div id="data-normalization" class="section level3">
+<h3>Data – normalization</h3>
+<p>Generally, we will want to center and scale our data.</p>
+<ol style="list-style-type: decimal">
+<li>important in optimization methods to reduce dominance of a feature/variable<br />
+</li>
+<li>important to “highlight” extreme values</li>
+</ol>
+<p>Don’t forget the importance of trying to visualize your data.</p>
+<hr />
 </div>
 <div id="keras-build-model" class="section level3">
 <h3>Keras – build model</h3>
-<p>Keras uses the concept of layers. Here we have a single layer. Fully connected or dense. We also specify the loss function and optimizer.</p>
-<pre class="r"><code>mdel &lt;- keras_model_sequential() %&gt;%
-  layer_dense(units = 1, activation = &quot;linear&quot;,
-              input_shape = dim(train_data)[2])
-model %&gt;% compile(loss = &quot;mse&quot;,
-                  optimizer = optimizer_rmsprop(),
-                  metrics = list(&quot;mean_absolute_error&quot;))</code></pre>
+<p>Keras uses the concept of layers. Here we have a three layers. Fully connected or dense, meaning every node is connected between layers.</p>
+<pre class="r"><code>model &lt;- keras_model_sequential()
+model %&gt;%
+  layer_flatten(input_shape = c(28, 28)) %&gt;%
+  layer_dense(units = 128, activation = &#39;relu&#39;) %&gt;%
+  layer_dense(units = 10, activation = &#39;softmax&#39;)</code></pre>
 <hr />
+</div>
+<div id="activation-functions" class="section level3">
+<h3>Activation functions</h3>
+<p><a href="https://missinglink.ai/guides/neural-network-concepts/7-types-neural-network-activation-functions-right/" class="uri">https://missinglink.ai/guides/neural-network-concepts/7-types-neural-network-activation-functions-right/</a>
+<a href="https://raw.githubusercontent.com/rstudio/cheatsheets/master/keras.pdf" class="uri">https://raw.githubusercontent.com/rstudio/cheatsheets/master/keras.pdf</a></p>
+<p>Activation functions:
+1. normalize across neurons within a layer<br />
+2. enable non-linearity<br />
+3. need to be computationally efficient<br />
+4. allow for back propogation</p>
+</div>
+<div id="convolutions-pooling-padding-dropout" class="section level3">
+<h3>Convolutions, pooling, padding, dropout</h3>
+<p>Convolutions are filters in the photography sense. The essentially take your input image and create a new image. Often times in image analysis, you will have several convolution layers where you have many filters, so one image may become 16, 32, 64 new filtered images.</p>
+<p>These convoluted images can be subject to down sampling, ie pooling, max pooling, or dropout. The image size can also be changed, ie padding to add pixels to the edge of the image.</p>
+<p>And just about any other creative thing you can imagine.</p>
+</div>
+<div id="loss-function-and-optimizer" class="section level3">
+<h3>Loss function and optimizer</h3>
+<p>To train, we need a measure of “goodness of fit”, or in the negative sense, loss. In linear regression, we tend to think about MSE. For binary choice or categorical, we need a different measure akin to logistic regression.</p>
+<p><span class="math display">\[\begin{equation}
+H_p(q) = -\frac{1}{N} \sum_{i=1}^{N} y_i \ast log(p(y_i)) + (1-y_i) \ast log(1-p(y_i))
+\end{equation}\]</span></p>
+<p>For more than two classes, we arrive at a similar, but more complex equation. For a decent writup, see <a href="https://gombru.github.io/2018/05/23/cross_entropy_loss/" class="uri">https://gombru.github.io/2018/05/23/cross_entropy_loss/</a>.</p>
+<pre class="r"><code>model %&gt;% compile(loss = &quot;mse&quot;,
+                  optimizer = optimizer_rmsprop(),
+                  metrics = list(&quot;mean_absolute_error&quot;))
+
+model %&gt;% compile(
+  optimizer = &#39;adam&#39;, 
+  loss = &#39;sparse_categorical_crossentropy&#39;,
+  metrics = c(&#39;accuracy&#39;)
+)</code></pre>
 </div>
 <div id="keras-run-model" class="section level3">
 <h3>Keras – run model</h3>

@@ -93,28 +93,70 @@ Note, this is a BIG and important topic. I am barely scratching the surface to s
 </div>
 </div>
 		</header><div class="content post__content clearfix">
-			<div id="monte-carlo-integration" class="section level3">
+			<div id="integration" class="section level3">
+<h3>Integration</h3>
+<p>Numerical integration is also a big and important topic. We are going to rewind in history a bit and think about Reimann sums. The basic idea is if you slice the integral region up (see below from Wikipedia) and evaluate the function you are desiring to integrate at the end points of smaller and smaller slices, you can add up the areas under the curve to get the total integral result. The smaller the slices, the closer to truth the approximation.</p>
+<p><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d1/Integration_num_trapezes_notation.svg/1382px-Integration_num_trapezes_notation.svg.png" height="10%" /></p>
+<p>As an example, suppose we would like to find the area of the unit circle:</p>
+<p><img src="https://www.purplemath.com/modules/trig/unitci04.gif" height="10%" /></p>
+<p><span class="math display">\[\begin{equation}
+x^2 + y^2 \le 1
+\end{equation}\]</span></p>
+<p>If we focus on the first quadrant, we can write this in terms of a simple integral:</p>
+<p><span class="math display">\[\begin{equation}
+I = \int_{0}^1 \sqrt{1-x^2} dx
+\end{equation}\]</span></p>
+<p>Which we know evaluates to <span class="math inline">\(\frac{\pi}{4}\)</span> as it is <span class="math inline">\(\frac{1}{4}\)</span> of the unit circle.</p>
+<p>Following through with the Reimann sums idea, instead of going through the change of variable etc necessary to analytically determine the result, we could instead, change this to a sum of many many small intervals where we calculate the area of rectangles, or trapezoids etc to find the area under the curve, muliplying by 4, we would arrive at our estimate of pi.</p>
+<pre class="r"><code>slices &lt;- 1000
+rights &lt;- seq(from=0,to=1,length.out = slices)
+widths &lt;- rights[2]
+reimanns_pi_right &lt;- sum(sqrt(1-rights[-1]^2))*widths*4
+reimanns_pi_left &lt;- sum(sqrt(1-rights[-slices]^2))*widths*4
+reimanns_pi &lt;- mean(reimanns_pi_right,reimanns_pi_left)
+reimanns_pi</code></pre>
+<pre><code>## [1] 3.139553</code></pre>
+</div>
+<div id="monte-carlo-integration" class="section level3">
 <h3>Monte Carlo Integration</h3>
-<p>Monte Carlo integration is a numerical technique based on distributions and random numbers. Unlike Riemann Sums, Monte Carlo integration chooses points randomly within the bound of interest and assumes the point frequency corresponds to the “height” at that point in the interval.</p>
+<p>Monte Carlo integration is a numerical technique based on distributions and random numbers. Unlike Riemann Sums, Monte Carlo integration chooses points randomly within the bound of interest according to some known probability distribution. The function is evaluated at the chosen points, we sum the results and divide by the number of points chosen. How do we choose the probability distribution to use? We look at the function to be evaluated, the bounds of the integral, etc for the presence of the kernel to a probability distribution we know. Essentially, we are looking to find something that looks like this:</p>
+<p><span class="math display">\[\begin{equation}
+I = \int_{a}^b g(x)f(x) dx
+\end{equation}\]</span></p>
+<p>where g(x) is an arbitrary function, f(x) is a probability distribution such as:</p>
+<p><span class="math display">\[\begin{equation}
+I = \int_{0}^{\infty} x^2 \lambda e^{-\lambda x} dx
+\end{equation}\]</span></p>
+<p>where we recognize <span class="math inline">\(g(x)=x^2\)</span> and f(x) is the pdf of the exponential.</p>
+<p>Returning to our unit circle, we can rewrite it as:</p>
+<p><span class="math display">\[\begin{equation}
+I = \int_{0}^1 \sqrt{1-x^2} (1) dx
+\end{equation}\]</span></p>
+<p>So, we are evaluating the constant 1 with bounds [0,1], perhaps we can choose <span class="math inline">\(x\sim unif(0,1)\)</span>. So, if we choose the x’s accordingly, we can use the following to approximate the interval:</p>
+<p><span class="math display">\[\begin{equation}
+I \approx \frac{1}{N}\sum_{x\sim unif(0,1)} \sqrt{1-x^2}
+\end{equation}\]</span></p>
+<hr />
+<p>What if we are interested in a function that is not easily written as an integral, but we know how to relate it to something we do know.</p>
 <p>As an example, consider the function and integral:</p>
 <p><span class="math display">\[\begin{equation}
-H(x,y) = \begin{cases} 1\text{ if} x^2+y^2 \le 1, \\
+H(x,y) = \begin{cases} 1\text{ if } x^2+y^2 \le 1, \\
                 0\text{ otherwise} \\
            \end{cases}
 \end{equation}\]</span></p>
 <p><span class="math display">\[\begin{equation}
 I = \int_{x,y \in [-1,1]} H(x,y)dx dy
 \end{equation}\]</span></p>
-<p>which we know integrates to pi. We could evaluate that integral by:</p>
+<p>which we know as the area of the circle which integrates to pi. We could evaluate that integral by:</p>
 <p><span class="math display">\[\begin{equation}
-\pi = 4*\frac{1}{N}\sum_{i=1}^N H(x_i,y_i)
+\pi = 4*\frac{1}{N}\sum_{x_i,y_i \sim unif[0,1]}^N H(x_i,y_i)
 \end{equation}\]</span>
-where (<span class="math inline">\(x_i\)</span>,<span class="math inline">\(y_i\)</span>) are drawn from unif[0,1].</p>
+.</p>
 <hr />
 </div>
 <div id="estimate-pi-using-darts" class="section level3">
 <h3>Estimate <span class="math inline">\(\pi\)</span> using darts</h3>
-<p>We will come back to the above, for now, we will simply and say Monte Carlo methods are ones that involve repeated random sampling to estimate unknown parameters or distributions. As an example, we can use repeated random sampling from uniform distributions to estimate pi. Consider playing darts where we have inscribed a circle within the area given by a dart board. If the circle and square are centered at c(0,0) where the circle has radius r=1 while the square has sides of length d=2*r, we can calculate the probablity of hitting the circle vs the square as the ratio of areas given by:</p>
+<p>We can visualize the repeated random sampling from uniform distributions to estimate pi as a dart game. Consider playing darts where we have inscribed a circle within the area given by a dart board wall. If the circle and square are centered at c(0,0) where the circle has radius r=1 while the square has sides of length d=2*r, we can calculate the probablity of hitting the circle vs the square as the ratio of areas given by:</p>
 <p><span class="math display">\[\begin{eqnarray}
 \frac{C}{S} &amp;=&amp; \frac{\pi \ast r^2}{(2 \ast r)^2} \\
     &amp;=&amp; \frac{\pi}{4}
@@ -137,7 +179,7 @@ plot(point_container[,1],point_container[,2],
      col=point_container[,3]+1,pch=20,
      main=paste(&quot;estimate of pi=&quot;,our_pi, &quot;vs&quot;,pi),
      xlab=&quot;x&quot;,ylab=&quot;y&quot;)</code></pre>
-<p><img src="/posts/Lecture_2a_files/figure-html/unnamed-chunk-1-1.png" width="672" /></p>
+<p><img src="/posts/Lecture_2a_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
 <hr />
 </div>
 <div id="what-about-tossing-beer-cans" class="section level3">
@@ -148,7 +190,7 @@ plot(point_container[,1],point_container[,2],
 \pi = \frac{2 \ast n}{k}
 \end{equation}\]</span>
 where n = number of empties and k = cans crossing lines.</p>
-<pre class="r"><code>n &lt;- 100000  ## ok, no comments, but my wife likes IPAs ...
+<pre class="r"><code>n &lt;- 200  ## ok, no comments, but my wife likes IPAs ...
 # choose positions of center of needle . Note the &quot; board &quot; is 10X10 , vertical lines x. pos &lt;- runif (n ,0 ,10)
 x.pos &lt;- runif(n,0,10)
 y.pos &lt;- runif(n,0,10)
@@ -162,13 +204,13 @@ crosses &lt;- ifelse(ceiling(x.min)==floor(x.max),1,0)
 # draw the board
 
 pi_est &lt;- 2*n/sum(crosses)
-plot(x=x.pos,y=y.pos,xlim=c(0,10),ylim=c(0,10),
+plot(x=x.pos,y=y.pos,xlim=c(-0.2,10.2),ylim=c(-0.2,10.2),
      main=paste(&quot;estimate of pi=&quot;,pi_est, &quot;vs&quot;,pi),pch=20,col=crosses+1)
 # draw the lines
-abline(v=seq(1,9,1))
-# draw the needles
+abline(v=seq(0,10,1))
+# draw the empties
 segments(x.min,y.min,x.max,y.max,col = crosses+1)</code></pre>
-<p><img src="/posts/Lecture_2a_files/figure-html/unnamed-chunk-2-1.png" width="672" /></p>
+<p><img src="/posts/Lecture_2a_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
 <p>Check out <a href="http://www.clayford.net/statistics/buffons-needle-problem-or-how-to-use-probability-to-estimate-pi/" class="uri">http://www.clayford.net/statistics/buffons-needle-problem-or-how-to-use-probability-to-estimate-pi/</a> for the math and discussion.</p>
 <hr />
 </div>
@@ -190,7 +232,7 @@ X &amp; \sim &amp; Norm(\rho Y,\sigma) \\
 Y &amp; \sim &amp; Norm(\rho X, \sigma) \text{ where} \\
 \sigma &amp; = &amp; \sqrt{1-\rho^2}
 \end{eqnarray}\]</span></p>
-<p>We are also going to model <span class="math inline">\(X_1 \sim Norm(\alpha_1,\beta_1^2\)</span> as a linear transformation using <span class="math inline">\(X_1 = \alpha_1 X + \beta_1\)</span>.</p>
+<p>We are also going to model <span class="math inline">\(X_1 \sim Norm(\alpha_1,\beta_1^2)\)</span> as a linear transformation using <span class="math inline">\(X_1 = \alpha_1 X + \beta_1\)</span>.</p>
 <hr />
 <p>Code from Gui Larangeira, California State University, East Bay (link above)</p>
 <pre class="r"><code>set.seed(1212)
@@ -214,7 +256,7 @@ par(mfrow=c(2,2), pty=&quot;s&quot;) # 2 x 2 array of square plots
 plot(x[1:50], y[1:50], type=&quot;l&quot;)
 plot(x1, y1, pch=&quot;.&quot;, main = &quot;x1, x2 returns, green = portfolio &gt; 0&quot;);points(x1[w&gt;0], y1[w&gt;0], pch=&quot;.&quot;, col=&quot;green4&quot;)
 plot(x[1:1000], type=&quot;l&quot;); acf(y)</code></pre>
-<p><img src="/posts/Lecture_2a_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
+<p><img src="/posts/Lecture_2a_files/figure-html/unnamed-chunk-7-1.png" width="672" /></p>
 <p>The point to the above is not that you can do this simple model, but to show that MCMC can do useful things and the models can become arbitrarily complex and cumbersome to simulate … HPC.</p>
 </div>
 

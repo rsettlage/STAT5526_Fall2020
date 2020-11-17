@@ -1,5 +1,5 @@
 ---
-title: "Lecture 2C - R and Keras - Work in Process"
+title: "Lecture 2C - R and Keras"
 author: "Robert Settlage"
 authorbox: false
 slug: "Lecture 2C"
@@ -20,73 +20,113 @@ output:
 header-includes: \setlength\parindent{24pt} \usepackage{MnSymbol} \usepackage{mathrsfs}
 ---
 
-Keras sits on top of TensorFlow (and others) and creates a highlevel abstraction of the underlying TensorFlow programming model.
+Keras sits on top of TensorFlow (and others) and creates a high level abstraction of the underlying TensorFlow programming model.
 
 <!--more-->
 
-Keras sits on top of TensorFlow (and others) and creates a highlevel abstraction of the underlying TensorFlow programming model.
+Keras sits on top of TensorFlow (and others) and creates a high level abstraction of the underlying TensorFlow programming model.
 
-There are a ton of really nice walk-throughs <https://keras.rstudio.com/>
+There are a ton of really nice walk-throughs <https://keras.rstudio.com/> 
 
 The basic elements we will need are:
 
 + data  
-+ model  
++ model structure  
 + learning process  
 + predictions
+
 ----
 
-### Data
+We are going to walk though 3 analysis:
+
+1. simple linear regression  
+2. multiple linear regression    
+3. image recognition
+
+----
+
+### Data -- this is common between project types
 
 We need 2-3 buckets of data:
 
-1. training data (used in training)  
-2. validation data (used during training, but not for training)  
-3. testing data (used after final model is created)
+1. training data  
+    - used in training  
+2. validation data  
+    - used during training to assess training progress  
+    - this is often a X-fold cross validation type of process  
+3. testing data  
+    - used after final model is created, OOS estimate of model accuracy  
+    
 ----
 
-### Keras -- get data
+### Data -- normalization  
 
-```{r echo=TRUE, eval=FALSE, include=TRUE}
-library(keras); library(tibble)
-boston_housing <- dataset_boston_housing()
-c(train_data, train_labels) %<-% boston_housing$train
-c(test_data, test_labels) %<-% boston_housing$test
-#check out caret (or caTools) package for splitting data
-column_names <- c(’CRIM’, ’ZN’, ’INDUS’, ’CHAS’, ’NOX’,’RM’, ’AGE’, ’DIS’, ’RAD’, ’TAX’, ’PTRATIO’, ’B’, ’LSTAT’)
-train_df <- as_tibble(train_data)colnames(train_df) <- column_names
-train_df
-````
+Generally, we will want to center and scale our data.
 
-----
-### Keras -- data engineering
+1. important in optimization methods to reduce dominance of a feature/variable  
+2. important to "highlight" extreme values  
 
-In many learning tasks, data normalization, scaling etc can assist in overcoming bias towards a particular feature.  
-
-NOTE: always try to visualize your data ...
-
-```{r echo=TRUE, eval=FALSE, include=TRUE}
-#Normalize training data
-train_data <- scale(train_data)
-#center and scale
-col_means_train <- attr(train_data, "scaled:center")
-col_stddevs_train <- attr(train_data, "scaled:scale")
-test_data <- scale(test_data, center = col_means_train,scale = col_stddevs_train)
-```
+Don't forget the importance of trying to visualize your data.
 
 ----
 
 ### Keras -- build model
 
-Keras uses the concept of layers.  Here we have a single layer.  Fully connected or dense.  We also specify the loss function and optimizer.
+Keras uses the concept of layers.  Here we have a three layers.  Fully connected or dense, meaning every node is connected between layers.  
 
 ```{r, eval=FALSE, echo=TRUE, include=TRUE}
-mdel <- keras_model_sequential() %>%
-  layer_dense(units = 1, activation = "linear",
-              input_shape = dim(train_data)[2])
+model <- keras_model_sequential()
+model %>%
+  layer_flatten(input_shape = c(28, 28)) %>%
+  layer_dense(units = 128, activation = 'relu') %>%
+  layer_dense(units = 10, activation = 'softmax')
+
+```
+
+----
+
+### Activation functions
+
+<https://missinglink.ai/guides/neural-network-concepts/7-types-neural-network-activation-functions-right/>
+<https://raw.githubusercontent.com/rstudio/cheatsheets/master/keras.pdf>
+
+Activation functions:
+1. normalize across neurons within a layer  
+2. enable non-linearity  
+3. need to be computationally efficient  
+4. allow for back propogation  
+
+### Convolutions, pooling, padding, dropout
+
+Convolutions are filters in the photography sense.  The essentially take your input image and create a new image.  Often times in image analysis, you will have several convolution layers where you have many filters, so one image may become 16, 32, 64 new filtered images.  
+
+These convoluted images can be subject to down sampling, ie pooling, max pooling, or dropout.  The image size can also be changed, ie padding to add pixels to the edge of the image.
+
+And just about any other creative thing you can imagine.
+
+----
+
+### Loss function and optimizer
+
+To train, we need a measure of "goodness of fit", or in the negative sense, loss.  In linear regression, we tend to think about MSE.  For binary choice or categorical, we need a different measure akin to logistic regression.
+
+\begin{equation}
+H_p(q) = -\frac{1}{N} \sum_{i=1}^{N} y_i \ast log(p(y_i)) + (1-y_i) \ast log(1-p(y_i))
+\end{equation}
+
+For more than two classes, we arrive at a similar, but more complex equation.  For a decent writup, see <https://gombru.github.io/2018/05/23/cross_entropy_loss/>.
+
+```{r, eval=FALSE, echo=TRUE, include=TRUE}
 model %>% compile(loss = "mse",
                   optimizer = optimizer_rmsprop(),
                   metrics = list("mean_absolute_error"))
+
+model %>% compile(
+  optimizer = 'adam', 
+  loss = 'sparse_categorical_crossentropy',
+  metrics = c('accuracy')
+)
+
 ```
 
 ----
