@@ -126,7 +126,7 @@ We can visualize the repeated random sampling from uniform distributions to esti
 
 For starters, we will do this using loops and not worry about optimizing via apply functions, memory management or other tricks.
 
-```{r eval=FALSE, echo=TRUE, include=FALSE}
+```{r eval=FALSE, echo=TRUE, include=TRUE}
 options(digits=15)
 #cat("pi=",pi,"\n",sep="")
 set.seed(123456)
@@ -163,7 +163,7 @@ The basic idea is that if you lay out a set of lines separated by the length of 
 \end{equation}
 where n = number of empties and k = cans crossing lines.
 
-```{r, eval=FALSE, echo=TRUE, include=FALSE}
+```{r, eval=FALSE, echo=TRUE, include=TRUE}
 
 n <- 200  ## ok, no comments, but my wife likes IPAs ...
 # choose positions of center of needle . Note the " board " is 10X10 , vertical lines x. pos <- runif (n ,0 ,10)
