@@ -162,24 +162,10 @@ I = \int_{x,y \in [-1,1]} H(x,y)dx dy
     &amp;=&amp; \frac{\pi}{4}
 \end{eqnarray}\]</span></p>
 <p>For starters, we will do this using loops and not worry about optimizing via apply functions, memory management or other tricks.</p>
-<pre class="r"><code>options(digits=15)
-#cat(&quot;pi=&quot;,pi,&quot;\n&quot;,sep=&quot;&quot;)
-set.seed(123456)
-samples &lt;- 10000
-point_container &lt;- matrix(0,nrow=samples, ncol=3)
-i &lt;- 0
-while(i&lt;samples){
-  i &lt;- i+1
-  current_point &lt;- runif(n=2,min=0,max=1) #staying in first quad
-  dist_from_origin &lt;- sqrt(sum(current_point^2))
-  point_container[i,] &lt;- c(current_point,ifelse(dist_from_origin&gt;1,0,1))
-}
-our_pi &lt;- 4*sum(point_container[,3])/samples
-plot(point_container[,1],point_container[,2],
-     col=point_container[,3]+1,pch=20,
-     main=paste(&quot;estimate of pi=&quot;,our_pi, &quot;vs&quot;,pi),
-     xlab=&quot;x&quot;,ylab=&quot;y&quot;)</code></pre>
-<p><img src="/posts/Lecture_2a_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
+<div class="figure">
+<img src="../img/darts.png" alt="" />
+<p class="caption">darts</p>
+</div>
 <hr />
 </div>
 <div id="what-about-tossing-beer-cans" class="section level3">
@@ -190,27 +176,10 @@ plot(point_container[,1],point_container[,2],
 \pi = \frac{2 \ast n}{k}
 \end{equation}\]</span>
 where n = number of empties and k = cans crossing lines.</p>
-<pre class="r"><code>n &lt;- 200  ## ok, no comments, but my wife likes IPAs ...
-# choose positions of center of needle . Note the &quot; board &quot; is 10X10 , vertical lines x. pos &lt;- runif (n ,0 ,10)
-x.pos &lt;- runif(n,0,10)
-y.pos &lt;- runif(n,0,10)
-rotation &lt;- runif(n,0,pi/2)
-# figure out the x,y coords of the match endpoints
-x.max &lt;- x.pos + 0.5* cos(rotation)
-x.min &lt;- x.pos - 0.5* cos(rotation)
-y.max &lt;- y.pos + 0.5* sin(rotation)
-y.min &lt;- y.pos - 0.5* sin(rotation)
-crosses &lt;- ifelse(ceiling(x.min)==floor(x.max),1,0)
-# draw the board
-
-pi_est &lt;- 2*n/sum(crosses)
-plot(x=x.pos,y=y.pos,xlim=c(-0.2,10.2),ylim=c(-0.2,10.2),
-     main=paste(&quot;estimate of pi=&quot;,pi_est, &quot;vs&quot;,pi),pch=20,col=crosses+1)
-# draw the lines
-abline(v=seq(0,10,1))
-# draw the empties
-segments(x.min,y.min,x.max,y.max,col = crosses+1)</code></pre>
-<p><img src="/posts/Lecture_2a_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
+<div class="figure">
+<img src="../img/beers.png" alt="" />
+<p class="caption">beers</p>
+</div>
 <p>Check out <a href="http://www.clayford.net/statistics/buffons-needle-problem-or-how-to-use-probability-to-estimate-pi/" class="uri">http://www.clayford.net/statistics/buffons-needle-problem-or-how-to-use-probability-to-estimate-pi/</a> for the math and discussion.</p>
 <hr />
 </div>
@@ -252,11 +221,16 @@ y1 = alpha.2 +beta.2*y          # x2 ~ N(alpha.2, beta.2)
 a= .4; b= .6                    # Portfolio weights
 w = a*x1 + b*y1
 
+png(&quot;./img/gibbs.png&quot;)
 par(mfrow=c(2,2), pty=&quot;s&quot;) # 2 x 2 array of square plots
 plot(x[1:50], y[1:50], type=&quot;l&quot;)
 plot(x1, y1, pch=&quot;.&quot;, main = &quot;x1, x2 returns, green = portfolio &gt; 0&quot;);points(x1[w&gt;0], y1[w&gt;0], pch=&quot;.&quot;, col=&quot;green4&quot;)
-plot(x[1:1000], type=&quot;l&quot;); acf(y)</code></pre>
-<p><img src="/posts/Lecture_2a_files/figure-html/unnamed-chunk-7-1.png" width="672" /></p>
+plot(x[1:1000], type=&quot;l&quot;); acf(y)
+dev.off()</code></pre>
+<div class="figure">
+<img src="../img/gibbs.png" alt="" />
+<p class="caption">Gibbs</p>
+</div>
 <p>The point to the above is not that you can do this simple model, but to show that MCMC can do useful things and the models can become arbitrarily complex and cumbersome to simulate … HPC.</p>
 </div>
 

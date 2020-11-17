@@ -126,7 +126,7 @@ We can visualize the repeated random sampling from uniform distributions to esti
 
 For starters, we will do this using loops and not worry about optimizing via apply functions, memory management or other tricks.
 
-```{r eval=TRUE, echo=TRUE, include=TRUE}
+```{r eval=FALSE, echo=TRUE, include=FALSE}
 options(digits=15)
 #cat("pi=",pi,"\n",sep="")
 set.seed(123456)
@@ -140,11 +140,15 @@ while(i<samples){
   point_container[i,] <- c(current_point,ifelse(dist_from_origin>1,0,1))
 }
 our_pi <- 4*sum(point_container[,3])/samples
+png("./img/darts.png")
 plot(point_container[,1],point_container[,2],
      col=point_container[,3]+1,pch=20,
      main=paste("estimate of pi=",our_pi, "vs",pi),
      xlab="x",ylab="y")
+dev.off()
 ```
+
+![darts](../img/darts.png)
 
 ----
 
@@ -159,7 +163,7 @@ The basic idea is that if you lay out a set of lines separated by the length of 
 \end{equation}
 where n = number of empties and k = cans crossing lines.
 
-```{r, eval=TRUE, echo=TRUE, include=TRUE}
+```{r, eval=FALSE, echo=TRUE, include=FALSE}
 
 n <- 200  ## ok, no comments, but my wife likes IPAs ...
 # choose positions of center of needle . Note the " board " is 10X10 , vertical lines x. pos <- runif (n ,0 ,10)
@@ -175,14 +179,18 @@ crosses <- ifelse(ceiling(x.min)==floor(x.max),1,0)
 # draw the board
 
 pi_est <- 2*n/sum(crosses)
+png("../img/beers.png")
 plot(x=x.pos,y=y.pos,xlim=c(-0.2,10.2),ylim=c(-0.2,10.2),
      main=paste("estimate of pi=",pi_est, "vs",pi),pch=20,col=crosses+1)
 # draw the lines
 abline(v=seq(0,10,1))
 # draw the empties
 segments(x.min,y.min,x.max,y.max,col = crosses+1)
+dev.off()
 
 ```
+
+![beers](../img/beers.png)
 
 Check out <http://www.clayford.net/statistics/buffons-needle-problem-or-how-to-use-probability-to-estimate-pi/> for the math and discussion.
 
@@ -216,7 +224,7 @@ We are also going to model $X_1 \sim Norm(\alpha_1,\beta_1^2)$ as a linear trans
 ----
 
 Code from Gui Larangeira, California State University, East Bay (link above)
-```{r echo=TRUE, eval=TRUE, include=TRUE}
+```{r echo=TRUE, eval=FALSE, include=TRUE}
 set.seed(1212)
 m = 100000; x = y = numeric(m); x[1] = y[1] = 0  # initial conditions
 rho = 0.8; sgm = sqrt(1 - rho^2)                 # correlation and standard deviation
@@ -234,10 +242,13 @@ y1 = alpha.2 +beta.2*y          # x2 ~ N(alpha.2, beta.2)
 a= .4; b= .6                    # Portfolio weights
 w = a*x1 + b*y1
 
+png("./img/gibbs.png")
 par(mfrow=c(2,2), pty="s") # 2 x 2 array of square plots
 plot(x[1:50], y[1:50], type="l")
 plot(x1, y1, pch=".", main = "x1, x2 returns, green = portfolio > 0");points(x1[w>0], y1[w>0], pch=".", col="green4")
 plot(x[1:1000], type="l"); acf(y)
+dev.off()
 ```
+![Gibbs](../img/gibbs.png)
 
 The point to the above is not that you can do this simple model, but to show that MCMC can do useful things and the models can become arbitrarily complex and cumbersome to simulate ... HPC.
