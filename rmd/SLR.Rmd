@@ -1,0 +1,146 @@
+---
+title: "Simple linear regression"
+output: html_notebook
+---
+
+This was adapted from the R-Keras documentation. <https://tensorflow.rstudio.com/tutorials/beginners/basic-ml/tutorial_basic_regression/>
+
+```{r}
+## before I forget, need the latest tfdatasets
+## devtools::install_github("rstudio/tfdatasets")
+library(keras); library(tfdatasets); library(tibble); library(dplyr)
+```
+
+Get the data, it is an internal dataset, so nothing special is needed.
+
+```{r}
+#create a simulated dataset
+n <- 250
+beta_1 <- 3
+beta_2 <- 7
+X_train <- seq(-1,10,length.out = 250)
+x_train_scaled <- scale(X_train, center = TRUE, scale = FALSE)
+y_train <- beta_1 + beta_2*X_train + rt(n = 250,2)
+
+X_test <- seq(-5,15,length.out = 50)
+X_test_scaled <- scale(X_test)
+y_test <- beta_1 + beta_2*X_test + rt(n = 50,2)
+
+```
+
+As usual, check out your data
+
+```{r}
+plot(X_train,y_train,pch=20,xlim=c(-5,15),ylim=c(min(c(y_train,y_test)),max(c(y_train,y_test))))
+points(X_test,y_test, pch=20,col="red")
+```
+
+Fix column names, add response, set column types
+
+```{r}
+train_df <- X_train %>% 
+  as_tibble(.name_repair = "minimal") %>% 
+  setNames("X1") %>% 
+  mutate(label = y_train)
+
+test_df <- X_test %>% 
+  as_tibble(.name_repair = "minimal") %>% 
+  setNames("X1") %>% 
+  mutate(label = y_test)
+
+spec <- feature_spec(train_df %>% select(-label), label ~ . ) %>% 
+  step_numeric_column(all_numeric()) %>% 
+  fit()
+
+spec
+```
+
+Setting a default for dense layer, could do this in line, but reduces redundancy in more complex models
+```{r}
+layer <- layer_dense_features(
+  feature_columns = dense_features(spec), 
+  dtype = tf$float32
+)
+layer(train_df)
+```
+
+
+Setting up the model.  Note, we have an input layer and an output later.  We are specifying our loss function as MSE and will use the rmsprop optimizer.  Sometimes it is easier to push these steps into a function to reduce iterative strain, read manual labor during dev.
+
+```{r}
+build_model <- function() {
+  input <- layer_input_from_dataset(train_df %>% select(-label))
+  
+  output <- input %>% 
+    layer_dense_features(dense_features(spec)) %>% 
+    layer_dense(units = 1) 
+  
+  model <- keras_model(input, output)
+  
+  model %>% 
+    compile(
+      loss = "mse",
+      optimizer = optimizer_rmsprop(), #'adam',
+      metrics = list("mean_absolute_error")
+    )
+  
+  model
+}
+```
+
+Time to run (fit) the model.  Note, this modifies the model object.  To start fresh, run the `model <- build_model()` line again.  In fitting the model, we need to specify how long we are going to run, batches if any, validation split, etc.
+
+```{r}
+# Display training progress by printing a single dot for each completed epoch.
+#print_dot_callback <- callback_lambda(
+#  on_epoch_end = function(epoch, logs) {
+#    if (epoch %% 80 == 0) cat("\n")
+#    cat(".")
+#  }
+#)    
+
+model <- build_model()
+
+history <- model %>% fit(
+  x = train_df %>% select(-label),
+  y = train_df$label,
+  epochs = 1500,
+  validation_split = 0.2,
+  verbose = 1,
+#  callbacks = list(print_dot_callback)
+)
+```
+
+
+```{r}
+
+c(loss, mae) %<-% (model %>% evaluate(test_df %>% select(-label), test_df$label, verbose = 0))
+
+paste0("Mean absolute error on test set: ", sprintf("%.2f", mae))
+
+```
+
+```{r}
+test_predictions <- model %>% predict(test_df %>% select(-label))
+cbind(test_predictions,y_test)
+plot(cbind(y_test,test_predictions))
+```
+
+We can output the weights if desired.  Note, for each layer, we will get weights and bias (intercept) in that order.
+
+```{r}
+get_weights(model)
+
+lm(label~X1,train_df)
+```
+
+```{r}
+slices <- 100000
+rights <- seq(from=0,to=1,length.out = slices)
+widths <- rights[2]
+reimanns_pi_right <- sum(sqrt(1-rights[-1]^2))*widths*4
+reimanns_pi_left <- sum(sqrt(1-rights[-slices]^2))*widths*4
+reimanns_pi <- mean(reimanns_pi_right,reimanns_pi_left)
+reimanns_pi
+
+```

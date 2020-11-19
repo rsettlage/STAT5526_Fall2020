@@ -1,0 +1,160 @@
+---
+title: "Boston Housing Data as SLR/MLR"
+output: html_notebook
+---
+
+This is for the Boston Housing Data.  This was adapted from the R-Keras documentation. <https://tensorflow.rstudio.com/tutorials/beginners/basic-ml/tutorial_basic_regression/>
+
+```{r}
+## before I forget, need the latest tfdatasets
+## devtools::install_github("rstudio/tfdatasets")
+library(keras); library(tfdatasets); library(tibble); library(dplyr)
+```
+
+Get the data, it is an internal dataset, so nothing special is needed.
+
+```{r}
+boston_housing <- dataset_boston_housing()
+
+c(train_data, train_labels) %<-% boston_housing$train
+c(test_data, test_labels) %<-% boston_housing$test
+```
+
+The dataset contains 13 different features:
+
++    CRIM - Per capita crime rate.
++    ZN - The proportion of residential land zoned for lots over 25,000 square feet.
++    INDUS - The proportion of non-retail business acres per town.
++    CHAS - Charles River dummy variable (= 1 if tract bounds river; 0 otherwise).
++    NOX - Nitric oxides concentration (parts per 10 million).
++    RM - The average number of rooms per dwelling.
++    AGE - The proportion of owner-occupied units built before 1940.
++    DIS - Weighted distances to five Boston employment centers.
++    RAD - Index of accessibility to radial highways.
++    TAX - Full-value property-tax rate per $10,000.
++    PTRATIO - Pupil-teacher ratio by town.
++    B - 1000 * (Bk - 0.63) ** 2 where Bk is the proportion of Black people by town.
++    LSTAT- Percentage lower status of the population.
+
+As usual, check out your data
+
+```{r}
+train_data[1, ] # Display sample features, notice the different scales
+summary(train_data)
+pairs(train_data)
+```
+
+In many DeepLearning/AI tasks, the reponse is a category (label).  That nomenclature persists here even though our response is a continuous value, ie the label is the house prices in thousands of dollars (1970s dollars).
+
+```{r}
+column_names <- c('CRIM', 'ZN', 'INDUS', 'CHAS', 'NOX', 'RM', 'AGE', 
+                  'DIS', 'RAD', 'TAX', 'PTRATIO', 'B', 'LSTAT')
+
+
+train_df <- train_data %>% 
+  as_tibble(.name_repair = "minimal") %>% 
+  setNames(column_names) %>% 
+  mutate(label = train_labels)
+
+test_df <- test_data %>% 
+  as_tibble(.name_repair = "minimal") %>% 
+  setNames(column_names) %>% 
+  mutate(label = test_labels)
+```
+
+Going to make life easy and focus on "CRIM,RM,PTRATIO,LSTAT"
+
+```{r}
+train_df_min <- train_df %>% select(CRIM,RM,PTRATIO, LSTAT,label) 
+ttest_df_min <- test_df %>% select(CRIM,RM,PTRATIO, LSTAT,label)
+spec <- feature_spec(train_df_min %>% select(-label), label ~ . ) %>% 
+  step_numeric_column(all_numeric(), normalizer_fn = scaler_standard()) %>% 
+  fit()
+
+spec
+```
+
+```{r}
+layer <- layer_dense_features(
+  feature_columns = dense_features(spec), 
+  dtype = tf$float32
+)
+layer(train_df)
+```
+
+
+
+
+```{r}
+build_model <- function() {
+  input <- layer_input_from_dataset(train_df_min %>% select(-label))
+  
+  output <- input %>% 
+    layer_dense_features(dense_features(spec)) %>% 
+#    layer_dense(units = 5, activation = "linear") %>%
+#    layer_dense(units = 64, activation = "relu") %>%
+    layer_dense(units = 1,activation = "linear") 
+  
+  model <- keras_model(input, output)
+  
+  model %>% 
+    compile(
+      loss = "mse",
+      optimizer = 'adam', #optimizer_rmsprop(), #'adam',
+      metrics = list("mean_absolute_error")
+    )
+  
+  model
+}
+```
+
+```{r}
+# Display training progress by printing a single dot for each completed epoch.
+#print_dot_callback <- callback_lambda(
+#  on_epoch_end = function(epoch, logs) {
+#    if (epoch %% 80 == 0) cat("\n")
+#    cat(".")
+#  }
+#)    
+
+model <- build_model()
+
+history <- model %>% fit(
+  x = train_df_min %>% select(-label),
+  y = train_df_min$label,
+  epochs = 2500,
+  validation_split = 0.2,
+  verbose = 1,
+#  callbacks = list(print_dot_callback)
+)
+```
+
+
+```{r}
+
+c(loss, mae) %<-% (model %>% evaluate(test_df %>% select(CRIM,RM,PTRATIO, LSTAT,-label), test_df$label, verbose = 0))
+
+paste0("Mean absolute error on test set: $", sprintf("%.2f", mae * 1000))
+
+```
+
+
+```{r}
+test_predictions <- model %>% predict(test_df %>% select(CRIM,RM,PTRATIO, LSTAT,-label))
+cbind(test_predictions,test_labels)
+plot(cbind(test_labels,test_predictions))
+```
+
+We can output the weights if desired.  Note, for each layer, we will get weights and bias (intercept) in that order.
+
+```{r}
+get_weights(model)
+
+train_df_scaled <- as.data.frame(cbind(train_df_min$label,scale(train_df_min %>% select(-label))))
+colnames(train_df_scaled)[1]<-"label"
+lm(label~.,train_df_scaled)
+```
+
+
+
+
