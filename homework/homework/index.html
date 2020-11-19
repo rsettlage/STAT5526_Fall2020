@@ -91,8 +91,8 @@ the Rmarkdown notebook you used to prototype the problem,
 </div>
 		</header><div class="content post__content clearfix">
 			
-<link href="/rmarkdown-libs/anchor-sections/anchor-sections.css" rel="stylesheet" />
-<script src="/rmarkdown-libs/anchor-sections/anchor-sections.js"></script>
+<link href="/STAT5526_Fall2020/rmarkdown-libs/anchor-sections/anchor-sections.css" rel="stylesheet" />
+<script src="/STAT5526_Fall2020/rmarkdown-libs/anchor-sections/anchor-sections.js"></script>
 
 
 <p>For this assignment, submit an Rmarkdown notebook placing the answers below each answer. Additionally, for each problem, you should submit</p>
@@ -131,12 +131,25 @@ I \approx \frac{1}{N} \sum_{x_i \sim unif(0,1)} \sqrt{1-x_{i}^2}
 </div>
 <div id="problem-4-neural-networks-for-image-classification-25-pts" class="section level2">
 <h2>Problem 4: Neural Networks for image classification (25 pts)</h2>
-<p>In this problem, I am giving you code that classifies an image is object, not object, ie is a binary classification problem. The data has multiple classes, so we should be able to turn this into a multi-class classification problem.</p>
-<p>– Please modify the code to do so. (15 pts)</p>
-<p>– What accuracy does the algorithm achieve on the multiclass problem? Can you improve it? What is your final accuracy? Hint, add a layer … (10 pts)</p>
+<p>In this problem, we have a prototype image classification algorith, some data etc. We need to benchmark the algorith, do a parameter sweep and basically see if we can do better. What you have:</p>
+<ul>
+<li>a job script (deeplearning.sh) and<br />
+</li>
+<li>an R script (cifar10.R)</li>
+</ul>
+<p>You need to:</p>
+<ol style="list-style-type: decimal">
+<li><p>Modify the R script (and perhaps the job script) to accept runtime arguments to vary hyperparameters you think that might have an effect on the results. Two that come to mind right off are batch size and epochs. You might consider powers of 2 between 16 and 1024 for batch size and epocs between 50 and 300. There are other hyperparameters to play with. Have fun with that.</p></li>
+<li><p>Add a layer to the network and see if you can do better. Are there hyperparameters for this you should sweep?</p></li>
+<li><p>Add to the code to give predictions on the test set. You should be able to use the clothing_predictions.Rmd code as a guide. We all learn by copying others, so fair game.3.</p></li>
+</ol>
 </div>
-<div id="problem-5-neural-networks-for-image-segmentation-15-pts" class="section level2">
-<h2>Problem 5: Neural Networks for image segmentation (15 pts)</h2>
+<div id="problem-5-neural-networks-for-image-classification-10-pts" class="section level2">
+<h2>Problem 5: Neural Networks for image classification (10 pts)</h2>
+<p>Create a summary table of the various hyperparameters you tried along with the prediction accuracy on the test set. What combination gave the best prediction accuracy? Create a plot of the final (most accurate training run). What do you see in the plot? Is there any evidence of overfitting? Are there other metrics we should consider in plotting?</p>
+</div>
+<div id="problem-5-neural-networks-for-image-classification-5-pts" class="section level2">
+<h2>Problem 5: Neural Networks for image classification (5 pts)</h2>
 <p>What we have done so far is identify the subject in the picture. Many pictures are scenes with multiple subjects/objects. If we want to identify multiple subjects in a single large image, what would be your process? Write down your algorithm. No math, just general process as you would explain it to your mother.</p>
 </div>
 
