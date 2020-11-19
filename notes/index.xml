@@ -62,8 +62,8 @@
       
       <guid>http://rsettlage.github.io/STAT5526_Fall2020/notes/hpc/</guid>
       <description>
-&lt;link href=&#34;http://rsettlage.github.io/STAT5526_Fall2020/rmarkdown-libs/anchor-sections/anchor-sections.css&#34; rel=&#34;stylesheet&#34; /&gt;
-&lt;script src=&#34;http://rsettlage.github.io/STAT5526_Fall2020/rmarkdown-libs/anchor-sections/anchor-sections.js&#34;&gt;&lt;/script&gt;
+&lt;link href=&#34;http://rsettlage.github.io/STAT5526_Fall2020/STAT5526_Fall2020/rmarkdown-libs/anchor-sections/anchor-sections.css&#34; rel=&#34;stylesheet&#34; /&gt;
+&lt;script src=&#34;http://rsettlage.github.io/STAT5526_Fall2020/STAT5526_Fall2020/rmarkdown-libs/anchor-sections/anchor-sections.js&#34;&gt;&lt;/script&gt;
 
 
 &lt;p&gt;High performance computing clusters are characterized by login nodes fronting a pool of compute resources. Access to the compute resources is controlled via a resource scheduler.&lt;/p&gt;
